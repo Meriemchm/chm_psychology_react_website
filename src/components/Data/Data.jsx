@@ -136,3 +136,26 @@ export const presentationData = [
   },
 
 ];
+
+export const AccordionData = [
+  {
+    id: 1,
+    question: 'Lorem ipsum in gravida pulvinar nostra?',
+    answer:'Lorem ipsum in gravida pulvinar nostra?'
+    
+  },
+
+  {
+    id: 2,
+    question: 'Lorem ipsum in gravida pulvinar nostra?',
+    answer:'Lorem ipsum in gravida pulvinar nostra?'
+  },
+
+  {
+    id: 3,
+    question: 'Lorem ipsum in gravida pulvinar nostra?',
+    answer:'Lorem ipsum in gravida pulvinar nostra?'
+    
+  },
+
+];
