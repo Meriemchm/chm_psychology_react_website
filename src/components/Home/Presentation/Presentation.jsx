@@ -1,7 +1,7 @@
 // src/App.js
 import React from "react";
 import {presentationData} from "../../Data/Data";
-import shape from "../../../assets/shape.svg"
+import shape from "../../../assets/Shape.svg"
 
 const Presentation = () => {
     return (
