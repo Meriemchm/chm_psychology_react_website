@@ -1,7 +1,7 @@
 // src/App.js
 import React from "react";
 import {presentationData} from "../../Data/Data";
-
+import shape from "../../../assets/shape.svg"
 
 const Presentation = () => {
     return (
@@ -13,7 +13,7 @@ const Presentation = () => {
 
       <div className="xl:p-20 xl:pt-0 pt-20 p-5 flex justify-center items-center ">
           <img
-              src="public\Shape.svg"
+              src={shape}
               alt="Logo"
               className="rounded-lg object-cover"
           />
