@@ -3,30 +3,35 @@ import { BiLogoPython, BiLogoGit } from "react-icons/bi";
 import { SiTensorflow,SiKeras,SiPytorch   } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
 
-export const Navlink = [
+export const NavlinkData = [
     {
       id: 1,
       link: "About Us",
+      src : '/',
       style: "text-second",
     },
     {
       id: 2,
       link: "Services",
+      src : 'services',
       style: "text-second",
     },
     {
       id: 7,
       link: "Get Help",
+      src : 'Get Help',
       style: "text-second",
     },
     {
       id: 3,
       link: "Provide Help",
+      src : 'Provide Help',
       style: "text-second",
     },
     {
       id: 4,
       link: "Log In",
+      src : 'Log In',
       style: "text-primary",
     },
 

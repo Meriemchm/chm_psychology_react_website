@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Navlink } from "../Data/Data";
+import { NavlinkData } from "../Data/Data";
+import { NavLink } from "react-router-dom";
 
 
 const NavBar = () => {
@@ -36,14 +37,20 @@ const NavBar = () => {
       </div>
 
       <ul className="hidden lg:flex ">
-        {Navlink.map(({ id, link,style }) => {
+        {NavlinkData.map(({ id, link,style ,src}) => {
           return (
             <li
               key={id}
               className={` px-8 cursor-pointer text-lg text-five hover:scale-105 duration-200 capitalize ${style}`}
             >
 
+              <NavLink
+                to={src}
+                exact
+                activeClassName="text-blue-500" // Ajoutez la classe active lorsque le lien est actif
+              >
                 {link}
+              </NavLink>
          
             </li>
           );
@@ -58,20 +65,21 @@ const NavBar = () => {
       </div>
       {show && (
         <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-third text-white/80">
-          {Navlink.map(({ id, link }) => {
+          {NavlinkData.map(({ id, link,src }) => {
             return (
               <li
                 key={id}
                 className="px-4 py-4 cursor-pointer text-4xl text-five hover:scale-105 duration-200 capitalize"
               >
-                <li
-                  to={link}
-                  smooth
-                  duration={500}
+                <NavLink
+                  to={src}
+                  exact
+                  className="text-white"
+                  activeClassName="text-blue-500" // Ajoutez la classe active lorsque le lien est actif
                   onClick={() => setShow(!show)}
                 >
                   {link}
-                </li>
+                </NavLink>
               </li>
             );
           })}
