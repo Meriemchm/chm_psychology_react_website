@@ -4,15 +4,17 @@ import Accordion from "./Accordion/Accordion";
 import {AccordionData} from "../../Data/Data";
 const Questions = () => {
     return (
-      <div className="h-full flex flex-col items-center justify-start py-8 ">      
+      <div className="h-full flex flex-col items-center justify-center  ">      
         <h2 className=" text-xl md:text-2xl font-bold py-8">
         Frequently asked questions
-        </h2> 
-      <div className="flex flex-col xl:flex-row ">
+        </h2>
+
+    <div className="mx-auto p-20">
+
+      <div className="flex flex-col xl:flex-row gap-6 xl:gap-0 ">
 
 
-      <div className="flex flex-col xl:w-3/4">
-      <div className="p-4  rounded-lg">
+      <div className="flex flex-col xl:w-2/4">
 
  {     AccordionData.map(({id,question,answer})=>(
         <Accordion
@@ -22,11 +24,11 @@ const Questions = () => {
       />
 
       ))}
-    </div>
+  
 
       </div>
 
-      <div className="flex flex-col justify-start items-center">   
+      <div className=" flex flex-col justify-start items-center xl:w-2/4">   
         <p className="md:px-96 px-8 xl:px-64 self-center text-center">For professional contact or if you have another question, contact us at:
             xyz@domain.com</p>    
           <p className="py-5">or</p>         
@@ -39,6 +41,7 @@ const Questions = () => {
         </div>
 
   </div>
+  </div> 
   </div>
     );
   };
