@@ -164,3 +164,21 @@ export const AccordionData = [
   },
 
 ];
+
+
+export const PlansData = [
+  {
+    id: 1,
+    title: 'Remote counseling',
+    description:'Online sessions that could be booked and use anytime anywhere.'
+    
+  },
+
+  {
+    id: 2,
+    title: 'Counseling at the clinic',
+    description:'Pick an available date and time for a real life session at the clinic.'
+    
+  },
+
+];
