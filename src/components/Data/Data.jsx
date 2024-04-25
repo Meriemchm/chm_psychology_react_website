@@ -19,19 +19,19 @@ export const NavlinkData = [
     {
       id: 7,
       link: "Get Help",
-      src : 'Get Help',
+      src : 'getHelp',
       style: "text-second",
     },
     {
       id: 3,
       link: "Provide Help",
-      src : 'Provide Help',
+      src : 'provideHelp',
       style: "text-second",
     },
     {
       id: 4,
       link: "Log In",
-      src : 'Log In',
+      src : 'logIn',
       style: "text-primary",
     },
 
