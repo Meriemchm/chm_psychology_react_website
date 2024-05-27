@@ -2,7 +2,8 @@
 import React from "react";
 import HeaderService from "./HeaderService/HeaderService";
 import PlanService from "./PlanService/PlanService";
-import Table from "./CostService/Table/Table";
+import CostService from "./CostService/CostService";
+import ComparisonService from "./ComparisonService/ComparisonService";
 
 
 
@@ -12,7 +13,8 @@ const Services = () => {
 
         <HeaderService/>
         <PlanService/>
-        <Table/>
+        <CostService/>
+        <ComparisonService/>
 
       </div>
     );

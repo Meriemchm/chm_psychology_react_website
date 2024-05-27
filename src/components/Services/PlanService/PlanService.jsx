@@ -7,13 +7,14 @@ import Illustration_service_two from "../../../assets/Illustration_service_two.s
 const PlanService = () => {
     return (
 
-        <div className=" mx-auto  flex flex-col  w-full h-full items-center justify-center px-20 ">
+        <div className=" mx-auto  flex flex-col  w-full h-full  px-20 ">
           <div className="flex items-center justify-center">
           <p className="text-2xl md:text-4xl font-bold  text-center py-4 ">
                 Plans
             </p>
           </div>
-          <div className="flex xl:flex-row flex-col p-5 w-full items-center justify-center shadow-gray rounded-[2rem] shadow-lg  xl:gap-0 gap-6">
+          <div className=" p-5 w-full shadow-gray rounded-[2rem] shadow-lg  xl:gap-0 gap-6">
+            <div className="flex xl:flex-row flex-cols  items-center justify-center  ">
             <div className="md:self-center xl:self-start">
           <img
             src={Illustration_service_two}
@@ -22,7 +23,7 @@ const PlanService = () => {
                 />
           </div>
             <Plans />
-            
+            </div> 
           </div>
 
    

@@ -1,7 +1,4 @@
-import { FaGithub, FaLinkedin,FaJava  } from "react-icons/fa";
-import { BiLogoPython, BiLogoGit } from "react-icons/bi";
-import { SiTensorflow,SiKeras,SiPytorch   } from "react-icons/si";
-import { HiOutlineMail } from "react-icons/hi";
+import vector from "../../assets/Vector.svg"
 
 export const NavlinkData = [
     {
@@ -36,36 +33,6 @@ export const NavlinkData = [
     },
 
   ];
-
-export const links = [
-  {
-    id: 1,
-    mobile: (
-      <>
-        <FaLinkedin size={30} />
-      </>
-    ),
-    href: "https://www.linkedin.com/in/ramzi-chabira-055526248/",
-  },
-  {
-    id: 2,
-    mobile: (
-      <>
-        <FaGithub size={30} />
-      </>
-    ),
-    href: "https://github.com/RamzeyChibana",
-  },
-  {
-    id: 3,
-    mobile: (
-      <>
-        <HiOutlineMail size={30} />
-      </>
-    ),
-    href: "mailto:ramzichibana31@gmail.com",
-  },
-];
 
 export const AboutUsHome = [
     {
@@ -179,6 +146,87 @@ export const PlansData = [
     title: 'Counseling at the clinic',
     description:'Pick an available date and time for a real life session at the clinic.'
     
+  },
+
+];
+
+export const CostData = [
+
+    { id: 1,
+      title: "Session cost",
+      itemOne: "2000 DA",
+     itemTwo: "3500 DA" ,
+     style:""
+    },
+    { id: 2,
+      title: "Platform fee",
+      itemOne: "10%",
+     itemTwo: "0%" ,
+     style:"bg-graytab bg-opacity-20"
+    },
+    { id: 3,
+      title: "Method",
+      itemOne: "CCP/CIB",
+     itemTwo: "Cash" ,
+     style:""
+    },
+
+];
+
+
+export const ComparisonData = [
+
+  { id: 1,
+    title: "Lower cost",
+    itemOne: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={vector} className="self-center" alt="Vector" />
+  </div>,
+   itemTwo: "-" ,
+   style:"",
+   others:"",
+  },
+  { id: 2,
+    title: "Lower time consumption",
+    itemOne: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={vector} className="self-center" alt="Vector" />
+  </div>,
+   itemTwo: "-" ,
+   style:"bg-graytab bg-opacity-20",
+   others:"",
+  },
+  { id: 3,
+    title: "Location",
+    itemOne: "Anywhere (Internet required)",
+   itemTwo: "Clinics in your area" ,
+   style:"",
+   others:"text-second",
+  },
+  { id: 4,
+    title: "Less efforts",
+    itemOne: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={vector} className="self-center" alt="Vector" />
+  </div>,
+   itemTwo: "-" ,
+   style:"bg-graytab bg-opacity-20",
+   others:"",
+  },
+  { id: 5,
+    title: "Better doctors availability",
+    itemOne: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={vector} className="self-center" alt="Vector" />
+  </div>,
+   itemTwo: "-" ,
+   style:"",
+   others:"",
+  },
+  { id: 6,
+    title: "Better appointment flexibility",
+    itemOne: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={vector} className="self-center" alt="Vector" />
+  </div>,
+   itemTwo: "-" ,
+   style:"bg-graytab bg-opacity-20",
+   others:"",
   },
 
 ];

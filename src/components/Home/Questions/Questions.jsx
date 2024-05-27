@@ -9,11 +9,9 @@ const Questions = () => {
         Frequently asked questions
         </h2>
 
-    <div className="mx-auto p-20">
+    <div className="mx-auto sm:p-20 p-8">
 
       <div className="flex flex-col xl:flex-row gap-6 xl:gap-0 ">
-
-
       <div className="flex flex-col xl:w-2/4">
 
  {     AccordionData.map(({id,question,answer})=>(

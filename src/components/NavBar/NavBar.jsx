@@ -47,7 +47,7 @@ const NavBar = () => {
               <NavLink
                 to={src}
                 exact
-                activeClassName="text-blue-500" // Ajoutez la classe active lorsque le lien est actif
+                activeClassName="text-blue-500" 
               >
                 {link}
               </NavLink>
@@ -75,7 +75,7 @@ const NavBar = () => {
                   to={src}
                   exact
                   className="text-white"
-                  activeClassName="text-blue-500" // Ajoutez la classe active lorsque le lien est actif
+                  activeClassName="text-blue-500"
                   onClick={() => setShow(!show)}
                 >
                   {link}

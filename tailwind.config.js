@@ -17,6 +17,8 @@ export default {
         five: "#000000",
         six: "#8aadba",
         seven:"#525252",
+        graytab:"#D9D9D9",
+        graytabdata:'#4B4B4B'
         
       },
     },
