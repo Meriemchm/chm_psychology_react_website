@@ -1,6 +1,6 @@
 // src/App.js
 import React from "react";
-import About from "./About/About";
+import About from "../../About/About";
 import Specialist from "./Specialist/Specialist";
 
 const AboutUs = () => {

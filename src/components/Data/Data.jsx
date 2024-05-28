@@ -274,3 +274,54 @@ export const RelashionshipSituation = [
   },
 
 ];
+
+export const AgeForm = [
+
+  { id: 1,
+    placeholder: "Type your age in numbers...",
+    type: 'number',
+  },
+
+];
+
+export const AccountForm = [
+
+  { id: 1,
+    placeholder: "Your full name or nickname...",
+    type: 'text',
+  },
+  { id: 2,
+    placeholder: "Your email address...",
+    type: 'email',
+  },
+  { id: 3,
+    placeholder: "Create a password...",
+    type: 'text',
+  },
+
+];
+
+export const AccountValidation = [
+
+  { id: 1,
+    placeholder: "0 0 0 0 0",
+    type: 'number',
+    style: ' w-40 text-center'
+  },
+
+];
+
+export const ButtonValidationForm = [
+
+  { id: 1,
+    title: "Resend Code",
+
+  },
+  
+  { id: 1,
+    title: "Modify Email Address",
+
+  },
+
+];
+

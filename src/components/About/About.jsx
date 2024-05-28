@@ -1,6 +1,6 @@
 // src/App.js
 import React from "react";
-import { AboutUsHome } from "../../../Data/Data";
+import { AboutUsHome } from "../Data/Data";
 const About= () => {
     return (
         <div className=" flex ">

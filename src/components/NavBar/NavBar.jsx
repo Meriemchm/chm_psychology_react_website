@@ -46,7 +46,6 @@ const NavBar = () => {
 
               <NavLink
                 to={src}
-                exact
                 activeClassName="text-blue-500" 
               >
                 {link}
@@ -73,7 +72,6 @@ const NavBar = () => {
               >
                 <NavLink
                   to={src}
-                  exact
                   className="text-white"
                   activeClassName="text-blue-500"
                   onClick={() => setShow(!show)}

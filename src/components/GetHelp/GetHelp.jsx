@@ -9,7 +9,6 @@ const GetHelp = () => {
           <div className="flex flex-row justify-between pb-10">          
             <NavLink
               to='/'
-              exact
             >
               <FaArrowLeftLong className="text-third text-2xl" />
             </NavLink>
