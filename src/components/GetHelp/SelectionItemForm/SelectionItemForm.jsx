@@ -1,10 +1,11 @@
 import React from "react";
-import Radio, { RadioGroup } from "../ProgressForm/Radio";
+import Radio, { RadioGroup } from "./Radio";
 
 
-const SelectionItemForm = ({radioItem}) => {
+const SelectionItemForm = ({radioItem,title}) => {
   return (
-    <div className="">
+    <div >
+      <label className="block mb-2 text-lg font-bold">{title}</label>
          <RadioGroup >
          {radioItem. map(({ id, title}) => (
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SelectionItemForm from '../SelectionItemForm/SelectionItemForm';
 import { GenderType, RelashionshipSituation } from '../../Data/Data';
-
+import InputForm from '../InputForm/InputForm';
 const MultiStepForm = () => {
   const [step, setStep] = useState(1);
   const [selectedGender, setSelectedGender] = useState('');
@@ -34,108 +34,62 @@ const MultiStepForm = () => {
   return (
     <div className='flex flex-col items-center justify-center'>
     <div className="w-1/2 h-2 bg-gray-300 rounded-full">
-          <div
+      
+        <div
             className="h-full bg-primary rounded-full"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
-        
 
-
-      <form onSubmit={handleSubmit} className='py-14'>
-        {step === 1 && (
-          <>
           <div>
             <h1 className="text-3xl font-bold text-center">Find the right therapist</h1>
-            <p className='py-5 w-[50rem] text-center' >
+            <p className=' w-[50rem] text-center' >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisi vitae elit fermentum congue non mattis enim. Vestibulum interdum iaculis tellus
             </p>
           </div>
-          <div className="mx-auto my-8 py-8 px-32 rounded-lg shadow-md ">
-            <label className="block mb-2 text-lg font-bold">What’s your gender?</label>
-          <SelectionItemForm radioItem={GenderType}/>
-          </div>
-      </>
-    )}
-
-        {step === 2 && (          <>
-          <div>
-          <h1 className="text-3xl font-bold text-center">Find the right therapist</h1>
-          <p className='py-5 w-[50rem] text-center' >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisi vitae elit fermentum congue non mattis enim. Vestibulum interdum iaculis tellus
-</p>
- </div>
-          <div className="mx-auto my-8 py-8 px-32 rounded-lg shadow-md">
-            <label className="block mb-2 text-lg font-bold">How old are you?</label>
-            <input
-              type="text"
-              className="w-full py-2 px-4 border-2 border-six text-six rounded-lg mb-4"
-              placeholder='Type your age in numbers...'
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-            />
-          </div> </>
-        )}
-
-        {step === 3 && (          <>
-          <div>
-          <h1 className="text-3xl font-bold text-center">Find the right therapist</h1>
-          <p className='py-5 w-[50rem] text-center' >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisi vitae elit fermentum congue non mattis enim. Vestibulum interdum iaculis tellus
-</p>
- </div>
-          <div className="mx-auto my-8 p-6 rounded-lg shadow-md">
-            <label className="block mb-2 text-lg font-bold">What is your relationship status?</label>
-            <SelectionItemForm radioItem={RelashionshipSituation}/>
-          </div> </>
-        )}
-
-        {step === 4 && (          <>
-          <div>
-          <h1 className="text-3xl font-bold text-center">Find the right therapist</h1>
-          <p className='py-5 w-[50rem] text-center' >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisi vitae elit fermentum congue non mattis enim. Vestibulum interdum iaculis tellus
-</p>
- </div>
-          <div className="mx-auto my-8 p-6 rounded-lg shadow-md">
-            <label className="block mb-2 text-lg font-bold">Create an account to save your information</label>
-            <input
-              type="email"
-              className="w-full py-2 px-4 border-2 border-six rounded-lg mb-4"
-              placeholder='Your full name or nickname...'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              className="w-full py-2 px-4 border border-gray-400 rounded-lg mb-4"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div> </>
-        )}
-
-        {step < 5 && (
-          <div className="flex justify-between">
-            {step > 1 && (
-              <button
-                className="bg-primary hover:bg-primaryvariant text-white font-bold py-2 px-4 rounded"
-                onClick={previousStep}
-              >
-                Previous
-              </button>
+        
+          <div className="mx-auto px-32 rounded-lg shadow-md ">
+            
+              <form onSubmit={handleSubmit} className='py-14'>
+                {step === 1 && (
+                  <SelectionItemForm title='What’s your gender?' radioItem={GenderType}/>
             )}
 
-            <button
-              type="submit"
-              className="bg-primary hover:bg-primaryvariant text-white font-bold py-2 px-4 rounded"
-              onClick={step < 4 ? nextStep : null}
-            >
-              {step < 4 ? 'Next' : 'Submit'}
-            </button>
-          </div>
-        )}
-      </form>
+                {step === 2 && (      
+                    <InputForm title="How old are you?"/>
+                )}
+
+                {step === 3 && (         
+                    
+                    <SelectionItemForm title='What is your relationship status?' radioItem={RelashionshipSituation}/>
+                )}
+
+                {step === 4 && (          
+                  <InputForm title='Create an account to save your information'/>
+                )}
+
+                {step < 5 && (
+                  <div className="flex justify-between">
+                    {step > 1 && (
+                      <button
+                        className="bg-primary hover:bg-primaryvariant text-white font-bold py-2 px-4 rounded"
+                        onClick={previousStep}
+                      >
+                        Previous
+                      </button>
+                    )}
+
+                    <button
+                      type="submit"
+                      className="bg-primary hover:bg-primaryvariant text-white font-bold py-2 px-4 rounded"
+                      onClick={step < 4 ? nextStep : null}
+                    >
+                      {step < 4 ? 'Next' : 'Submit'}
+                    </button>
+                  </div>
+                )}
+              </form>
+        </div>
     </div>
 
   );
