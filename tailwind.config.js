@@ -18,7 +18,9 @@ export default {
         six: "#8aadba",
         seven:"#525252",
         graytab:"#D9D9D9",
-        graytabdata:'#4B4B4B'
+        graytabdata:'#4B4B4B',
+        greendash:"#7bcab1",
+        graydash:'#E3F0F1',
         
       },
     },

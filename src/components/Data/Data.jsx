@@ -1,4 +1,16 @@
 import vector from "../../assets/Vector.svg"
+import Group1 from "../../assets/Group1.svg"
+import Group2 from "../../assets/Group2.svg"
+import Group3 from "../../assets/Group3.svg"
+import Group4 from "../../assets/Group4.svg"
+import Illustrationdash_1 from "../../assets/Illustrationdash_1.svg"
+import Group15 from "../../assets/Group15.svg"
+import Group16 from "../../assets/Group16.svg"
+import Illustrationdash_2 from "../../assets/Illustrationdash_2.svg"
+import icon from "../../assets/Icon.svg"
+import icon_1 from "../../assets/Icon_1.svg"
+import icon_2 from "../../assets/Icon_2.svg"
+import icon_3 from "../../assets/Icon_3.svg"
 
 export const NavlinkData = [
     {
@@ -14,22 +26,72 @@ export const NavlinkData = [
       style: "text-second",
     },
     {
-      id: 7,
+      id: 3,
       link: "Get Help",
       src : 'getHelp',
       style: "text-second",
     },
     {
-      id: 3,
+      id: 4,
       link: "Provide Help",
       src : 'provideHelp',
       style: "text-second",
     },
     {
-      id: 4,
+      id: 5,
       link: "Log In",
       src : 'logIn',
       style: "text-primary",
+    },
+
+  ];
+
+  export const NavDashData = [
+    {
+      id: 1,
+      link: "Clinics Around Me",
+      src : 'ClinicsAroundMe',
+      style: "text-second",
+    },
+    {
+      id: 2,
+      link: "Book an Appointment",
+      src : 'BookanAppointment',
+      style: "text-second",
+    },
+
+
+  ];
+
+
+  export const SideBarData = [
+    {
+      id: 1,
+      link: "Dashboard",
+      img:<img className="w-26 h-12"  src={Group1} alt="img_link" />,
+      src : '', /*dashboard */
+      style: "text-greendash",
+    },
+    {
+      id: 2,
+      link: "History",
+      img:<img className="w-26 h-12"  src={Group2} alt="img_link" />,
+      src : 'history',
+      style: "text-greendash",
+    },
+    {
+      id: 3,
+      link: "Account Settings",
+      img:<img  className="w-26 h-12" src={Group3} alt="img_link" />,
+      src : 'accountSettings',
+      style: "text-greendash",
+    },
+    {
+      id: 4,
+      link: "Logout",
+      img:<img  className="w-26 h-12" src={Group4} alt="img_link" />,
+      src : 'logout',
+      style: "text-greendash underline",
     },
 
   ];
@@ -320,6 +382,74 @@ export const ButtonValidationForm = [
   
   { id: 1,
     title: "Modify Email Address",
+
+  },
+
+];
+
+export const DashData = [
+
+  { id: 1,
+    title: "Account Settings",
+    description: 'Manage your account.',
+    icon: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={Group15} className="self-center" alt="dashimage" />
+  </div>,
+    img: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={Illustrationdash_1} className="self-center" alt="dashimage" />
+  </div>,
+
+  },
+  
+  { id: 1,
+    title: "Book a session",
+    description: 'Book a new session.',
+    icon: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={Group16} className="self-center" alt="dashimage" />
+  </div>,
+    img: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={Illustrationdash_2} className="self-center" alt="dashimage" />
+  </div>,
+
+  },
+
+];
+
+export const menuAccountItem = [
+
+  { id: 1,
+    title: "Profile Settings",
+        icon: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={icon} className="self-center" alt="dashimage" />
+  </div>,
+    description: "Your personal information.",
+
+  },
+  
+  { id: 2,
+    title: "Notifications",
+        icon: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={icon_1} className="self-center" alt="dashimage" />
+  </div>,
+    description: "When and where we notify you.",
+
+  },
+
+  { id: 3,
+    title: "Payment Method",
+        icon: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={icon_2} className="self-center" alt="dashimage" />
+  </div>,
+    description: "Preferred payment method.",
+
+  },
+
+  { id: 4,
+    title: "Security",
+        icon: <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <img src={icon_3} className="self-center" alt="dashimage" />
+  </div>,
+    description: "Authentication settings.",
 
   },
 

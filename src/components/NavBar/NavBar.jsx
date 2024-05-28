@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { NavlinkData } from "../Data/Data";
 import { NavLink } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 
 const NavBar = () => {
@@ -29,6 +30,7 @@ const NavBar = () => {
 
 
   return (
+    <>
     <div onScroll={handleScroll} className={`flex justify-between items-center w-full h-20 text-white px-4 lg:px-20 ${bgColor} fixed z-10`}    >
       <div>
         <h1 className="knewave-regular font-extrabold text-3xl ml-2 md:text-4xl text-second">
@@ -84,6 +86,10 @@ const NavBar = () => {
         </ul>
       )}
     </div>
+    <div>
+      {<Outlet/>}
+      </div>
+    </>
   );
 };
 
