@@ -3,9 +3,8 @@ import React from "react";
 import HeaderService from "./HeaderService/HeaderService";
 import PlanService from "./PlanService/PlanService";
 import CostService from "./CostService/CostService";
-import ComparisonService from "./ComparisonService/ComparisonService";
-
-
+import { ComparisonData } from "../Data/Data"; 
+import { CostData } from "../Data/Data"; 
 
 const Services = () => {
     return (
@@ -13,8 +12,8 @@ const Services = () => {
 
         <HeaderService/>
         <PlanService/>
-        <CostService/>
-        <ComparisonService/>
+        <CostService dataItem={CostData} title='Cost'/>
+        <CostService dataItem={ComparisonData} title='Comparison'/>
 
       </div>
     );

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import SelectionItemForm from '../SelectionItemForm/SelectionItemForm';
+import { GenderType, RelashionshipSituation } from '../../Data/Data';
 
 const MultiStepForm = () => {
   const [step, setStep] = useState(1);
@@ -44,35 +46,15 @@ const MultiStepForm = () => {
         {step === 1 && (
           <>
           <div>
-          <h1 className="text-3xl font-bold text-center">Find the right therapist</h1>
-          <p className='py-5 w-[50rem] text-center' >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisi vitae elit fermentum congue non mattis enim. Vestibulum interdum iaculis tellus
-</p>
- </div>
-      <div className="mx-auto my-8 py-8 px-32 rounded-lg shadow-md ">
-        <label className="block mb-2 text-lg font-bold">What’s your gender?</label>
-        <div className="custom-checkbox" onClick={() => handleGenderChange('male')}>
-        <div className={`checkbox ${selectedGender === 'male' ? 'checked' : ''}`} />
-        <label htmlFor="male">Male</label>
-      </div>
-
-      <div className="custom-checkbox" onClick={() => handleGenderChange('female')}>
-        <div className={`checkbox ${selectedGender === 'female' ? 'checked' : ''}`} />
-        <label htmlFor="female">Female</label>
-      </div>
-
-      <div className="custom-checkbox" onClick={() => handleGenderChange('other')}>
-        <div className={`checkbox ${selectedGender === 'other' ? 'checked' : ''}`} />
-        <label htmlFor="other">Other</label>
-      </div>
-
-      <input
-        type="text"
-        className="w-full py-2 px-4 border border-gray-400 rounded-lg mb-4"
-        value={selectedGender}
-        onChange={(e) => setSelectedGender(e.target.value)}
-      />
-      </div>
+            <h1 className="text-3xl font-bold text-center">Find the right therapist</h1>
+            <p className='py-5 w-[50rem] text-center' >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisi vitae elit fermentum congue non mattis enim. Vestibulum interdum iaculis tellus
+            </p>
+          </div>
+          <div className="mx-auto my-8 py-8 px-32 rounded-lg shadow-md ">
+            <label className="block mb-2 text-lg font-bold">What’s your gender?</label>
+          <SelectionItemForm radioItem={GenderType}/>
+          </div>
       </>
     )}
 
@@ -104,12 +86,7 @@ const MultiStepForm = () => {
  </div>
           <div className="mx-auto my-8 p-6 rounded-lg shadow-md">
             <label className="block mb-2 text-lg font-bold">What is your relationship status?</label>
-            <input
-              type="text"
-              className="w-full py-2 px-4 border border-gray-400 rounded-lg mb-4"
-              value={relationshipStatus}
-              onChange={(e) => setRelationshipStatus(e.target.value)}
-            />
+            <SelectionItemForm radioItem={RelashionshipSituation}/>
           </div> </>
         )}
 

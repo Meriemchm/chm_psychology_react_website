@@ -156,19 +156,22 @@ export const CostData = [
       title: "Session cost",
       itemOne: "2000 DA",
      itemTwo: "3500 DA" ,
-     style:""
+     style:"",
+     others:"px-10",
     },
     { id: 2,
       title: "Platform fee",
       itemOne: "10%",
      itemTwo: "0%" ,
-     style:"bg-graytab bg-opacity-20"
+     style:"bg-graytab bg-opacity-20",
+     others:"px-10",
     },
     { id: 3,
       title: "Method",
       itemOne: "CCP/CIB",
      itemTwo: "Cash" ,
-     style:""
+     style:"",
+     others:"px-10",
     },
 
 ];
@@ -183,7 +186,7 @@ export const ComparisonData = [
   </div>,
    itemTwo: "-" ,
    style:"",
-   others:"",
+   others:"px-16",
   },
   { id: 2,
     title: "Lower time consumption",
@@ -192,14 +195,14 @@ export const ComparisonData = [
   </div>,
    itemTwo: "-" ,
    style:"bg-graytab bg-opacity-20",
-   others:"",
+   others:"px-16",
   },
   { id: 3,
     title: "Location",
     itemOne: "Anywhere (Internet required)",
    itemTwo: "Clinics in your area" ,
    style:"",
-   others:"text-second",
+   others:"text-second underline px-16",
   },
   { id: 4,
     title: "Less efforts",
@@ -208,7 +211,7 @@ export const ComparisonData = [
   </div>,
    itemTwo: "-" ,
    style:"bg-graytab bg-opacity-20",
-   others:"",
+   others:"px-16",
   },
   { id: 5,
     title: "Better doctors availability",
@@ -217,7 +220,7 @@ export const ComparisonData = [
   </div>,
    itemTwo: "-" ,
    style:"",
-   others:"",
+   others:"px-16",
   },
   { id: 6,
     title: "Better appointment flexibility",
@@ -225,8 +228,49 @@ export const ComparisonData = [
     <img src={vector} className="self-center" alt="Vector" />
   </div>,
    itemTwo: "-" ,
-   style:"bg-graytab bg-opacity-20",
-   others:"",
+   style:"bg-graytab bg-opacity-20 ",
+   others:"px-16",
+  },
+
+];
+
+
+export const GenderType = [
+
+  { id: 1,
+    title: "Male",
+  },
+  { id: 2,
+    title: "Female",
+
+  },
+  { id: 3,
+    title: "Prefer not to say",
+  },
+
+];
+
+
+export const RelashionshipSituation = [
+
+  { id: 1,
+    title: "Single",
+  },
+  { id: 2,
+    title: "Married",
+
+  },
+  { id: 3,
+    title: "Unofficial relationship",
+  },
+  { id: 4,
+    title: "Divorced",
+  },
+  { id: 5,
+    title: "Widowed",
+  },
+  { id: 6,
+    title: "Other",
   },
 
 ];
