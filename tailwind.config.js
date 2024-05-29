@@ -22,6 +22,7 @@ export default {
         greendash:"#7bcab1",
         graydash:'#E3F0F1',
         yellowdash : '#FFF8D6',
+        graytabledash : '#C0C0C0',
         
       },
     },

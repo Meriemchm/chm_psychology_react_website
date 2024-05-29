@@ -410,6 +410,7 @@ export const DashData = [
     img: <div style={{ display: 'flex', justifyContent: 'center' }}>
     <img src={Illustrationdash_2} className="self-center" alt="dashimage" />
   </div>,
+  style:'float-end',
 
   },
 
@@ -441,7 +442,7 @@ export const menuAccountItem = [
     <img src={icon_2} className="self-center" alt="dashimage" />
   </div>,
     description: "Preferred payment method.",
-    style:'self-end',
+    
 
   },
 
@@ -546,6 +547,33 @@ export const SecurityForm = [
     label:'Current password *',
     placeholder: "Type your current password...",
     type: 'number',
+  },
+
+];
+
+export const HistoryTableData = [
+
+  { id: 1,
+    title: "Doctor",
+
+  },
+  
+  { id: 2,
+    title: "Location",
+
+  },
+
+  { id: 3,
+    title: "Date & Time",
+
+  },
+  { id: 4,
+    title: "Cost",
+
+  },
+  { id: 5,
+    title: "Status",
+
   },
 
 ];

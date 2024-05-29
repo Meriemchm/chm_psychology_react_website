@@ -11,7 +11,7 @@ const ContentDash = () => {
       <CalenderDash/>
       </div>
 
-        <div className="w-full h-full p-4 col-span-1">
+        <div className="w-full h-full xl:px-4 px-2 col-span-1">
         <CardDash/>
         </div>
 
