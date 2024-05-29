@@ -1,20 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    html{
-        font-family: 'Inter', sans-serif;
-    }
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-    }
+@layer base {
+  html {
+    font-family: "Inter", sans-serif;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
 }
 
 .knewave-regular {
-    font-family: "Knewave", system-ui;
-    font-weight: 400;
-    font-style: normal;
-  }
+  font-family: "Knewave", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+input[type="checkbox"]:checked ~ .check_1 {
+  @apply text-opacity-100;
+  @apply bg-second;
+}

@@ -1,5 +1,8 @@
 import React from "react";
 import { NotificationsData, NotificationsTableData } from "../../../Data/Data";
+import SwitchContainer from "../../../SwitchContainer/SwitchContainer";
+
+import CheckBoxCustom from "../../../CheckBoxCustom/CheckBoxCustom";
 
 const NotificationsForm = () => {
   return (
@@ -23,28 +26,16 @@ const NotificationsForm = () => {
         <tbody className="">
           {NotificationsData.map(({ id, title }) => (
             <tr key={id}>
-              <td className="py-4 whitespace-nowrap ">
-                {title}
+              <td className="py-4 whitespace-nowrap ">{title}</td>
+              <td className="px-10 py-4 whitespace-nowrap ">
+                <CheckBoxCustom />
               </td>
-              <td className="px-10 py-4 whitespace-nowrap text-gray-500">
-                <input
-                  type="checkbox"
-                  className="form-checkbox h-4 w-4 text-blue-600"
-                />
+              <td className="px-10 py-4 whitespace-nowrap  ">
+                <CheckBoxCustom />
               </td>
-              <td className="px-10 py-4 whitespace-nowrap text-sm text-gray-500">
-                <input
-                  type="checkbox"
-                  className="form-checkbox h-4 w-4 text-blue-600"
-                />
-              </td>
-              <td className="px-10 py-4 whitespace-nowrap text-sm text-gray-500">
-                <input
-                  type="checkbox"
-                  className="form-checkbox h-4 w-4 text-blue-600"
-                  checked
-                />
-              </td>
+              <div className="px-5 py-2">
+                <SwitchContainer />
+              </div>
             </tr>
           ))}
         </tbody>

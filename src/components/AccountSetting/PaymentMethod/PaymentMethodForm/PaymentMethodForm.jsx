@@ -3,7 +3,7 @@ import { PaymentTableData } from "../../../Data/Data";
 
 function PaymentMethodForm() {
   return (
-    <div>
+    <div className="pt-20">
       <h2 className="text-xl font-bold mb-4">Your Cards</h2>
       <table className="min-w-full ">
         <thead>

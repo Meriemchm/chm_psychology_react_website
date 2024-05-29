@@ -1,5 +1,6 @@
 import React from "react";
 import NotificationsForm from "./NotificationsForm/NotificationsForm";
+import SwitchContainer from "../../SwitchContainer/SwitchContainer";
 
 const Notifications = () => {
   return (
@@ -8,7 +9,7 @@ const Notifications = () => {
 
       <div className="flex justify-between">
         <p className="text-lg pb-10 pt-2">Enable Notifications</p>
-        <p>0</p>
+        <SwitchContainer/>
       </div>
 
       <div>

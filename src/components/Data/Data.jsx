@@ -368,7 +368,7 @@ export const AccountValidation = [
   { id: 1,
     placeholder: "0 0 0 0 0",
     type: 'number',
-    style: ' w-32 text-center'
+    style: ' w-28 text-center'
   },
 
 ];
@@ -478,25 +478,27 @@ export const AccountSettingsForm = [
   { id: 4,
     label:'City',
     placeholder: "Bir El Djir",
-    type: 'text',
+    style: 'mb-5',
   },
 
   { id: 5,
     label:'State',
     placeholder: "oran",
-    type: 'text',
+    style: 'mb-5',
   },
 
   { id: 6,
     label:'Zip Code',
     placeholder: "0000",
     type: 'number',
+     style: 'mt-8',
   },
 
   { id: 7,
     label:'Country',
     placeholder: "Algeria",
     type: 'text',
+    style: 'mt-8',
   },
 
 ];

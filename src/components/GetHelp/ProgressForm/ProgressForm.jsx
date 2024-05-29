@@ -7,6 +7,7 @@ import CompleteForm from "../CompleteForm/CompleteForm";
 
 import InputForm from "../InputForm/InputForm";
 const MultiStepForm = () => {
+  /*progress*/
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(25);
 
@@ -69,9 +70,11 @@ const MultiStepForm = () => {
           </p>
         </div>
       )}
+
       {(step === 4 || step === 5) && (
         <h1 className="text-3xl font-bold text-center pt-10">Almost there!</h1>
       )}
+
       {step === 6 && (
         <h1 className="text-3xl font-bold text-center pt-10">
           Welcome to Rameem!
@@ -79,60 +82,63 @@ const MultiStepForm = () => {
       )}
 
       {step === 6 && <CompleteForm />}
-
-      <form onSubmit={handleSubmit} className="w-1/2 px-36 ">
-        <div className="py-10 rounded-lg shadow-md">
-          {step === 1 && (
-            <SelectionItemForm
-              title="What’s your gender?"
-              radioItem={GenderType}
-            />
-          )}
-
-          {step === 2 && <InputForm Data={AgeForm} title="How old are you?" />}
-
-          {step === 3 && (
-            <SelectionItemForm
-              title="What is your relationship status?"
-              radioItem={RelashionshipSituation}
-            />
-          )}
-
-          {step === 4 && (
-            <InputForm
-              Data={AccountForm}
-              title="Create an account to save your information"
-            />
-          )}
-          {step === 5 && (
-            <InputForm
-              Data={AccountValidation}
-              title="We sent a code to your email, type it here:"
-            />
-          )}
-        </div>
-
-        {step < 7 && (
-          <div className="flex justify-between py-10">
-            {step > 1 && (
-              <button
-                className="bg-primary hover:bg-primaryvariant text-white font-bold py-2 px-4 rounded"
-                onClick={previousStep}
-              >
-                Previous
-              </button>
+      {step !== 6 && (
+        <form onSubmit={handleSubmit} className="w-1/2 px-36 ">
+          <div className="py-10 rounded-lg shadow-md">
+            {step === 1 && (
+              <SelectionItemForm
+                title="What’s your gender?"
+                radioItem={GenderType}
+              />
             )}
 
-            <button
-              type="submit"
-              className="bg-primary hover:bg-primaryvariant text-white font-bold py-2 px-4 rounded"
-              onClick={step < 6 ? nextStep : null}
-            >
-              {step < 6 ? "Next" : "Submit"}
-            </button>
+            {step === 2 && (
+              <InputForm Data={AgeForm} title="How old are you?" />
+            )}
+
+            {step === 3 && (
+              <SelectionItemForm
+                title="What is your relationship status?"
+                radioItem={RelashionshipSituation}
+              />
+            )}
+
+            {step === 4 && (
+              <InputForm
+                Data={AccountForm}
+                title="Create an account to save your information"
+              />
+            )}
+            {step === 5 && (
+              <InputForm
+                Data={AccountValidation}
+                title="We sent a code to your email, type it here:"
+              />
+            )}
           </div>
-        )}
-      </form>
+
+          {step < 7 && (
+            <div className="flex justify-between py-10">
+              {step > 1 && (
+                <button
+                  className="bg-primary hover:bg-primaryvariant text-white font-bold py-2 px-4 rounded"
+                  onClick={previousStep}
+                >
+                  Previous
+                </button>
+              )}
+
+              <button
+                type="submit"
+                className="bg-primary hover:bg-primaryvariant text-white font-bold py-2 px-4 rounded"
+                onClick={step < 6 ? nextStep : null}
+              >
+                {step < 6 ? "Next" : "Submit"}
+              </button>
+            </div>
+          )}
+        </form>
+      )}
     </div>
   );
 };
