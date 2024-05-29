@@ -380,7 +380,7 @@ export const ButtonValidationForm = [
 
   },
   
-  { id: 1,
+  { id: 2,
     title: "Modify Email Address",
 
   },
@@ -401,7 +401,7 @@ export const DashData = [
 
   },
   
-  { id: 1,
+  { id: 2,
     title: "Book a session",
     description: 'Book a new session.',
     icon: <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -441,6 +441,7 @@ export const menuAccountItem = [
     <img src={icon_2} className="self-center" alt="dashimage" />
   </div>,
     description: "Preferred payment method.",
+    style:'self-end',
 
   },
 
@@ -450,8 +451,101 @@ export const menuAccountItem = [
     <img src={icon_3} className="self-center" alt="dashimage" />
   </div>,
     description: "Authentication settings.",
+    style:'',
 
   },
 
 ];
 
+export const AccountSettingsForm = [
+
+  { id: 1,
+    label:'First Name',
+    placeholder: "User",
+    type: 'text',
+  },
+  { id: 2,
+    label:'Last Name',
+    placeholder: "Name",
+    type: 'text',
+  },
+  { id: 3,
+    label:'Adresse',
+    placeholder: "123 road boulevard...",
+    type: 'text',
+  },
+  { id: 4,
+    label:'City',
+    placeholder: "Bir El Djir",
+    type: 'text',
+  },
+
+  { id: 5,
+    label:'State',
+    placeholder: "oran",
+    type: 'text',
+  },
+
+  { id: 6,
+    label:'Zip Code',
+    placeholder: "0000",
+    type: 'number',
+  },
+
+  { id: 7,
+    label:'Country',
+    placeholder: "Algeria",
+    type: 'text',
+  },
+
+];
+
+export const NotificationsForm = [
+
+  { id: 1,
+    title: "“1h til next appointement”",
+
+  },
+  
+  { id: 2,
+    title: "“Therapist available now”",
+
+  },
+
+  { id: 3,
+    title: "“Discount available”",
+
+  },
+
+];
+
+
+export const SecurityForm = [
+
+  { id: 1,
+    label:'Your Phone Number',
+    placeholder: "+213 123 45 67 89",
+    type: 'number',
+  },
+  { id: 2,
+    label:'Your Email Address',
+    placeholder: "MyEmail@domain.com",
+    type: 'email',
+  },
+  { id: 3,
+    label:'New Password',
+    placeholder: "Create a new password...",
+    type: 'number',
+  },
+  { id: 4,
+    label:'New Password',
+    placeholder: "Create a new password...",
+    type: 'number',
+  },
+  { id: 5,
+    label:'Current password *',
+    placeholder: "Type your current password...",
+    type: 'number',
+  },
+
+];

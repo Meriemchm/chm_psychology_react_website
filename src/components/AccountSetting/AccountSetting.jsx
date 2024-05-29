@@ -1,18 +1,15 @@
-
 import React from "react";
 import AccountSideBar from "./AccountSideBar/AccountSideBar";
 
 const AccountSetting = () => {
-    return (
-      <div className="p-5">
-        <h1 className="text-2xl font-bold px-5 py-5">Profile Settings</h1>
-        <div className="flex flex-col md:flex-row">
-        <AccountSideBar/>
-
-        </div>
-            
+  return (
+    <div className="p-5">
+      <h1 className="text-2xl font-bold px-5 py-5">Profile Settings</h1>
+      <div className="flex flex-col md:flex-row">
+        <AccountSideBar />
       </div>
-    );
-  };
-  
-  export default AccountSetting;
+    </div>
+  );
+};
+
+export default AccountSetting;

@@ -21,6 +21,7 @@ export default {
         graytabdata:'#4B4B4B',
         greendash:"#7bcab1",
         graydash:'#E3F0F1',
+        yellowdash : '#FFF8D6',
         
       },
     },

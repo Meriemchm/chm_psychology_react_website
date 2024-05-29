@@ -4,12 +4,12 @@ import { DashData } from "../../Data/Data";
 
 const CardDash = () => {
     return (
-      <div className="">
-        {DashData.map(({ id, img,icon,description,title }) => {
+      <div className="h-full flex flex-col justify-around">
+        {DashData.map(({ id, img,icon,description,title ,style}) => {
             return (
               <div
                 key={id}
-                className=" cursor-pointer p-5 rounded-lg shadow-md flex flex-col justify-center items-center mb-10"
+                className={`cursor-pointer p-5 rounded-lg shadow-md flex flex-col justify-center items-center mb-10`}
               >
                 <div className="flex flex-row gap-2">
                   {icon}

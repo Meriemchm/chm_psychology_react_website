@@ -9,7 +9,7 @@ const HeaderDashboard = () => {
               <h1 className='font-bold text-2xl'>Welcome back!</h1>  
               <p className='py-2 text-lg'>You are doing great! we’re proud of you.</p>
             </div>
-            <img src={IllustrationDash} alt="illustrate" className='absolute -right-24 -top-20' />
+            <img src={IllustrationDash} alt="illustrate" className='absolute right-10 -top-20' />
         </div> 
     </div>
   );

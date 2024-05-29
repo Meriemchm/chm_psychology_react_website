@@ -5,13 +5,13 @@ import CalenderDash from '../CalenderDash/CalenderDash';
 
 const ContentDash = () => {
   return (
-    <div className="grid grid-cols-2 gap-4 py-20 h-screen">
+    <div className="grid grid-cols-4 gap-4 py-20 w-full h-screen">
 
-      <div className="bg-secondvariant p-4">
+      <div className="rounded-lg shadow-md p-4 w-full col-span-3">
       <CalenderDash/>
       </div>
 
-        <div className=" p-4">
+        <div className="w-full h-full p-4 col-span-1">
         <CardDash/>
         </div>
 

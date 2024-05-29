@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { menuAccountItem } from "../../Data/Data";
 import ProfileSettings from "../ProfileSettings/ProfileSettings";
+import Notifications from "../Notifications/Notifications";
+import PaymentMethod from "../PaymentMethod/PaymentMethod";
+import SecurityForm from "../Security/SecurityForm/SecurityForm";
 
 const activeButton = "bg-four";
 const activeColor = "bg-four/50";
@@ -29,17 +32,15 @@ const AccountSideBar = () => {
                   `}
                 >
                   <div className={`flex rounded-lg w-10 h-10`}>
-                    <div className={`m-auto rounded-md w-10 h-10 flex justify-center items-center`}>
+                    <div
+                      className={`m-auto rounded-md w-10 h-10 flex justify-center items-center`}
+                    >
                       {icon}
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <h2 className="text-bold capitalize">
-                      {title}
-                    </h2>
-                    <p className="text-sm capitalize text-six">
-                      {description}
-                    </p>
+                    <h2 className="text-bold capitalize">{title}</h2>
+                    <p className="text-sm capitalize text-six">{description}</p>
                   </div>
                 </li>
               </div>
@@ -48,8 +49,17 @@ const AccountSideBar = () => {
         </div>
       </div>
       <>
-        {menuAccountItem[activeTab].title === 'Profile Settings' && (
+        {menuAccountItem[activeTab].title === "Profile Settings" && (
           <ProfileSettings />
+        )}
+        {menuAccountItem[activeTab].title === "Notifications" && (
+          <Notifications />
+        )}
+        {menuAccountItem[activeTab].title === "Payment Method" && (
+          <PaymentMethod />
+        )}
+        {menuAccountItem[activeTab].title === "Security" && (
+          <SecurityForm />
         )}
       </>
     </>
