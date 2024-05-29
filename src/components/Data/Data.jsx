@@ -90,7 +90,7 @@ export const NavlinkData = [
       id: 4,
       link: "Logout",
       img:<img  className="w-26 h-12" src={Group4} alt="img_link" />,
-      src : 'logout',
+      src : '/',
       style: "text-greendash underline",
     },
 
@@ -368,7 +368,7 @@ export const AccountValidation = [
   { id: 1,
     placeholder: "0 0 0 0 0",
     type: 'number',
-    style: ' w-40 text-center'
+    style: ' w-32 text-center'
   },
 
 ];
@@ -501,7 +501,7 @@ export const AccountSettingsForm = [
 
 ];
 
-export const NotificationsForm = [
+export const NotificationsData = [
 
   { id: 1,
     title: "“1h til next appointement”",
@@ -520,8 +520,31 @@ export const NotificationsForm = [
 
 ];
 
+export const NotificationsTableData = [
 
-export const SecurityForm = [
+  { id: 1,
+    title: "Type",
+
+  },
+  
+  { id: 2,
+    title: "E-Mail",
+
+  },
+
+  { id: 3,
+    title: "Prioritize",
+
+  },
+  { id: 4,
+    title: "Enable",
+
+  },
+
+];
+
+
+export const SecurityFormData = [
 
   { id: 1,
     label:'Your Phone Number',
@@ -539,9 +562,10 @@ export const SecurityForm = [
     type: 'number',
   },
   { id: 4,
-    label:'New Password',
-    placeholder: "Create a new password...",
+    label:'',
+    placeholder: "Repeat the password...",
     type: 'number',
+    style:'',
   },
   { id: 5,
     label:'Current password *',
@@ -573,6 +597,25 @@ export const HistoryTableData = [
   },
   { id: 5,
     title: "Status",
+
+  },
+
+];
+
+export const PaymentTableData = [
+
+  { id: 1,
+    title: "Type",
+
+  },
+  
+  { id: 2,
+    title: "First Digits",
+
+  },
+
+  { id: 3,
+    title: "Action",
 
   },
 

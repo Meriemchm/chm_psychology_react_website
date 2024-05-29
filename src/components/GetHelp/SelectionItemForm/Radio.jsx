@@ -1,9 +1,9 @@
-import { useContext, createContext } from "react"
+import { useContext, createContext } from "react";
 
-const RadioContext = createContext()
+const RadioContext = createContext();
 
 export default function Radio({ children, ...props }) {
-  const { value, onChange } = useContext(RadioContext)
+  const { value, onChange } = useContext(RadioContext);
 
   return (
     <label
@@ -25,7 +25,7 @@ export default function Radio({ children, ...props }) {
       />
       {children}
     </label>
-  )
+  );
 }
 
 export function RadioGroup({ value, onChange, children }) {
@@ -33,5 +33,5 @@ export function RadioGroup({ value, onChange, children }) {
     <RadioContext.Provider value={{ value, onChange }}>
       {children}
     </RadioContext.Provider>
-  )
+  );
 }

@@ -3,12 +3,8 @@ import { menuAccountItem } from "../../Data/Data";
 import ProfileSettings from "../ProfileSettings/ProfileSettings";
 import Notifications from "../Notifications/Notifications";
 import PaymentMethod from "../PaymentMethod/PaymentMethod";
-import SecurityForm from "../Security/SecurityForm/SecurityForm";
-
-const activeButton = "bg-four";
-const activeColor = "bg-four/50";
-const activetext = "text-primary/80";
-const activeshadow = "shadow-four/30";
+import Security from "../Security/Security";
+import ButtonsSettings from "../ButtonsSettings/ButtonsSettings";
 
 const AccountSideBar = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -27,8 +23,12 @@ const AccountSideBar = () => {
             return (
               <div key={id} onClick={() => handleClick(index)}>
                 <li
-                  className={`flex md:py-5 px-3 py-3 w-full md:px-5 justify-start items-center md:gap-5 gap-2 bg-gray-100/50 shadow-2xl lg:w-5/6 rounded-lg cursor-pointer hover:shadow-secondvariant/30
-                  ${activeTab === index ? activeshadow : ""}
+                  className={`flex md:py-5 px-3 py-3 w-full md:px-5 justify-start items-center md:gap-5 gap-2 shadow-lg lg:w-5/6 rounded-lg cursor-pointer 
+                  ${
+                    activeTab === index
+                      ? "border-2 border-primary"
+                      : "border-2 border-white"
+                  }
                   `}
                 >
                   <div className={`flex rounded-lg w-10 h-10`}>
@@ -48,7 +48,7 @@ const AccountSideBar = () => {
           })}
         </div>
       </div>
-      <>
+      <div className=" rounded-lg shadow-md p-8">
         {menuAccountItem[activeTab].title === "Profile Settings" && (
           <ProfileSettings />
         )}
@@ -58,10 +58,10 @@ const AccountSideBar = () => {
         {menuAccountItem[activeTab].title === "Payment Method" && (
           <PaymentMethod />
         )}
-        {menuAccountItem[activeTab].title === "Security" && (
-          <SecurityForm />
-        )}
-      </>
+        {menuAccountItem[activeTab].title === "Security" && <Security />}
+
+        <ButtonsSettings />
+      </div>
     </>
   );
 };

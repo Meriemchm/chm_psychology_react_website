@@ -18,7 +18,7 @@ const GetHelp = () => {
             <NavLink
             className='text-primary px-8 cursor-pointer text-lg  hover:scale-105 duration-200 capitalize'
             to='/'
-            exact>
+            >
               Log In
             </NavLink>
         </div>    

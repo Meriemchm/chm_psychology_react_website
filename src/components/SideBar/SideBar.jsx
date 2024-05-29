@@ -1,34 +1,40 @@
-// Sidebar.js
-import React from "react";
+import { useState } from "react";
 import { SideBarData } from "../Data/Data";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import NavBarDash from "../NavBarDash/NavBarDash";
+
 const SideBar = () => {
+  const [activeItem, setActiveItem] = useState(null);
   return (
-    <div className="flex  h-full w-full overflow-hidden">
-      <div className=" xl:w-96 w-72 bg-secondvariant py-10 ">
-        <h1 className="knewave-regular px-10 pb-10  font-extrabold text-3xl ml-2 md:text-4xl text-primary">
+    <div className="flex h-full w-full overflow-hidden">
+      <div className="xl:w-96 w-72 bg-secondvariant py-10">
+        <h1 className="knewave-regular px-10 pb-10 font-extrabold text-3xl ml-2 md:text-4xl text-primary">
           Rameem
         </h1>
 
         <ul className="py-10">
           {SideBarData.map(({ id, link, style, img, src }) => {
             return (
-              <li
-                key={id}
-                className={`flex flex-row gap-3 py-5 px-8 cursor-pointer text-lg  hover:scale-105 duration-200 capitalize ${style}`}
+              <NavLink
+                to={src}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-second "
+                    : "text-greendash"
+                }
               >
-                {img}
-
-                <NavLink
-                  to={src}
-                  className="self-center"
-                  activeClassName="text-second"
+                <li
+                  key={id}
+                  className={`flex flex-row gap-3 py-5 px-8 cursor-pointer text-lg capitalize ${
+                    id === activeItem ? "bg-gradient-to-r from-second/30 to-secondvariant" : ""
+                  }`}
+                  onClick={() => setActiveItem(id)}
                 >
-                  {link}
-                </NavLink>
-              </li>
+                  {img}
+                  <p className="self-center">{link}</p>
+                </li>
+              </NavLink>
             );
           })}
           <div className="p-5 flex flex-col justify-center items-center">
@@ -37,7 +43,7 @@ const SideBar = () => {
                 Contact a therapist
               </a>
             </button>
-            <p className=" py-2 text-sm self-center text-primary font-bold">
+            <p className="py-2 text-sm self-center text-primary font-bold">
               Find therapists according to your needs.
             </p>
           </div>
