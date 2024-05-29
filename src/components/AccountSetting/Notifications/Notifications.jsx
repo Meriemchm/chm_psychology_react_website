@@ -1,6 +1,6 @@
 import React from "react";
 import NotificationsForm from "./NotificationsForm/NotificationsForm";
-import SwitchContainer from "../../SwitchContainer/SwitchContainer";
+import SwitchContainer from "../../Utilities/SwitchContainer/SwitchContainer";
 
 const Notifications = () => {
   return (

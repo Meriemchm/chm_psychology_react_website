@@ -1,8 +1,8 @@
 import React from "react";
 import { NotificationsData, NotificationsTableData } from "../../../Data/Data";
-import SwitchContainer from "../../../SwitchContainer/SwitchContainer";
+import SwitchContainer from "../../../Utilities/SwitchContainer/SwitchContainer";
 
-import CheckBoxCustom from "../../../CheckBoxCustom/CheckBoxCustom";
+import CheckBoxCustom from "../../../Utilities/CheckBoxCustom/CheckBoxCustom";
 
 const NotificationsForm = () => {
   return (

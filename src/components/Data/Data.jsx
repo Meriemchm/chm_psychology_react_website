@@ -342,6 +342,7 @@ export const AgeForm = [
   { id: 1,
     placeholder: "Type your age in numbers...",
     type: 'number',
+    style:'w-full'
   },
 
 ];
@@ -351,14 +352,17 @@ export const AccountForm = [
   { id: 1,
     placeholder: "Your full name or nickname...",
     type: 'text',
+    style: ' w-full'
   },
   { id: 2,
     placeholder: "Your email address...",
     type: 'email',
+    style: 'w-full'
   },
   { id: 3,
     placeholder: "Create a password...",
     type: 'text',
+    style: 'w-full'
   },
 
 ];

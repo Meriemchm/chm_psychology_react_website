@@ -1,6 +1,6 @@
 import React from "react";
 import HistoryTable from "./HistoryTable/HistoryTable";
-import SearchInput from "../SearchInput/SearchInput";
+import SearchInput from "../Utilities/SearchInput/SearchInput";
 import IconSort from "../../assets/IconSort.svg";
 import IconEye from "../../assets/IconEye.svg";
 const HistoryDashboard = () => {

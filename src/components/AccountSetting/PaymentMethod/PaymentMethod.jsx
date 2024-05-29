@@ -1,6 +1,6 @@
 import React from "react";
 import PaymentMethodForm from "./PaymentMethodForm/PaymentMethodForm";
-import Selector from "../../Selector/Selector";
+import Selector from "../../Utilities/Selector/Selector";
 
 function PaymentMethod() {
   return (

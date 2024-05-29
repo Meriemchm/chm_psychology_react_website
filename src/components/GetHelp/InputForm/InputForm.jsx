@@ -10,7 +10,7 @@ const InputForm = ({ Data, title }) => {
         <input
           key={id}
           type={type}
-          className={`w-full py-3 px-4 border-2 text-six border-six border-opacity-30 rounded-2xl ${style}`}
+          className={` py-3 px-4 border-2 text-six border-six border-opacity-30 rounded-2xl ${style}`}
           placeholder={placeholder}
         />
       ))}

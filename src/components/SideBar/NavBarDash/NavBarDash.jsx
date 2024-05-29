@@ -1,8 +1,8 @@
 // Sidebar.js
 import React from "react";
-import { NavDashData } from "../Data/Data";
+import { NavDashData } from "../../Data/Data";
 import { NavLink } from "react-router-dom";
-import userPic from "../../assets/userPic.svg";
+import userPic from "../../../assets/userPic.svg";
 
 const NavBarDash = () => {
   return (

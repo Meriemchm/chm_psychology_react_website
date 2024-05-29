@@ -2,7 +2,7 @@
 import React from "react";
 import HeaderService from "./HeaderService/HeaderService";
 import PlanService from "./PlanService/PlanService";
-import CostService from "../CostService/CostService";
+import CostService from "../Utilities/CostService/CostService";
 import { ComparisonData } from "../Data/Data"; 
 import { CostData } from "../Data/Data"; 
 

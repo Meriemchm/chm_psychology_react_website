@@ -48,7 +48,11 @@ const NavBar = () => {
 
               <NavLink
                 to={src}
-                activeClassName="text-blue-500" 
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-six "
+                    : "text-second"
+                }
               >
                 {link}
               </NavLink>
@@ -75,7 +79,6 @@ const NavBar = () => {
                 <NavLink
                   to={src}
                   className="text-white"
-                  activeClassName="text-blue-500"
                   onClick={() => setShow(!show)}
                 >
                   {link}

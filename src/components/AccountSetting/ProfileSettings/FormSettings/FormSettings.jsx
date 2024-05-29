@@ -1,6 +1,6 @@
 import React from "react";
 import { AccountSettingsForm } from "../../../Data/Data";
-import Selector from "../../../Selector/Selector";
+import Selector from "../../../Utilities/Selector/Selector";
 
 const FormSettings = () => {
   return (

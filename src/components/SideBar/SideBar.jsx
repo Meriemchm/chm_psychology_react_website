@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SideBarData } from "../Data/Data";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import NavBarDash from "../NavBarDash/NavBarDash";
+import NavBarDash from "./NavBarDash/NavBarDash";
 
 const SideBar = () => {
   const [activeItem, setActiveItem] = useState(null);

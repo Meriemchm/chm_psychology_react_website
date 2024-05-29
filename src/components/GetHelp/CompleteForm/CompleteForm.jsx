@@ -1,8 +1,8 @@
 import React from "react";
-import CostService from "../../CostService/CostService";
+import CostService from "../../Utilities/CostService/CostService";
 import { ComparisonData } from "../../Data/Data";
 import { CostData } from "../../Data/Data";
-import About from "../../About/About";
+import About from "../../Utilities/About/About";
 
 const CompleteForm = ({}) => {
   return (
