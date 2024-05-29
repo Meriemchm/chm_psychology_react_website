@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import NavBarDash from "./NavBarDash/NavBarDash";
 
 const SideBar = () => {
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState(1);
   return (
     <div className="flex h-full w-full overflow-hidden">
       <div className="xl:w-96 w-72 bg-secondvariant py-10">
@@ -23,6 +23,7 @@ const SideBar = () => {
                     ? "text-second "
                     : "text-greendash"
                 }
+                end
               >
                 <li
                   key={id}

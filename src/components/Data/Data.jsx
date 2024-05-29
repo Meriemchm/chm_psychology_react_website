@@ -69,7 +69,7 @@ export const NavlinkData = [
       id: 1,
       link: "Dashboard",
       img:<img className="w-26 h-12"  src={Group1} alt="img_link" />,
-      src : '', /*dashboard */
+      src : '/logIn', /*dashboard */
       style: "text-greendash",
     },
     {
