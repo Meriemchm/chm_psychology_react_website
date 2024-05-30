@@ -80,7 +80,7 @@ const MultiStepForm = () => {
       {step !== 6 && (
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col w-full md:w-1/2 xl:px-36 "
+          className="flex flex-col w-full md:w-2/3 2xl:w-1/2 xl:px-36 "
         >
           <div className="py-10 rounded-lg shadow-md">
             {step === 1 && (
