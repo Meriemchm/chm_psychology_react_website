@@ -1,10 +1,10 @@
 import React from "react";
 import { ButtonValidationForm } from "../../Data/Data";
 
-const InputForm = ({ Data, title }) => {
+const InputForm = ({ Data, title, action }) => {
   return (
     <div className="flex flex-col justify-center items-center gap-3 px-14">
-      <label className=" w mb-2 text-lg font-bold self-start ">{title}</label>
+      <label className=" mb-2 text-lg font-bold self-start ">{title}</label>
 
       {Data.map(({ id, placeholder, type, style }) => (
         <input
@@ -24,7 +24,10 @@ const InputForm = ({ Data, title }) => {
             <span className="underline"> Terms of Service </span>.
           </p>
 
-          <button className="bg-primary border-1 border-primary xl:text-xl text-four px-10 xl:px-16 py-3 rounded-2xl font-bold duration-200 hover:scale-105">
+          <button
+            onClick={action}
+            className="bg-primary border-1 border-primary xl:text-xl text-four px-10 xl:px-16 py-3 rounded-2xl font-bold duration-200 hover:scale-105"
+          >
             Continue
           </button>
           <p>
@@ -36,7 +39,10 @@ const InputForm = ({ Data, title }) => {
 
       {title == "We sent a code to your email, type it here:" && (
         <div className="flex flex-col justify-center items-center gap-3">
-          <button className="mt-3 bg-primary border-1 border-primary xl:text-xl text-four px-10 xl:px-16 py-3 rounded-3xl font-bold duration-200 hover:scale-105">
+          <button
+            onClick={action}
+            className="mt-3 bg-primary border-1 border-primary xl:text-xl text-four px-10 xl:px-16 py-3 rounded-3xl font-bold duration-200 hover:scale-105"
+          >
             Create an account
           </button>
           {ButtonValidationForm.map(({ id, title }) => (
