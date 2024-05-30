@@ -1,17 +1,23 @@
 import React from "react";
 import { ButtonValidationForm } from "../../Data/Data";
 
-const InputForm = ({ Data, title, action }) => {
+const InputForm = ({ Data, title, action, formData, onChange }) => {
+  const handleChange = (e, name) => {
+    const { value } = e.target;
+    onChange(name, value);
+  };
   return (
     <div className="flex flex-col justify-center items-center gap-3 px-14">
       <label className=" mb-2 text-lg font-bold self-start ">{title}</label>
 
-      {Data.map(({ id, placeholder, type, style }) => (
+      {Data.map(({ id, placeholder, type, style, name }) => (
         <input
           key={id}
           type={type}
           className={` py-3 px-4 border-2 text-six border-six border-opacity-30 rounded-2xl ${style}`}
           placeholder={placeholder}
+          value={formData[name] || ""}
+          onChange={(e) => handleChange(e, name)}
         />
       ))}
 

@@ -1,23 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 
-const Selector = ({ title }) => {
-  const [countries, setCountries] = useState(null);
+const Selector = ({ title, value, onChange }) => {
+  const countriesData = [
+    "Afghanistan",
+    "Albania",
+    "Algeria",
+    "Andorra",
+    "Angola",
+    "Antigua and Barbuda",
+    "Argentina",
+    "Armenia",
+    "Australia",
+    "Austria",
+    "Azerbaijan",
+    "Bahamas",
+    "Bahrain",
+  ];
+
+  const [countries, setCountries] = useState(countriesData);
   const [inputValue, setInputValue] = useState("");
-  const [selected, setSelected] = useState("");
-  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState(value || "");
+  const [open, setOpen] = useState(false); // Set initial selected value to the passed value prop
+
+  const filteredCountries = useMemo(
+    () =>
+      countries.filter((country) =>
+        country.toLowerCase().startsWith(inputValue.toLowerCase())
+      ),
+    [countries, inputValue]
+  );
 
   useEffect(() => {
-    fetch("https://restcountries.com/v2/all?fields=name")
-      .then((res) => res.json())
-      .then((data) => {
-        setCountries(data);
-      });
-  }, []);
+    // Update the selected value when the value prop changes
+    setSelected(value || "");
+  }, [value]);
 
   return (
-    <div className=" font-medium ">
+    <div className="font-medium">
       <div
         onClick={() => setOpen(!open)}
         className={`bg-white w-full p-2 flex items-center justify-between rounded-xl border-opacity-30 border-2 text-six border-six  ${
@@ -34,7 +55,7 @@ const Selector = ({ title }) => {
       <ul
         className={`bg-white mt-2 overflow-y-auto ${
           open ? "max-h-60" : "max-h-0"
-        } `}
+        }`}
       >
         <div className="flex items-center px-2 sticky top-0 bg-white">
           <AiOutlineSearch size={18} className="text-gray-700" />
@@ -44,30 +65,27 @@ const Selector = ({ title }) => {
             onChange={(e) => setInputValue(e.target.value.toLowerCase())}
             placeholder="Enter "
             className="placeholder:text-gray-700 p-2 outline-none"
+            aria-label="Search for a country"
           />
         </div>
-        {countries?.map((country) => (
+        {filteredCountries.map((country) => (
           <li
-            key={country?.name}
+            key={country}
             className={`p-2 text-sm hover:bg-sky-600 hover:text-white
             ${
-              country?.name?.toLowerCase() === selected?.toLowerCase() &&
+              country.toLowerCase() === selected?.toLowerCase() &&
               "bg-sky-600 text-white"
-            }
-            ${
-              country?.name?.toLowerCase().startsWith(inputValue)
-                ? "block"
-                : "hidden"
             }`}
             onClick={() => {
-              if (country?.name?.toLowerCase() !== selected.toLowerCase()) {
-                setSelected(country?.name);
-                setOpen(false);
-                setInputValue("");
-              }
+              setSelected(country);
+              onChange(country); // Call the onChange function with the selected country
+              setOpen(false);
+              setInputValue("");
             }}
+            role="option"
+            aria-selected={country.toLowerCase() === selected?.toLowerCase()}
           >
-            {country?.name}
+            {country}
           </li>
         ))}
       </ul>

@@ -33,7 +33,7 @@ const SideBar = () => {
                   onClick={() => setActiveItem(id)}
                 >
                   {img}
-                  <p className="self-center">{link}</p>
+                  <p className={`self-center ${style} `}>{link}</p>
                 </li>
               </NavLink>
             );

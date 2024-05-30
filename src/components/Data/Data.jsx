@@ -70,28 +70,28 @@ export const NavlinkData = [
       link: "Dashboard",
       img:<img className="w-26 h-12"  src={Group1} alt="img_link" />,
       src : '/logIn', /*dashboard */
-      style: "text-greendash",
+      style: "",
     },
     {
       id: 2,
       link: "History",
       img:<img className="w-26 h-12"  src={Group2} alt="img_link" />,
       src : 'history',
-      style: "text-greendash",
+      style: "",
     },
     {
       id: 3,
       link: "Account Settings",
       img:<img  className="w-26 h-12" src={Group3} alt="img_link" />,
       src : 'accountSettings',
-      style: "text-greendash",
+      style: "",
     },
     {
       id: 4,
       link: "Logout",
       img:<img  className="w-26 h-12" src={Group4} alt="img_link" />,
       src : '/',
-      style: "text-greendash underline",
+      style: "underline",
     },
 
   ];
@@ -342,7 +342,7 @@ export const AgeForm = [
   { id: 1,
     placeholder: "Type your age in numbers...",
     type: 'number',
-    style:'w-full'
+    style:'w-full',
   },
 
 ];
@@ -352,17 +352,20 @@ export const AccountForm = [
   { id: 1,
     placeholder: "Your full name or nickname...",
     type: 'text',
-    style: ' w-full'
+    style: ' w-full',
+    name:'username'
   },
   { id: 2,
     placeholder: "Your email address...",
     type: 'email',
-    style: 'w-full'
+    style: 'w-full',
+    name:'email'
   },
   { id: 3,
     placeholder: "Create a password...",
     type: 'text',
-    style: 'w-full'
+    style: 'w-full',
+    name:'password'
   },
 
 ];
@@ -372,7 +375,8 @@ export const AccountValidation = [
   { id: 1,
     placeholder: "0 0 0 0 0",
     type: 'number',
-    style: ' w-28 text-center'
+    style: ' w-28 text-center',
+    name:'valid'
   },
 
 ];

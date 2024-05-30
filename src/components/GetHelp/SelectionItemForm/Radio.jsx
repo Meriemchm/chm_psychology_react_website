@@ -4,7 +4,6 @@ const RadioContext = createContext();
 
 export default function Radio({ children, ...props }) {
   const { value, onChange } = useContext(RadioContext);
-  console.log(value)
 
   return (
     <label
@@ -12,7 +11,7 @@ export default function Radio({ children, ...props }) {
         px-6 py-4 shadow rounded-2xl cursor-pointer text-second font-semibold 
         transition-all ${
           value === props.value
-            ? "scale-105 border-2 border-second" 
+            ? "scale-105 border-2 border-second"
             : "bg-second bg-opacity-25 hover:shadow-md shadow-gray-300"
         }
       `}

@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Radio, { RadioGroup } from "./Radio";
 
-const SelectionItemForm = ({ radioItem, title }) => {
-  const [selectedValue, setSelectedValue] = useState(null);
-
+const SelectionItemForm = ({
+  radioItem,
+  title,
+  selectedValue,
+  onValueChange,
+}) => {
   const handleChange = (event) => {
-    setSelectedValue(event.target.value);
+    onValueChange(event.target.value);
   };
 
   return (

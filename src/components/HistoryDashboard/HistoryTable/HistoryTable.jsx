@@ -1,30 +1,8 @@
 import React from "react";
 import { HistoryTableData } from "../../Data/Data";
 
-function HistoryTable() {
-  const appointments = [
-    {
-      doctor: "Dr. Nabil",
-      location: "Online",
-      date: "August 15th, 2024",
-      cost: "2200 DA",
-      status: "Missed",
-    },
-    {
-      doctor: "Dr. Nabil",
-      location: "Online",
-      date: "August 8th, 2024",
-      cost: "2200 DA",
-      status: "Complete",
-    },
-    {
-      doctor: "Dr. Nabil",
-      location: "Online",
-      date: "August 1st, 2024",
-      cost: "2200 DA",
-      status: "Complete",
-    },
-  ];
+function HistoryTable({data}) {
+
 
   const statusClasses = (status) => {
     switch (status) {
@@ -50,7 +28,7 @@ function HistoryTable() {
             </tr>
         </thead>
         <tbody>
-          {appointments.map((appointment, id) => (
+          {data.map((appointment, id) => (
             <tr key={id}>
               <td className="px-6 py-4 whitespace-nowrap flex items-center">
                 <span className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-pink-100 text-pink-600 mr-4">
