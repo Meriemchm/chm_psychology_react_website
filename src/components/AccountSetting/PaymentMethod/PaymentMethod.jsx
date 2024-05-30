@@ -1,6 +1,7 @@
 import React from "react";
 import PaymentMethodForm from "./PaymentMethodForm/PaymentMethodForm";
 import Selector from "../../Utilities/Selector/Selector";
+import { stateData } from "../../Data/Data";
 
 function PaymentMethod() {
   return (
@@ -9,7 +10,7 @@ function PaymentMethod() {
       
       <p className="text-lg absolute left-0 text-center">Preferred method</p>
       <div className="absolute right-0 ">
-        <Selector title="Edahabia (CCP)" />
+        <Selector data={stateData} title="Edahabia (CCP)" />
       </div>
       <PaymentMethodForm />
     </div>

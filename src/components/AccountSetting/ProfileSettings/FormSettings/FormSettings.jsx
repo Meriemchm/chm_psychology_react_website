@@ -1,7 +1,7 @@
 import React from "react";
 import { AccountSettingsForm } from "../../../Data/Data";
 import Selector from "../../../Utilities/Selector/Selector";
-
+import { stateData } from "../../../Data/Data";
 const FormSettings = () => {
   return (
     <div>
@@ -15,7 +15,7 @@ const FormSettings = () => {
                 <label className="font-bold self-start ">{label}</label>
                 {id === 4 || id === 5 ? (
                   <div className="absolute  left-0 w-full z-50">
-                  <Selector title={placeholder} />
+                  <Selector data={stateData} title={placeholder} />
                   </div>
                 ) : (
                   <input

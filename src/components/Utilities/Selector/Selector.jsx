@@ -2,43 +2,27 @@ import React, { useState, useEffect, useMemo } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 
-const Selector = ({ title, value, onChange }) => {
-  const countriesData = [
-    "Afghanistan",
-    "Albania",
-    "Algeria",
-    "Andorra",
-    "Angola",
-    "Antigua and Barbuda",
-    "Argentina",
-    "Armenia",
-    "Australia",
-    "Austria",
-    "Azerbaijan",
-    "Bahamas",
-    "Bahrain",
-  ];
-
-  const [countries, setCountries] = useState(countriesData);
+const Selector = ({ title, value, onChange, data }) => {
+  const [dataselector, setDataselector] = useState(data);
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState(value || "");
-  const [open, setOpen] = useState(false); // Set initial selected value to the passed value prop
+  const [open, setOpen] = useState(false);
 
-  const filteredCountries = useMemo(
+  const filteredData = useMemo(
     () =>
-      countries.filter((country) =>
-        country.toLowerCase().startsWith(inputValue.toLowerCase())
+      dataselector.filter((item) =>
+        item.toLowerCase().startsWith(inputValue.toLowerCase())
       ),
-    [countries, inputValue]
+    [dataselector, inputValue]
   );
 
   useEffect(() => {
-    // Update the selected value when the value prop changes
     setSelected(value || "");
   }, [value]);
 
   return (
     <div className="font-medium">
+
       <div
         onClick={() => setOpen(!open)}
         className={`bg-white w-full p-2 flex items-center justify-between rounded-xl border-opacity-30 border-2 text-six border-six  ${
@@ -52,6 +36,7 @@ const Selector = ({ title, value, onChange }) => {
           : title}
         <BiChevronDown size={20} className={`${open && "rotate-180"}`} />
       </div>
+
       <ul
         className={`bg-white mt-2 overflow-y-auto ${
           open ? "max-h-60" : "max-h-0"
@@ -68,24 +53,24 @@ const Selector = ({ title, value, onChange }) => {
             aria-label="Search for a country"
           />
         </div>
-        {filteredCountries.map((country) => (
+        {filteredData.map((item) => (
           <li
-            key={country}
+            key={item}
             className={`p-2 text-sm hover:bg-sky-600 hover:text-white
             ${
-              country.toLowerCase() === selected?.toLowerCase() &&
+              item.toLowerCase() === selected?.toLowerCase() &&
               "bg-sky-600 text-white"
             }`}
             onClick={() => {
-              setSelected(country);
-              onChange(country); // Call the onChange function with the selected country
-              setOpen(false);
+              setOpen(false); 
+              setSelected(item);
+              onChange(item);
               setInputValue("");
             }}
             role="option"
-            aria-selected={country.toLowerCase() === selected?.toLowerCase()}
+            aria-selected={item.toLowerCase() === selected?.toLowerCase()}
           >
-            {country}
+            {item}
           </li>
         ))}
       </ul>

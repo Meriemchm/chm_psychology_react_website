@@ -6,7 +6,7 @@ import InputForm from "../InputForm/InputForm";
 import Selector from "../../Utilities/Selector/Selector";
 import { GenderType, RelashionshipSituation } from "../../Data/Data";
 import { AgeForm } from "../../Data/Data";
-import { AccountForm, AccountValidation } from "../../Data/Data";
+import { AccountForm, AccountValidation,getNumbers } from "../../Data/Data";
 
 const MultiStepForm = () => {
   /*progress*/
@@ -163,6 +163,7 @@ const MultiStepForm = () => {
                 </label>
                 <div className="mt-3">
                   <Selector
+                    data={getNumbers}
                     title={AgeForm[0].placeholder}
                     value={formData.age}
                     onChange={(value) => handleChange("age", value)}
@@ -206,7 +207,7 @@ const MultiStepForm = () => {
                     setShowError(true);
                   } else {
                     setStep(6);
-                    setProgress(100)
+                    setProgress(100);
                   }
                 }}
                 formData={formData}
