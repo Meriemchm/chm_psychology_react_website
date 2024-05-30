@@ -6,7 +6,7 @@ import InputForm from "../InputForm/InputForm";
 import Selector from "../../Utilities/Selector/Selector";
 import { GenderType, RelashionshipSituation } from "../../Data/Data";
 import { AgeForm } from "../../Data/Data";
-import { AccountForm, AccountValidation,getNumbers } from "../../Data/Data";
+import { AccountForm, AccountValidation, getNumbers } from "../../Data/Data";
 
 const MultiStepForm = () => {
   /*progress*/
@@ -142,6 +142,12 @@ const MultiStepForm = () => {
       {step !== 6 && (
         <form
           onSubmit={handleSubmit}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && validateStep()) {
+              e.preventDefault();
+              nextStep();
+            }
+          }}
           className="flex flex-col w-full md:w-2/3 2xl:w-1/2 xl:px-36 "
         >
           <div className="py-10 rounded-lg shadow-md">
