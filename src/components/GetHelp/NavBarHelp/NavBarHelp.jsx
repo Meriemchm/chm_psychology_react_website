@@ -1,11 +1,11 @@
 import React from "react";
-import { FaArrowLeftLong } from "react-icons/fa6";
+import iconBack from "../../../assets/iconBack.svg";
 import { NavLink } from "react-router-dom";
 const NavBarHelp = () => {
   return (
     <div className="flex flex-row justify-between pb-10">
       <NavLink to="/">
-        <FaArrowLeftLong className="text-third text-2xl" />
+        <img src={iconBack} alt="iconBack" />
       </NavLink>
 
       <h1 className="knewave-regular font-extrabold text-3xl ml-2 md:text-4xl text-second">

@@ -5,7 +5,7 @@ import CalenderDash from '../CalenderDash/CalenderDash';
 
 const ContentDash = () => {
   return (
-    <div className="grid grid-cols-4 gap-4 py-20 w-full h-screen">
+    <div className="grid grid-cols-4 gap-4 py-20 w-full h-full">
 
       <div className="rounded-lg shadow-md p-4 w-full col-span-3">
       <CalenderDash/>

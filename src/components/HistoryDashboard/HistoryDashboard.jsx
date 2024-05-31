@@ -28,12 +28,28 @@ const HistoryDashboard = () => {
     },
   ];
   const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredAppointments = appointments.filter((appointment) =>
-    Object.values(appointment).some((value) =>
-      value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+  const [sortType, setSortType] = useState("");
+  const handleSortClick = () => {
+    if (sortType === "missed") {
+      setSortType("complete");
+    } else {
+      setSortType("missed");
+    }
+  };
+  const filteredAppointments = appointments
+    .filter((appointment) =>
+      Object.values(appointment).some((value) =>
+        value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+      )
     )
-  );
+    .sort((a, b) => {
+      if (sortType === "missed") {
+        return a.status === "Missed" ? -1 : 1;
+      } else if (sortType === "complete") {
+        return a.status === "Complete" ? -1 : 1;
+      }
+      return 0;
+    });
 
   const handleSearch = (value) => {
     setSearchTerm(value);
@@ -48,12 +64,18 @@ const HistoryDashboard = () => {
         </div>
       </div>
       <div className="flex justify-between">
-        <div className="flex justify-center items-center">
+        <div
+          className="flex justify-center items-center cursor-pointer shadow-md rounded-3xl"
+          onClick={handleSortClick}
+        >
           <div className="p-3">
             <img src={IconSort} alt="iconSearch" />
           </div>
-          <p>Sort</p>
+          <p className="pr-5 font-medium ">
+            Sort <span className="px-5 border-l-2 text-six/50 "> {sortType === "missed" ? "Missed" : "Complete"}</span>
+          </p>
         </div>
+
         <div className="flex justify-center items-center">
           <div className="p-3">
             <img src={IconEye} alt="iconSearch" />

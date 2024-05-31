@@ -151,6 +151,12 @@ const MultiStepForm = () => {
           className="flex flex-col w-full md:w-2/3 2xl:w-1/2 xl:px-36 "
         >
           <div className="py-10 rounded-lg shadow-md">
+            {showError && (
+              <p className="text-red-400 mb-2 px-14 ">
+                Please fill in all required fields before proceeding.
+              </p>
+            )}
+
             {step === 1 && (
               <>
                 <SelectionItemForm
@@ -219,11 +225,6 @@ const MultiStepForm = () => {
                 formData={formData}
                 onChange={(name, value) => handleChange(name, value)}
               />
-            )}
-            {showError && (
-              <p className="text-red-400 mb-2 px-14 ">
-                Please fill in all required fields before proceeding.
-              </p>
             )}
           </div>
           {step < 4 && (

@@ -373,6 +373,7 @@ export const DashData = [
         <img src={Illustrationdash_1} className="self-center" alt="dashimage" />
       </div>
     ),
+    src:'accountSettings',
   },
 
   {
@@ -389,7 +390,8 @@ export const DashData = [
         <img src={Illustrationdash_2} className="self-center" alt="dashimage" />
       </div>
     ),
-    style: "float-end",
+
+    src:'/logIn',
   },
 ];
 

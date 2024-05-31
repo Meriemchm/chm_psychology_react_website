@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
+@import url("react-big-calendar/lib/css/react-big-calendar.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,7 +21,29 @@
   font-style: normal;
 }
 
+.rbc-calendar{
+  @apply flex-col-reverse !important;
+  @apply gap-5 !important;
+}
+
+.rbc-selected {
+  @apply bg-second  !important;
+}
+
+.rbc-button-link{
+  @apply font-bold  !important;
+}
+
+.rbc-event:hover {
+  @apply bg-six !important;
+}
+
+.rbc-event-content {
+  @apply text-black !important;
+}
+
 input[type="checkbox"]:checked ~ .check_1 {
   @apply text-opacity-100;
   @apply bg-second;
+  @apply rounded-md;
 }

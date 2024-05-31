@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { BiChevronDown } from "react-icons/bi";
-import { AiOutlineSearch } from "react-icons/ai";
+import chevrondown from '../../../assets/chevrondown.svg'
+import iconsearchselctor from '../../../assets/iconsearchselctor.svg'
 
 const Selector = ({ title, value, onChange, data }) => {
   const [dataselector, setDataselector] = useState(data);
@@ -34,7 +34,7 @@ const Selector = ({ title, value, onChange, data }) => {
             ? selected?.substring(0, 25) + "..."
             : selected
           : title}
-        <BiChevronDown size={20} className={`${open && "rotate-180"}`} />
+        <img src={chevrondown} className={`${open && "rotate-180"}`} />
       </div>
 
       <ul
@@ -43,7 +43,7 @@ const Selector = ({ title, value, onChange, data }) => {
         }`}
       >
         <div className="flex items-center px-2 sticky top-0 bg-white">
-          <AiOutlineSearch size={18} className="text-gray-700" />
+          <img src={iconsearchselctor}  size={18} className="text-gray-700" />
           <input
             type="text"
             value={inputValue}

@@ -3,9 +3,13 @@ import { SideBarData } from "../Data/Data";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import NavBarDash from "./NavBarDash/NavBarDash";
+import { useLocation } from "react-router-dom";
 
 const SideBar = () => {
   const [activeItem, setActiveItem] = useState(1);
+  const location = useLocation();
+  const currentPath = location.pathname.split("/").pop();
+
   return (
     <div className="flex h-full w-full overflow-hidden">
       <div className="xl:w-96 w-72 bg-secondvariant py-10">
@@ -17,18 +21,18 @@ const SideBar = () => {
           {SideBarData.map(({ id, link, style, img, src }) => {
             return (
               <NavLink
+                key={id}
                 to={src}
                 className={({ isActive }) =>
-                  isActive
-                    ? "text-second "
-                    : "text-greendash"
+                  isActive ? "text-second " : "text-greendash"
                 }
                 end
               >
                 <li
-                  key={id}
                   className={`flex flex-row gap-3 py-5 px-8 cursor-pointer text-lg capitalize ${
-                    id === activeItem ? "bg-gradient-to-r from-second/30 to-secondvariant" : ""
+                    currentPath === src.split("/").pop()
+                      ? "bg-gradient-to-r from-second/30 to-secondvariant"
+                      : ""
                   }`}
                   onClick={() => setActiveItem(id)}
                 >

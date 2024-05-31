@@ -1,9 +1,9 @@
 import React, { useState,useEffect } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
 import { NavlinkData } from "../Data/Data";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-
+import bars from '../../assets/bars.svg'
+import times from '../../assets/times.svg'
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
@@ -64,9 +64,9 @@ const NavBar = () => {
 
       <div
         onClick={() => setShow(!show)}
-        className="cursor-pointer pr-4 z-10 text-gray-500 lg:hidden"
+        className="cursor-pointer  z-10 text-gray-500 lg:hidden"
       >
-        {show ? <FaTimes size={30} /> : <FaBars size={30} />}
+        {show ? <img src={times} size={30} /> : <img src={bars} size={30} />}
       </div>
       {show && (
         <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-third text-white/80">
