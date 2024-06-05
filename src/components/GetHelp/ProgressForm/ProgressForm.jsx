@@ -7,6 +7,8 @@ import Selector from "../../Utilities/Selector/Selector";
 import { GenderType, RelashionshipSituation } from "../../Data/Data";
 import { AgeForm } from "../../Data/Data";
 import { AccountForm, AccountValidation, getNumbers } from "../../Data/Data";
+import { doc,collection, addDoc } from "firebase/firestore";
+import { db } from "../../../firebase";
 
 const MultiStepForm = () => {
   /*progress*/
@@ -58,16 +60,24 @@ const MultiStepForm = () => {
       setShowError(true);
       return;
     }
-    /*
     try {
-      await axios.post('http://localhost:3001/api/users', formData);
-      alert('User created successfully');
+      const res = await addDoc(collection(db, "users"), {
+        gender: formData.gender,
+        age: formData.age,
+        relationshipStatus: formData.relationshipStatus,
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+        valid: formData.valid,
+      });
+      console.log("Document written with ID: ", res.id);
+      setStep(6);
+      setProgress(100);
     } catch (error) {
-      console.error('Error creating user:', error);
-      alert('An error occurred');
-    }*/
+      console.error("Error adding document: ", error);
+    }
   };
-
+  
   const validateStep = () => {
     switch (step) {
       case 1:
@@ -138,7 +148,7 @@ const MultiStepForm = () => {
           <CompleteForm />
         </>
       )}
-
+      {/* form */}
       {step !== 6 && (
         <form
           onSubmit={handleSubmit}
@@ -211,20 +221,31 @@ const MultiStepForm = () => {
               />
             )}
             {step === 5 && (
-              <InputForm
-                Data={AccountValidation}
-                title="We sent a code to your email, type it here:"
-                action={() => {
-                  if (!validateStep()) {
-                    setShowError(true);
-                  } else {
-                    setStep(6);
-                    setProgress(100);
-                  }
-                }}
-                formData={formData}
-                onChange={(name, value) => handleChange(name, value)}
-              />
+              <>
+                <InputForm
+                  Data={AccountValidation}
+                  title="We sent a code to your email, type it here:"
+                  action={() => {
+                    if (!validateStep()) {
+                      setShowError(true);
+                    } else {
+                      setStep(6);
+                      setProgress(100);
+                    }
+                  }}
+                  formData={formData}
+                  onChange={(name, value) => handleChange(name, value)}
+                />
+
+                <div className="flex flex-col justify-center items-center gap-3">
+                  <button
+                    type="submit"
+                    className="mt-3 bg-primary border-1 border-primary xl:text-xl text-four px-10 xl:px-16 py-3 rounded-3xl font-bold duration-200 hover:scale-105"
+                  >
+                    Create an account
+                  </button>
+                </div>
+              </>
             )}
           </div>
           {step < 4 && (

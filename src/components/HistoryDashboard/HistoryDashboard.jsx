@@ -76,12 +76,12 @@ const HistoryDashboard = () => {
           </p>
         </div>
 
-        <div className="flex justify-center items-center">
+        {/* <div className="flex justify-center items-center">
           <div className="p-3">
             <img src={IconEye} alt="iconSearch" />
           </div>
           <p>Show</p>
-        </div>
+        </div> */}
       </div>
       <HistoryTable data={filteredAppointments} />
     </div>
