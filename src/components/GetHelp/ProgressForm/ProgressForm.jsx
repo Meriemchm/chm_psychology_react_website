@@ -11,6 +11,7 @@ import { doc, collection, setDoc, serverTimestamp } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { db, auth, storage } from "../../../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import PFP from "../../../assets/PFP.svg";
 
 const MultiStepForm = () => {
@@ -93,6 +94,7 @@ const MultiStepForm = () => {
       await setDoc(doc(db, "users", res.user.uid), {
         ...formData,
       });
+      await signInWithEmailAndPassword(auth, formData.email, formData.password);
       console.log("Document written with ID: ", res.id);
       setStep(6);
       setProgress(100);

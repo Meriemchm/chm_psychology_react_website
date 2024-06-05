@@ -1,14 +1,30 @@
 import { useState } from "react";
 import { SideBarData } from "../Data/Data";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import NavBarDash from "./NavBarDash/NavBarDash";
 import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const SideBar = () => {
+  const { dispatch } = useContext(AuthContext);
   const [activeItem, setActiveItem] = useState(1);
   const location = useLocation();
   const currentPath = location.pathname.split("/").pop();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Effectuer la déconnexion de l'utilisateur
+    dispatch({ type: "LOGOUT" });
+    navigate("/"); // Rediriger l'utilisateur vers la page d'accueil
+  };
+  const handleItemClick = (id, link) => {
+    setActiveItem(id);
+    if (link === "Logout") {
+      handleLogout(); // Appeler la fonction de déconnexion si le lien est celui de déconnexion
+    }
+  };
 
   return (
     <div className="flex h-full w-full overflow-hidden">
@@ -34,7 +50,9 @@ const SideBar = () => {
                       ? "bg-gradient-to-r from-second/30 to-secondvariant"
                       : ""
                   }`}
-                  onClick={() => setActiveItem(id)}
+                  onClick={() => {
+                    setActiveItem(id), handleItemClick(id, link);
+                  }}
                 >
                   {img}
                   <p className={`self-center ${style} `}>{link}</p>
