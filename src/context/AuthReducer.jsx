@@ -6,8 +6,10 @@ const AuthReducer = (state, action) => {
       };
     }
     case "LOGOUT": {
+      localStorage.setItem("userData", null);
       return {
         currentUser: null,
+        userData: null,
       };
     }
     default:

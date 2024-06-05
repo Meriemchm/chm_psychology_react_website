@@ -443,8 +443,7 @@ export const menuAccountItem = [
 ];
 
 export const AccountSettingsForm = [
-  { id: 1, label: "First Name", placeholder: "User", type: "text" },
-  { id: 2, label: "Last Name", placeholder: "Name", type: "text" },
+  { id: 1, label: "Username", placeholder: "User", type: "text" },
   {
     id: 3,
     label: "Adresse",
@@ -469,6 +468,7 @@ export const AccountSettingsForm = [
     placeholder: "Algeria",
     type: "text",
     style: "mt-8",
+
   },
 ];
 

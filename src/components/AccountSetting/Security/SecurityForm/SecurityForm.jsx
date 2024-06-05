@@ -19,6 +19,7 @@ function SecurityForm() {
                 type={type}
                 className="w-full py-3 px-4 border-2 text-six border-six border-opacity-30 rounded-2xl"
                 placeholder={placeholder}
+                defaultValue={userData[0].email}
               />
               {
                 id === 1 &&(
