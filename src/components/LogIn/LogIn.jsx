@@ -24,54 +24,73 @@ function LogIn() {
         setError(true);
       });
   };
-  
+
   return (
-    <div className="min-h-screen h-full flex items-center justify-center bg-gray-100 rounded-md">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">WELCOME</h2>
-        <form onSubmit={handleLogin}>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="Enter your email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
+    <div className="flex justify-center items-center md:h-screen w-full m-auto">
+      <div className="flex flex-row justify-center items-center w-full m-16 md:m-auto lg:m-16">
+        <div className="hidden justify-center items-center md:flex bg-secondvariant md:w-6/12 lg:w-full">
+          <div className="flex flex-col justify-center items-start bg-white/50 mx-20 my-40 p-16">
+            <h1 className="flex flex-col text-5xl font-bold text-primary py-5 w-full">
+              Get help anytime, <span className=" py-2">anywhere!</span>
+            </h1>
+            <p className="text-six">
+              Lorem ipsum, dolor sagni voluptas! Voluptas est .
+            </p>
           </div>
-          <div className="mb-6">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="Enter your password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+        </div>
+        <div className="flex flex-col  w-full justify-center items-center">
+          <div className="flex w-1/2 flex-col my-5 justify-start items-start ">
+            <h3 className="font-bold text-3xl my-5 text-start">Welcome</h3>
+            <p>Enter the information you entered while registering.</p>
           </div>
-          <div className="flex items-center justify-between">
+          <form
+            onSubmit={handleLogin}
+            className="flex flex-col w-full md:w-1/2"
+          >
+            <div className="flex flex-col">
+              <div className="flex flex-col">
+                <label className="capitalize my-3">Email</label>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div className="flex flex-col my-5">
+                <label className="capitalize my-3 ">Password</label>
+                <input
+                  type="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-between">
+              <div>
+                <input type="checkbox" className="" />
+                <label className="capitalize ml-2  text-xs ">Remember me</label>
+              </div>
+              <a
+                href=""
+                className="text-xs mt-1 text-transparent bg-clip-text bg-second"
+              >
+                Forget password?
+              </a>
+            </div>
             <button
               type="submit"
-              className="bg-primary hover:bg-primaryvariant text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="my-4 bg-primary rounded-md py-3 text-white"
             >
-              Log In
+              Login
             </button>
-          </div>
-          {error && <span>wrong password or email</span>}
-        </form>
+            {error && <span className="text-red-500">{error}</span>}
+          </form>
+        </div>
       </div>
     </div>
   );

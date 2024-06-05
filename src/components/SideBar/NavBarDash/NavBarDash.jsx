@@ -45,7 +45,7 @@ const NavBarDash = () => {
           )}
 
           <p className="px-5">
-            Hey there, {userData[0] && <span>{userData[0].username}</span>} !
+            Hey there, {userData[0] && <span className="text-six">{userData[0].username}</span>} !
           </p>
         </div>
       </ul>

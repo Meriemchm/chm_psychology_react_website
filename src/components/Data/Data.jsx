@@ -401,7 +401,7 @@ export const menuAccountItem = [
     title: "Profile Settings",
     icon: (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <img src={icon} className="self-center" alt="dashimage" />
+        <img src={icon_3} className="self-center" alt="dashimage" />
       </div>
     ),
     description: "Your personal information.",
@@ -412,7 +412,7 @@ export const menuAccountItem = [
     title: "Notifications",
     icon: (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <img src={icon_1} className="self-center" alt="dashimage" />
+        <img src={icon} className="self-center" alt="dashimage" />
       </div>
     ),
     description: "When and where we notify you.",
@@ -423,7 +423,7 @@ export const menuAccountItem = [
     title: "Payment Method",
     icon: (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <img src={icon_2} className="self-center" alt="dashimage" />
+        <img src={icon_1} className="self-center" alt="dashimage" />
       </div>
     ),
     description: "Preferred payment method.",
@@ -434,7 +434,7 @@ export const menuAccountItem = [
     title: "Security",
     icon: (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <img src={icon_3} className="self-center" alt="dashimage" />
+        <img src={icon_2} className="self-center" alt="dashimage" />
       </div>
     ),
     description: "Authentication settings.",
