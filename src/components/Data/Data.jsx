@@ -141,42 +141,79 @@ export const AboutSpacialist = [
   },
 ];
 
+export const ServicesList = [
+  {
+    id: 1,
+    title: "Psychological consultations",
+    description:
+      "Receive personalized support from licensed therapists for your mental health journey.",
+    src: "Illustration_2.svg",
+    style: "bg-primary bg-opacity-10 border-transparent",
+  },
+  {
+    id: 2,
+    title: "Training courses and workshops",
+    description:
+      "Develop new skills and knowledge through online courses and workshops.",
+    src: "Ilustration_1.svg",
+    style: "",
+  },
+];
+
 export const presentationData = [
   {
     id: 1,
-    description: "Elementum hac ornare Quam maecenas cras quisque.",
+    description: "Increase awareness about mental health and the different types of mental health problems.",
   },
 
   {
     id: 2,
     description:
-      "Quam porta mauris interdum dapibus ipsum bibendum, mi consectetur felis et erat fames placerat dictumst varius.",
+      "Provide information and support to people suffering from mental health problems.",
   },
 
   {
     id: 3,
     description:
-      "Diam, quis auctor justo taciti cras purus elementum convallis risus turpis.",
+      "Reduce the stigma associated with mental health.",
   },
 ];
 
 export const AccordionData = [
   {
     id: 1,
-    question: "Lorem ipsum in gravida pulvinar nostra?",
-    answer: "Lorem ipsum in gravida pulvinar nostra?",
+    question: "What is Rameem platform?",
+    answer: `We offer our services to help you with treatment or self-improvement`,
   },
 
   {
     id: 2,
-    question: "Lorem ipsum in gravida pulvinar nostra?",
-    answer: "Lorem ipsum in gravida pulvinar nostra?",
+    question: "How Rameem Protects Platform Users",
+    answer: `
+    <ul>
+      <li>24/7 security</li>
+      <li>Data encryptiony</li>
+      <li>Privacy policies</li>
+    </ul>
+    `,
   },
 
   {
     id: 3,
-    question: "Lorem ipsum in gravida pulvinar nostra?",
-    answer: "Lorem ipsum in gravida pulvinar nostra?",
+    question: "Can I Choose the Counselor or Change It?",
+    answer: `Yes, you can choose the counselor that suits your situation, and change him whenever you want`,
+  },
+
+  {
+    id: 4,
+    question: "What is the Cost of a Session?",
+    answer: `Cost is determined by counselor experience, session length, and available offers`,
+  },
+
+  {
+    id: 5,
+    question: "How Can I Communicate with the Counselor?",
+    answer: `Communication depends on session type and treatment needs. Options include messages, voice calls, or video calls.`,
   },
 ];
 

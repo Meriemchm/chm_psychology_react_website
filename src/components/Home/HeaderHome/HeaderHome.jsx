@@ -11,7 +11,7 @@ const HeaderHome = () => {
                     Get help anytime, anywhere!
                 </h2>
                 <p className="text-five pt-5 xl:pt-20 pb-16 lg:pr-10 md:w-full text-md md:text-2xl">
-                    Lorem ipsum mi proin aliquam ut diam ad elit, adipiscing amet sem interdum vehicula imperdiet.
+                If you are experiencing mental health problems, trauma, stress, or suffering
                 </p>
                 <button className="bg-primary border-1 border-primary xl:text-xl text-four px-10 xl:px-16 py-3 rounded-2xl font-bold duration-200 hover:scale-105">
                     <a href="/" target="_blank" rel="noopener noreferrer">

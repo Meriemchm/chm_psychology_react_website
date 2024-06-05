@@ -5,6 +5,8 @@ import { Outlet } from "react-router-dom";
 import bars from '../../assets/bars.svg'
 import times from '../../assets/times.svg'
 
+import rameemLogo from "../../assets/rameem-logo.svg"
+
 const NavBar = () => {
   const [show, setShow] = useState(false);
   const [bgColor, setBgColor] = useState('bg-transparent');
@@ -33,9 +35,11 @@ const NavBar = () => {
     <>
     <div onScroll={handleScroll} className={`flex justify-between items-center w-full h-20 text-white px-4 lg:px-20 ${bgColor} fixed z-10`}    >
       <div>
-        <h1 className="knewave-regular font-extrabold text-3xl ml-2 md:text-4xl text-second">
-          Rameem
-        </h1>
+      <img
+        src={rameemLogo}
+        alt="Rameem"
+        style={{ width: '6rem' }}
+      />
       </div>
 
       <ul className="hidden lg:flex ">
