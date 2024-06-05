@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SelectionItemForm from "../SelectionItemForm/SelectionItemForm";
 import CompleteForm from "../CompleteForm/CompleteForm";
 import ProgressBar from "../ProgressBar/ProgressBar";
@@ -15,9 +15,9 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import PFP from "../../../assets/PFP.svg";
 import { AuthContext } from "../../../context/AuthContext";
 
-
 const MultiStepForm = () => {
   /*progress*/
+
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(25);
   const [showError, setShowError] = useState(false);
@@ -97,18 +97,19 @@ const MultiStepForm = () => {
       await setDoc(doc(db, "users", res.user.uid), {
         ...formData,
       });
+    
       await signInWithEmailAndPassword(auth, formData.email, formData.password)
-      .then((userCredential) => {
-              // Signed up
-              const user = userCredential.user;
-              dispatch({ type: "LOGIN", payload: user });
-            })
-            .catch((error) => {
-              setError(true);
-            });;
-      console.log("Document written with ID: ", res.id);
-      setStep(6);
-      setProgress(100);
+        .then((userCredential) => {
+          // Signed up
+          setStep(6);
+          setProgress(100);
+          const user = userCredential.user;
+          dispatch({ type: "LOGIN", payload: user });
+        })
+        .catch((error) => {
+          setError(true);
+        });
+      console.log("je suis la");
     } catch (error) {
       console.error("Error adding document: ", error);
     }
@@ -260,26 +261,9 @@ const MultiStepForm = () => {
                 <InputForm
                   Data={AccountValidation}
                   title="We sent a code to your email, type it here:"
-                  action={() => {
-                    if (!validateStep()) {
-                      setShowError(true);
-                    } else {
-                      setStep(6);
-                      setProgress(100);
-                    }
-                  }}
                   formData={formData}
                   onChange={(name, value) => handleChange(name, value)}
                 />
-
-                <div className="flex flex-col justify-center items-center gap-3">
-                  <button
-                    type="submit"
-                    className="mt-3 bg-primary border-1 border-primary xl:text-xl text-four px-10 xl:px-16 py-3 rounded-3xl font-bold duration-200 hover:scale-105"
-                  >
-                    Create an account
-                  </button>
-                </div>
               </>
             )}
           </div>

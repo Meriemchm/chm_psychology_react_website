@@ -3,7 +3,7 @@ import { DashData } from "../../Data/Data";
 import { NavLink } from "react-router-dom";
 import CardItem from "./CardItem/CardItem";
 import CalenderForm from "../CalenderDash/CalenderForm/CalenderForm";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const CardDash = ({ setEvent }) => {
   const [showModal, setShowModal] = useState(false);
@@ -59,8 +59,8 @@ const CardDash = ({ setEvent }) => {
     </div>
   );
 };
-CardDash.propTypes = {
+/* CardDash.propTypes = {
   setEvents: PropTypes.func.isRequired,
 };
-
+ */
 export default CardDash;

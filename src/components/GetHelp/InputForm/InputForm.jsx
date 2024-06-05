@@ -47,7 +47,6 @@ const InputForm = ({ Data, title, action, formData, onChange }) => {
         <div className="flex flex-col justify-center items-center gap-3">
           <button
             type="submit"
-            onClick={action}
             className="mt-3 bg-primary border-1 border-primary xl:text-xl text-four px-10 xl:px-16 py-3 rounded-3xl font-bold duration-200 hover:scale-105"
           >
             Create an account

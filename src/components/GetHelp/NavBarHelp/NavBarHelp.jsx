@@ -10,11 +10,17 @@ const NavBarHelp = () => {
     <div className="flex flex-row justify-between pb-10">
       {currentUser ? (
         <NavLink to="/dashboard">
-          <img src={iconBack} alt="iconBack" />
+          <div className="flex gap-4">
+            <img src={iconBack} alt="iconBack" />
+            <p className="text-2xl text-third font-bold">Go to Dashboard</p>
+          </div>
         </NavLink>
       ) : (
         <NavLink to="/">
-          <img src={iconBack} alt="iconBack" />
+          <div className="flex gap-4">
+            <img src={iconBack} alt="iconBack" />
+            <p className="text-2xl text-third font-bold">Home</p>
+          </div>
         </NavLink>
       )}
 

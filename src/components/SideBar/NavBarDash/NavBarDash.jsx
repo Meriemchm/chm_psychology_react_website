@@ -15,7 +15,7 @@ const NavBarDash = () => {
           <p>
             <NavLink
               className="px-8 hover:scale-105 text-lg duration-200 capitalize text-second underline"
-              to="/"
+              to="/dashboard"
             >
               upgrade
             </NavLink>

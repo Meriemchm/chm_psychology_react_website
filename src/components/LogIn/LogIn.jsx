@@ -26,7 +26,7 @@ function LogIn() {
   };
 
   return (
-    <div className="flex justify-center items-center md:h-screen w-full m-auto">
+    <div className="h-screen flex justify-center items-center  w-full m-auto">
       <div className="flex flex-row justify-center items-center w-full m-16 md:m-auto lg:m-16">
         <div className="hidden justify-center items-center md:flex bg-secondvariant md:w-6/12 lg:w-full">
           <div className="flex flex-col justify-center items-start bg-white/50 mx-20 my-40 p-16">
@@ -39,8 +39,8 @@ function LogIn() {
           </div>
         </div>
         <div className="flex flex-col  w-full justify-center items-center">
-          <div className="flex w-1/2 flex-col my-5 justify-start items-start ">
-            <h3 className="font-bold text-3xl my-5 text-start">Welcome</h3>
+          <div className="flex md:w-1/2 flex-col my-5 justify-start items-start ">
+            <h3 className="font-bold text-4xl my-5 text-start">Welcome</h3>
             <p>Enter the information you entered while registering.</p>
           </div>
           <form
