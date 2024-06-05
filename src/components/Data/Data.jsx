@@ -65,7 +65,7 @@ export const SideBarData = [
     id: 1,
     link: "Dashboard",
     img: <img className="w-26 h-12" src={Group1} alt="img_link" />,
-    src: "/logIn" /*dashboard */,
+    src: "/dashboard" /*dashboard */,
     style: "",
   },
   {
@@ -87,7 +87,7 @@ export const SideBarData = [
     link: "Logout",
     img: <img className="w-26 h-12" src={Group4} alt="img_link" />,
     src: "/",
-    style: "underline",
+    style: "underline text-six",
   },
 ];
 

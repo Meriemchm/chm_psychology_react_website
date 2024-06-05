@@ -9,6 +9,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import SideBar from "./components/SideBar/SideBar";
 import AccountSetting from "./components/AccountSetting/AccountSetting";
 import HistoryDashboard from "./components/HistoryDashboard/HistoryDashboard";
+import LogIn from "./components/LogIn/LogIn";
 
 const App = () =>{
   return (
@@ -22,11 +23,13 @@ const App = () =>{
 
         <Route path="/getHelp" element={<GetHelp />} /> 
 
-        <Route path="/logIn" element={<SideBar />} >
+        <Route path="/logIn" element={<LogIn />} />
+
+        <Route path="/dashboard" element={<SideBar />} >
             <Route index element={<Dashboard/>} />
-            <Route path="/logIn/history" element={<HistoryDashboard/>} /> 
-            <Route path="/logIn/accountSettings" element={<AccountSetting/>} />   
-        </Route>  
+            <Route path="/dashboard/history" element={<HistoryDashboard/>} /> 
+            <Route path="/dashboard/accountSettings" element={<AccountSetting/>} />   
+        </Route> 
           
       </Routes>
       <Footer/>
