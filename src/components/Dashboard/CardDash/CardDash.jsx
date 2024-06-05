@@ -7,9 +7,8 @@ const CardDash = () => {
     <div className="h-full flex flex-col ">
       {DashData.map(({ id, img, icon, description, title, src }, index) => {
         return (
-          <NavLink to={src}>
+          <NavLink to={src} key={id}>
             <div
-              key={id}
               className={`cursor-pointer p-5 rounded-lg shadow-md flex flex-col justify-center items-center ${
                 index === DashData.length - 1 ? "mt-auto" : "mb-10"
               }  `}

@@ -15,14 +15,13 @@ const SideBar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Effectuer la déconnexion de l'utilisateur
     dispatch({ type: "LOGOUT" });
-    navigate("/"); // Rediriger l'utilisateur vers la page d'accueil
+    navigate("/");
   };
   const handleItemClick = (id, link) => {
     setActiveItem(id);
     if (link === "Logout") {
-      handleLogout(); // Appeler la fonction de déconnexion si le lien est celui de déconnexion
+      handleLogout();
     }
   };
 

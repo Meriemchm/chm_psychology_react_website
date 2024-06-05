@@ -21,17 +21,34 @@ const App = () => {
   const Requireauth = ({ children }) => {
     return currentUser ? children : <Navigate to="/logIn" />;
   };
-  console.log(currentUser);
+  const Requirenotauth = ({ children }) => {
+    return !currentUser ? children : <Navigate to="/dashboard" />;
+  };
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<NavBar />}>
+        <Route
+          path="/"
+          element={
+            <Requirenotauth>
+              <NavBar />
+            </Requirenotauth>
+          }
+        >
           <Route index element={<Home />} />
           <Route path="/services" element={<Services />} />
         </Route>
 
         <Route path="/logIn" element={<LogIn />} />
-        <Route path="/getHelp" element={<GetHelp />} />
+        <Route
+          path="/getHelp"
+          element={
+            <Requirenotauth>
+              <GetHelp />
+            </Requirenotauth>
+          }
+        />
 
         <Route
           path="/dashboard"

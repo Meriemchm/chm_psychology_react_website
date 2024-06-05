@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import SelectionItemForm from "../SelectionItemForm/SelectionItemForm";
 import CompleteForm from "../CompleteForm/CompleteForm";
 import ProgressBar from "../ProgressBar/ProgressBar";
@@ -13,12 +13,15 @@ import { db, auth, storage } from "../../../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import PFP from "../../../assets/PFP.svg";
+import { AuthContext } from "../../../context/AuthContext";
+
 
 const MultiStepForm = () => {
   /*progress*/
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(25);
   const [showError, setShowError] = useState(false);
+  const { dispatch } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     gender: "",
     age: "",
@@ -94,7 +97,15 @@ const MultiStepForm = () => {
       await setDoc(doc(db, "users", res.user.uid), {
         ...formData,
       });
-      await signInWithEmailAndPassword(auth, formData.email, formData.password);
+      await signInWithEmailAndPassword(auth, formData.email, formData.password)
+      .then((userCredential) => {
+              // Signed up
+              const user = userCredential.user;
+              dispatch({ type: "LOGIN", payload: user });
+            })
+            .catch((error) => {
+              setError(true);
+            });;
       console.log("Document written with ID: ", res.id);
       setStep(6);
       setProgress(100);

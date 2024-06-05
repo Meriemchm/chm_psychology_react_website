@@ -1,7 +1,9 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { SecurityFormData } from "../../../Data/Data";
+import { AuthContext } from "../../../../context/AuthContext";
 
 function SecurityForm() {
+  const { userData } = useContext(AuthContext);
   return (
     <div>
     <form className="max-w-4xl mx-auto space-y-4">
