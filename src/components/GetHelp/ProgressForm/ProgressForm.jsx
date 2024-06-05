@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SelectionItemForm from "../SelectionItemForm/SelectionItemForm";
 import CompleteForm from "../CompleteForm/CompleteForm";
 import ProgressBar from "../ProgressBar/ProgressBar";
@@ -7,8 +7,11 @@ import Selector from "../../Utilities/Selector/Selector";
 import { GenderType, RelashionshipSituation } from "../../Data/Data";
 import { AgeForm } from "../../Data/Data";
 import { AccountForm, AccountValidation, getNumbers } from "../../Data/Data";
-import { doc,collection, addDoc } from "firebase/firestore";
-import { db } from "../../../firebase";
+import { doc, collection, setDoc, serverTimestamp } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { db, auth, storage } from "../../../firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import PFP from "../../../assets/PFP.svg";
 
 const MultiStepForm = () => {
   /*progress*/
@@ -22,8 +25,29 @@ const MultiStepForm = () => {
     username: "",
     email: "",
     password: "",
+    profilePicture: "",
     valid: "",
+    timeStamp: serverTimestamp(),
   });
+  useEffect(() => {
+    const uploadDefaultProfilePicture = async () => {
+      try {
+        const response = await fetch(PFP);
+        const blob = await response.blob();
+        const storageRef = ref(storage, "defaultProfilePictures/PFP.svg");
+        await uploadBytes(storageRef, blob);
+        const url = await getDownloadURL(storageRef);
+        setFormData((prevData) => ({
+          ...prevData,
+          profilePicture: url,
+        }));
+      } catch (error) {
+        console.error("Error uploading default profile picture: ", error);
+      }
+    };
+
+    uploadDefaultProfilePicture();
+  }, []);
 
   const nextStep = () => {
     setShowError(false);
@@ -61,14 +85,13 @@ const MultiStepForm = () => {
       return;
     }
     try {
-      const res = await addDoc(collection(db, "users"), {
-        gender: formData.gender,
-        age: formData.age,
-        relationshipStatus: formData.relationshipStatus,
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
-        valid: formData.valid,
+      const res = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+      await setDoc(doc(db, "users", res.user.uid), {
+        ...formData,
       });
       console.log("Document written with ID: ", res.id);
       setStep(6);
@@ -77,7 +100,7 @@ const MultiStepForm = () => {
       console.error("Error adding document: ", error);
     }
   };
-  
+
   const validateStep = () => {
     switch (step) {
       case 1:
@@ -142,7 +165,6 @@ const MultiStepForm = () => {
       {step === 6 && (
         <>
           <h1 className="text-3xl font-bold text-center pt-10">
-            <p className="text-sm">{JSON.stringify(formData)}</p>
             Welcome to Rameem!
           </h1>
           <CompleteForm />
