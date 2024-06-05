@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import moment from "moment";
+import Selector from "../../../Utilities/Selector/Selector";
+import { doctorData } from "../../../Data/Data";
 
 function CalenderForm({
   showModal,
@@ -7,48 +9,54 @@ function CalenderForm({
   setNewEvent,
   setShowModal,
   handleAddEvent,
-  handleEditEvent, 
-  handleDeleteEvent,
 }) {
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = (e) => {
       if (showModal) {
         e.preventDefault();
+        e.stopPropagation();
       }
     };
 
-    document.body.style.overflow = showModal ? "hidden" : "auto";
-    document.addEventListener("scroll", handleScroll, { passive: false });
+    document.addEventListener("wheel", handleScroll, { passive: false });
+    document.addEventListener("touchmove", handleScroll, { passive: false });
+    document.addEventListener("keydown", (e) => {
+      if (
+        showModal &&
+        (e.key === "ArrowUp" ||
+          e.key === "ArrowDown" ||
+          e.key === "PageUp" ||
+          e.key === "PageDown")
+      ) {
+        e.preventDefault();
+      }
+    });
 
     return () => {
-      document.body.style.overflow = "auto";
-      document.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("wheel", handleScroll);
+      document.removeEventListener("touchmove", handleScroll);
+      document.removeEventListener("keydown", handleScroll);
     };
   }, [showModal]);
 
-  const isEditing = newEvent.id !== undefined;
-
   const handleSubmit = () => {
-    if (isEditing) {
-      handleEditEvent();
-    } else {
-      handleAddEvent();
-    }
+    handleAddEvent();
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-5 rounded-md">
-        <h2 className="text-xl font-bold mb-4">
-          {isEditing ? "Edit Event" : "Add Event"}
-        </h2>
-        <input
-          type="text"
-          placeholder="Event Title"
-          value={newEvent.title}
-          onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-          className="border p-2 mb-4 w-full"
-        />
+      <div className="bg-white p-5 rounded-md relative md:w-1/3">
+        <h2 className="text-xl font-bold pb-20">Add Event</h2>
+        <div className="absolute w-full top-16 pr-10 ">
+          <Selector
+            data={doctorData}
+            title={"select a doctor"}
+            value={newEvent.title}
+            onChange={(selectedDoctor) =>
+              setNewEvent({ ...newEvent, title: selectedDoctor })
+            }
+          />
+        </div>
         <label>Start Time:</label>
         <input
           type="datetime-local"
@@ -56,7 +64,7 @@ function CalenderForm({
           onChange={(e) =>
             setNewEvent({ ...newEvent, start: new Date(e.target.value) })
           }
-          className="border p-2 mb-4 w-full"
+          className="border-2 p-2 mb-4 w-full text-six border-six rounded-xl"
         />
         <label>End Time:</label>
         <input
@@ -65,28 +73,22 @@ function CalenderForm({
           onChange={(e) =>
             setNewEvent({ ...newEvent, end: new Date(e.target.value) })
           }
-          className="border p-2 mb-4 w-full"
+          className="border-2 p-2 mb-4 w-full text-six border-six rounded-xl"
         />
-        <button
-          onClick={handleSubmit} // Call handleSubmit for both add and edit
-          className="bg-blue-500 text-white p-2 rounded-md"
-        >
-          {isEditing ? "Save Changes" : "Add Event"}
-        </button>
-        {isEditing && (
+        <div className="flex justify-between py-5">
           <button
-            onClick={handleDeleteEvent} // Call handleDeleteEvent when delete button is clicked
-            className="ml-2 bg-red-500 text-white p-2 rounded-md"
+            onClick={handleSubmit}
+            className="bg-primary text-white p-2 rounded-md"
           >
-            Delete Event
+            Add Event
           </button>
-        )}
-        <button
-          onClick={() => setShowModal(false)}
-          className="ml-2 bg-gray-500 text-white p-2 rounded-md"
-        >
-          Cancel
-        </button>
+          <button
+            onClick={() => setShowModal(false)}
+            className="ml-2 underline text-six p-2 rounded-md"
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   );

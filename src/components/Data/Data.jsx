@@ -373,7 +373,7 @@ export const DashData = [
         <img src={Illustrationdash_1} className="self-center" alt="dashimage" />
       </div>
     ),
-    src:'accountSettings',
+    src: "accountSettings",
   },
 
   {
@@ -391,7 +391,7 @@ export const DashData = [
       </div>
     ),
 
-    src:'/logIn',
+    src: "/dashboard",
   },
 ];
 
@@ -468,7 +468,6 @@ export const AccountSettingsForm = [
     placeholder: "Algeria",
     type: "text",
     style: "mt-8",
-
   },
 ];
 
@@ -598,4 +597,17 @@ export const stateData = [
   "Aïn Témouchent",
   "Ghardaïa",
   "Relizane",
+];
+
+export const doctorData = [
+  "Dr. Ahmed",
+  "Dr. Fatima",
+  "Dr. Omar",
+  "Dr. Amina",
+  "Dr. Bilal",
+  "Dr. Yasmin",
+  "Dr. Ali",
+  "Dr. Leila",
+  "Dr. Hassan",
+  "Dr. Samira",
 ];
