@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
+import Selector from "../../Utilities/Selector/Selector";
+import { doctorData } from "../../Data/Data";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const CalenderDash = ({ events }) => {
@@ -20,14 +22,19 @@ const CalenderDash = ({ events }) => {
 
   return (
     <div className="flex flex-col w-full">
-      <div className="w-full flex justify-between ">
+      <div className="w-full flex justify-between relative">
         <h2 className="font-bold rbc-toolbar-label md:text-xl ">
           {currentMonth}
         </h2>
-        <div className="p-2 bg-yellowdash rounded-md">
-          <p className="text-lg">
-            Remaining Sessions: <span className="font-bold">2</span>
-          </p>
+        <div className="p-2 absolute rounded-md right-1 -top-5 z-50 ">
+          <Selector
+            data={doctorData}
+            title={"select a doctor"}
+            value={newEvent.title}
+            onChange={(selectedDoctor) =>
+              setNewEvent({ ...newEvent, title: selectedDoctor })
+            }
+          />
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 // src/App.js
 import React from "react";
 import HeaderHomeSvg from "../../../assets/HeaderHomeSvg.svg"
+import { Link } from "react-router-dom";
 
 
 const HeaderHome = () => {
@@ -14,9 +15,9 @@ const HeaderHome = () => {
                 If you are experiencing mental health problems, trauma, stress, or suffering
                 </p>
                 <button className="bg-primary border-1 border-primary xl:text-xl text-four px-10 xl:px-16 py-3 rounded-2xl font-bold duration-200 hover:scale-105">
-                    <a href="/" target="_blank" rel="noopener noreferrer">
+                    <Link to="/getHelp" >
                         Get Help Now
-                    </a>
+                    </Link>
                 </button>
             </div>
             <div className="bg-secondvariant xl:p-20 xl:pt-0 pt-20 p-5 flex justify-center items-center order-1 xl:order-2">

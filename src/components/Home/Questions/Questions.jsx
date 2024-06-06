@@ -2,10 +2,10 @@
 import React from "react";
 import Accordion from "./Accordion/Accordion";
 import { AccordionData } from "../../Data/Data";
+import { Link } from "react-router-dom";
 const Questions = () => {
   return (
     <div className="h-full flex flex-col items-center justify-center  ">
-      
       <h2 className=" text-xl md:text-2xl font-bold py-8">
         Frequently asked questions
       </h2>
@@ -25,9 +25,7 @@ const Questions = () => {
             </p>
             <p className="py-5">or</p>
             <button className="bg-primary border-1 border-primary xl:text-xl text-four px-10 xl:px-16 py-3 rounded-2xl font-bold duration-200 hover:scale-105">
-              <a href="/" target="_blank" rel="noopener noreferrer">
-                Get Help Now
-              </a>
+              <Link to="/getHelp">Get Help Now</Link>
             </button>
           </div>
         </div>

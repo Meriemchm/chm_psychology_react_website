@@ -26,13 +26,13 @@ const SideBar = () => {
   };
 
   return (
-    <div className="flex h-full w-full overflow-hidden">
+    <div className="flex h-full w-full overflow-hidden ">
       <div className="xl:w-96 w-72 bg-secondvariant py-10">
-        <h1 className="knewave-regular px-10 pb-10 font-extrabold text-3xl ml-2 md:text-4xl text-primary">
+        <h1 className="knewave-regular px-10  font-extrabold text-3xl ml-2 md:text-4xl text-primary fixed">
           Rameem
         </h1>
 
-        <ul className="py-10">
+        <ul className="py-28 fixed">
           {SideBarData.map(({ id, link, style, img, src }) => {
             return (
               <NavLink
