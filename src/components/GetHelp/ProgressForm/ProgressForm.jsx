@@ -164,11 +164,11 @@ const MultiStepForm = () => {
           <h1 className="text-3xl font-bold text-center pt-10">
             Find the right therapist
           </h1>
-          <p className="w-full md:w-3/4 md:text-base text-sm mx-auto text-center pt-5">
+          {/* <p className="w-full md:w-3/4 md:text-base text-sm mx-auto text-center pt-5">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis
             nisi vitae elit fermentum congue non mattis enim. Vestibulum
             interdum iaculis tellus
-          </p>
+          </p> */}
         </div>
       )}
 

@@ -5,7 +5,7 @@ import NavBarHelp from "../Utilities/NavBarHelp/NavBarHelp";
 
 const GetHelp = () => {
   return (
-    <div className="h-full w-full p-10 mb-52">
+    <div className="h-screen w-full p-10 mb-52">
       <NavBarHelp title='Log In' />
       <ProgressForm />
     </div>

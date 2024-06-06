@@ -47,6 +47,9 @@ function LogInForm() {
             onSubmit={handleLogin}
             className="flex flex-col w-full md:w-1/2"
           >
+            {error && (
+              <span className="text-red-500">Wrong email or password</span>
+            )}
             <div className="flex flex-col">
               <div className="flex flex-col">
                 <label className="capitalize my-3">Email</label>
@@ -88,7 +91,6 @@ function LogInForm() {
             >
               Login
             </button>
-            {error && <span className="text-red-500">{error}</span>}
           </form>
         </div>
       </div>
