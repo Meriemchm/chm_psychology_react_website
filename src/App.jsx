@@ -9,6 +9,7 @@ import Home from "./components/Home/Home";
 import Services from "./components/Services/Services";
 import NavBar from "./components/NavBar/NavBar";
 import GetHelp from "./components/GetHelp/GetHelp";
+import ProvideHelp from "./components/ProvideHelp/ProvideHelp";
 import Footer from "./components/Footer/Footer";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SideBar from "./components/SideBar/SideBar";
@@ -49,7 +50,14 @@ const App = () => {
             </Requirenotauth>
           }
         />
-
+        <Route
+          path="/provideHelp"
+          element={
+            <Requirenotauth>
+              <ProvideHelp />
+            </Requirenotauth>
+          }
+        />
         <Route
           path="/dashboard"
           element={

@@ -563,6 +563,40 @@ export const getNumbers = () => {
   return numbers;
 };
 
+export const formItem = [
+  {
+    id: 1,
+    name: "firstName",
+    type: "text",
+    placeholder: "First Name",
+    pattern: "[A-Za-z]+",
+    categorie: "input",
+  },
+  {
+    id: 2,
+    name: "lastName",
+    type: "text",
+    placeholder: "Last Name",
+    pattern: "[A-Za-z]+",
+    categorie: "input",
+  },
+  {
+    id: 3,
+    name: "email",
+    type: "text",
+    placeholder: "Email",
+    pattern: "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
+    categorie: "input",
+  },
+  {
+    id: 4,
+    name: "message",
+    placeholder: "Message",
+    categorie: "textarea",
+  },
+];
+
+
 export const stateData = [
   "Adrar",
   "Chlef",
