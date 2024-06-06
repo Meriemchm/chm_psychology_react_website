@@ -1,7 +1,7 @@
 // src/App.js
 import React from "react";
 import About from "../../Utilities/About/About";
-import Specialist from "./Specialist/Specialist";
+import Services from "./Services/Services";
 
 const AboutUs = () => {
     return (
@@ -16,7 +16,7 @@ const AboutUs = () => {
             <About />
           </div>
           <div className="">
-            <Specialist />
+            <Services />
           </div>
           <p className="text-seven underline">Join as a psychologist</p>
         </div>
