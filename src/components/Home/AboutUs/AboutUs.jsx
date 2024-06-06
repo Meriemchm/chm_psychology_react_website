@@ -1,27 +1,27 @@
 // src/App.js
 import React from "react";
 import About from "../../Utilities/About/About";
-import Services from "./Services/Services";
+import AboutService from "./AboutService/AboutService";
 
 const AboutUs = () => {
-    return (
-        <div  className=" h-full w-full bg-fourvariant ">
-        <div className="md:px-20 mx-auto p-4 flex flex-col  w-full h-full items-center justify-cente ">
-          <div className="flex items-center justify-center">
+  return (
+    <div className=" h-full w-full bg-fourvariant ">
+      <div className="md:px-20 mx-auto p-4 flex flex-col  w-full h-full items-center justify-cente ">
+        <div className="flex items-center justify-center">
           <p className="text-2xl md:text-4xl font-bold  text-center py-8 ">
-                About our platform
-            </p>
-          </div>
-          <div className="">
-            <About />
-          </div>
-          <div className="">
-            <Services />
-          </div>
-          <p className="text-seven underline">Join as a psychologist</p>
+            About our platform
+          </p>
         </div>
+        <div className="">
+          <About />
+        </div>
+        <div className="">
+          <AboutService />
+        </div>
+        <p className="text-seven underline">Join as a psychologist</p>
       </div>
-    );
-  };
-  
-  export default AboutUs;
+    </div>
+  );
+};
+
+export default AboutUs;

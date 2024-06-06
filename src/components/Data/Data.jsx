@@ -115,30 +115,14 @@ export const AboutUsHome = [
 ];
 
 export const AboutSpacialist = [
-  {
-    id: 1,
-    title: "Experienced Practitioners",
-    description:
-      "We have a collection of professionals with at least 2 years of experience.",
-    src: "Illustration_2.svg",
-    style: "bg-primary bg-opacity-10 border-transparent",
-  },
-  {
-    id: 2,
-    title: "Multiple Areas of Psychology",
-    description:
-      "Depending on your request, we select the practitionist specialised in what you need.",
-    src: "Ilustration_1.svg",
-    style: "",
-  },
-  {
-    id: 3,
-    title: "Confidentiality",
-    description:
-      "Information about you is protected, records are not kept and cannot be distributed anywhere.",
-    src: "Ilustration_3.svg",
-    style: "",
-  },
+  // {
+  //   id: 3,
+  //   title: "Confidentiality",
+  //   description:
+  //     "Information about you is protected, records are not kept and cannot be distributed anywhere.",
+  //   src: "Ilustration_3.svg",
+  //   style: "",
+  // },
 ];
 
 export const ServicesList = [
@@ -163,7 +147,8 @@ export const ServicesList = [
 export const presentationData = [
   {
     id: 1,
-    description: "Increase awareness about mental health and the different types of mental health problems.",
+    description:
+      "Increase awareness about mental health and the different types of mental health problems.",
   },
 
   {
@@ -174,8 +159,7 @@ export const presentationData = [
 
   {
     id: 3,
-    description:
-      "Reduce the stigma associated with mental health.",
+    description: "Reduce the stigma associated with mental health.",
   },
 ];
 
@@ -189,13 +173,7 @@ export const AccordionData = [
   {
     id: 2,
     question: "How Rameem Protects Platform Users",
-    answer: `
-    <ul>
-      <li>24/7 security</li>
-      <li>Data encryptiony</li>
-      <li>Privacy policies</li>
-    </ul>
-    `,
+    answer: `24/7 security, Data encryptiony, Privacy policies`,
   },
 
   {
