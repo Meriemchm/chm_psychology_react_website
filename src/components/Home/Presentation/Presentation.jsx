@@ -13,10 +13,10 @@ const Presentation = () => {
         </div>
         <fieldset className="border-l border-slate-200"></fieldset>
         <div className="flex flex-col justify-start items-start xl:ml-16 xl:p-8 p-5 md:p-14">
-          <p className="text-five md:text-1xl pb-10">
-          Rameem is a digital psychological clinic for remote psychological consultations.<br />
-          Through it, we strive to improve the mental health of the community by providing specialized<br />
-          and diverse services to people suffering from psychological problems.<br />
+          <p className="text-five md:text-lg pb-10">
+          Rameem is a <span className="text-second">digital psychological clinic</span>  for remote psychological consultations. <br />
+          Through it, we strive to <span className="text-primary">improve the mental health</span>  of the community by <span className="text-second">providing <br /> specialized </span> 
+           and diverse services to people suffering from <span className="text-second">psychological problems</span> . <br />
           Or who want to develop themselves and live a better life. We aim to:<br />
           </p>
           {presentationData.map(({ id, description }) => (

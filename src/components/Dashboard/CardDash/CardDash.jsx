@@ -3,6 +3,8 @@ import { DashData } from "../../Data/Data";
 import { NavLink } from "react-router-dom";
 import CardItem from "./CardItem/CardItem";
 import CalenderForm from "../CalenderDash/CalenderForm/CalenderForm";
+import { ProfileDrData } from "../../Data/Data";
+import ProfileDrCard from "../../Utilities/ProfileDrCard/ProfileDrCard";
 // import PropTypes from 'prop-types';
 
 const CardDash = ({ setEvent }) => {
@@ -15,7 +17,7 @@ const CardDash = ({ setEvent }) => {
   };
 
   const handleCardClick = (id) => {
-    if (id === 2) {
+    if (id === 1) {
       setShowModal(true);
     }
   };
@@ -25,14 +27,8 @@ const CardDash = ({ setEvent }) => {
       {DashData.map(({ id, img, icon, description, title, src }, index) => {
         return (
           <div key={id} onClick={() => handleCardClick(id)}>
-            {id === 2 ? (
-              <CardItem
-                icon={icon}
-                title={title}
-                description={description}
-                img={img}
-                id={id}
-              />
+            {id === 1 ? (
+              <ProfileDrCard data={ProfileDrData} />
             ) : (
               <NavLink to={src}>
                 <CardItem
@@ -47,7 +43,7 @@ const CardDash = ({ setEvent }) => {
           </div>
         );
       })}
-      {showModal && (
+      {/* {showModal && (
         <CalenderForm
           showModal={showModal}
           newEvent={newEvent}
@@ -55,7 +51,7 @@ const CardDash = ({ setEvent }) => {
           handleAddEvent={handleAddEvent}
           setShowModal={setShowModal}
         />
-      )}
+      )} */}
     </div>
   );
 };

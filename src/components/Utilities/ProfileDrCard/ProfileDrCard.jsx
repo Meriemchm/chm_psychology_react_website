@@ -1,0 +1,41 @@
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import userpic from "../../../assets/userPic.svg";
+import chevrondown from "../../../assets/chevrondown.svg";
+
+const ProfileDrCard = ({ data, onCardClick }) => {
+  const location = useLocation();
+  const isExplorePage = location.pathname === "/dashboard/explore";
+
+  return (
+    <div className="h-full flex flex-col rounded-lg shadow-md px-3 justify-start">
+      <div className="flex justify-between py-4">
+        <h2 className="font-bold text-xl ">Doctors</h2>
+        {!isExplorePage && (
+          <Link to="explore">
+            <p className="text-sm text-primary cursor-pointer hover:text-second">
+              View More
+            </p>
+          </Link>
+        )}
+      </div>
+      {data.map(({ id, username, src }) => (
+        <div
+          key={id}
+          className={`cursor-pointer py-3 flex justify-between ${
+            id !== 1 ? "border-t" : ""
+          }`}
+          onClick={() => onCardClick({ id, username, src })}
+        >
+          <div className="flex flex-row gap-3">
+            <img src={userpic} alt="drpic" />
+            <h3 className="font-bold text-base self-center">{username}</h3>
+          </div>
+          <img src={chevrondown} alt="" className=" -rotate-90" />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ProfileDrCard;

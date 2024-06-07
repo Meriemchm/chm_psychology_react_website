@@ -10,7 +10,7 @@ const Questions = () => {
         Frequently asked questions
       </h2>
 
-      <div className="mx-auto sm:p-20 p-8">
+      <div className="mx-auto sm:p-20 md:py-0 p-2 md:p-8">
         <div className="flex flex-col xl:flex-row justify-center gap-6 xl:gap-0 ">
           <div className="flex flex-col xl:w-3/4">
             {AccordionData.map(({ id, question, answer }) => (
@@ -18,7 +18,7 @@ const Questions = () => {
             ))}
           </div>
 
-          <div className=" flex flex-col justify-start items-center xl:w-2/4">
+          <div className=" flex flex-col justify-start items-center xl:w-2/4 mb-10 md:mb-0">
             <p className="md:px-44 px-8  self-center text-center">
               For professional contact or if you have another question, contact
               us at: xyz@domain.com

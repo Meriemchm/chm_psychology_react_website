@@ -17,6 +17,7 @@ import AccountSetting from "./components/AccountSetting/AccountSetting";
 import HistoryDashboard from "./components/HistoryDashboard/HistoryDashboard";
 import LogIn from "./components/LogIn/LogIn";
 import { AuthContext } from "./context/AuthContext";
+import Explore from "./components/Explore/Explore";
 const App = () => {
   const { currentUser } = useContext(AuthContext);
   const Requireauth = ({ children }) => {
@@ -71,6 +72,10 @@ const App = () => {
           <Route
             path="/dashboard/accountSettings"
             element={<AccountSetting />}
+          />
+          <Route
+            path="/dashboard/explore"
+            element={<Explore />}
           />
         </Route>
       </Routes>

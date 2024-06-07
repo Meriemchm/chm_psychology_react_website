@@ -3,6 +3,7 @@ import Group1 from "../../assets/Group1.svg";
 import Group2 from "../../assets/Group2.svg";
 import Group3 from "../../assets/Group3.svg";
 import Group4 from "../../assets/Group4.svg";
+import Group5 from "../../assets/Group5.svg";
 import Illustrationdash_1 from "../../assets/Illustrationdash_1.svg";
 import Group15 from "../../assets/Group15.svg";
 import Group16 from "../../assets/Group16.svg";
@@ -64,28 +65,35 @@ export const SideBarData = [
   {
     id: 1,
     link: "Dashboard",
-    img: <img className="w-26 h-12" src={Group1} alt="img_link" />,
+    img: <img className="w-26 h-12" src={Group4} alt="img_link" />,
     src: "/dashboard" /*dashboard */,
     style: "",
   },
   {
     id: 2,
-    link: "History",
-    img: <img className="w-26 h-12" src={Group2} alt="img_link" />,
-    src: "history",
+    link: "Explore",
+    img: <img className="w-26 h-12" src={Group5} alt="img_link" />,
+    src: "explore" /*dashboard */,
     style: "",
   },
   {
     id: 3,
-    link: "Account Settings",
+    link: "History",
     img: <img className="w-26 h-12" src={Group3} alt="img_link" />,
-    src: "accountSettings",
+    src: "history",
     style: "",
   },
   {
     id: 4,
+    link: "Account Settings",
+    img: <img className="w-26 h-12" src={Group1} alt="img_link" />,
+    src: "accountSettings",
+    style: "",
+  },
+  {
+    id: 5,
     link: "Logout",
-    img: <img className="w-26 h-12" src={Group4} alt="img_link" />,
+    img: <img className="w-26 h-12" src={Group2} alt="img_link" />,
     src: "/",
     style: "underline text-six",
   },
@@ -376,23 +384,6 @@ export const ButtonValidationForm = [
 export const DashData = [
   {
     id: 1,
-    title: "Account Settings",
-    description: "Manage your account.",
-    icon: (
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <img src={Group15} className="self-center" alt="dashimage" />
-      </div>
-    ),
-    img: (
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <img src={Illustrationdash_1} className="self-center" alt="dashimage" />
-      </div>
-    ),
-    src: "accountSettings",
-  },
-
-  {
-    id: 2,
     title: "Book a session",
     description: "Book a new session.",
     icon: (
@@ -408,6 +399,23 @@ export const DashData = [
 
     src: "/dashboard",
   },
+  {
+    id: 2,
+    title: "Account Settings",
+    description: "Manage your account.",
+    icon: (
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <img src={Group15} className="self-center" alt="dashimage" />
+      </div>
+    ),
+    img: (
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <img src={Illustrationdash_1} className="self-center" alt="dashimage" />
+      </div>
+    ),
+    src: "accountSettings",
+  },
+
 ];
 
 export const menuAccountItem = [
@@ -596,6 +604,13 @@ export const formItem = [
   },
 ];
 
+export const ProfileDrData = [
+  { id: 1, username: "Dr. Ahmed" },
+
+  { id: 2, username: "Dr. Fatima" },
+
+  { id: 3, username: "Dr. Omar" },
+];
 
 export const stateData = [
   "Adrar",
