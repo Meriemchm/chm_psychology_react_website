@@ -3,6 +3,7 @@ import CardDash from "../CardDash/CardDash";
 import CalenderDash from "../CalenderDash/CalenderDash";
 
 const ContentDash = () => {
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const [events, setEvents] = useState([
     {
       title: "Dr. Omar",
@@ -40,10 +41,31 @@ const ContentDash = () => {
     setEvents([...events, newEvent]);
   };
 
+  const handleConfirmation = () => {
+    if (selectedEvent) {
+      const updatedEvents = events.map((event) =>
+        event === selectedEvent ? { ...event, status: "chosen" } : event
+      );
+      setSelectedEvent(null);
+      setEvents(updatedEvents);
+    }
+  };
+
+  const handleDelete = (event) => {
+    const updatedEvents = events.filter((e) => e !== event);
+    setEvents(updatedEvents);
+  };
+
   return (
     <div className="grid grid-cols-4 gap-4 py-20 w-full h-full">
       <div className="rounded-lg shadow-md p-4 w-full col-span-3">
-        <CalenderDash events={events} />
+        <CalenderDash
+          events={events}
+          handleConfirmation={handleConfirmation}
+          selectedEvent={selectedEvent}
+          setSelectedEvent={setSelectedEvent}
+          handleDelete={handleDelete}
+        />
       </div>
       <div className="w-full h-full xl:px-4 px-2 col-span-1">
         <CardDash addEvent={addEvent} />

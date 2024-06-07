@@ -7,12 +7,19 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import ConfirmSelect from "./ConfirmSelect/ConfirmSelect";
 import { AuthContext } from "../../../context/AuthContext";
 
-const CalenderDash = ({ events }) => {
+const CalenderDash = ({
+  events,
+  handleConfirmation,
+  selectedEvent,
+  setSelectedEvent,
+  handleDelete,
+}) => {
   const { userData } = useContext(AuthContext);
   const localizer = momentLocalizer(moment);
   const currentMonth = moment().format("MMMM YYYY");
   const [selectedDoctor, setSelectedDoctor] = useState("");
-  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [deletingEvent, setDeletingEvent] = useState(null);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
   const filteredEvents =
     selectedDoctor && selectedDoctor !== "All"
@@ -35,19 +42,22 @@ const CalenderDash = ({ events }) => {
   };
 
   const handleEventSelect = (event) => {
-    if (event.status === "free") {
+    if (userData[0] && userData[0].status !== "client") {
+      setDeletingEvent(event);
+      setShowDeleteConfirmation(true);
+    } else if (
+      userData[0] &&
+      userData[0].status === "client" &&
+      event.status === "free"
+    ) {
       setSelectedEvent(event);
     }
   };
 
-  const handleConfirmation = () => {
-    if (selectedEvent) {
-      const updatedEvents = events.map((event) =>
-        event === selectedEvent ? { ...event, status: "chosen" } : event
-      );
-      setSelectedEvent(null);
-      setEvents(updatedEvents);
-    }
+  const handleDeleteConfirmation = () => {
+    handleDelete(deletingEvent);
+    setDeletingEvent(null);
+    setShowDeleteConfirmation(false);
   };
 
   return (
@@ -81,10 +91,19 @@ const CalenderDash = ({ events }) => {
         />
       </div>
 
+      {showDeleteConfirmation && (
+        <ConfirmSelect
+          setSelectedEvent={setShowDeleteConfirmation}
+          handleConfirmation={handleDeleteConfirmation}
+          labeltitle="Delete"
+        />
+      )}
+
       {selectedEvent && (
         <ConfirmSelect
           setSelectedEvent={setSelectedEvent}
           handleConfirmation={handleConfirmation}
+          labeltitle="Confirm"
         />
       )}
     </div>
