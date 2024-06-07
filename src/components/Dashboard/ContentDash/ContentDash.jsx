@@ -7,21 +7,35 @@ const ContentDash = () => {
     {
       title: "Dr. Omar",
       start: new Date("2024-06-08T12:30:00"),
+      status: "free",
     },
     {
       title: "Dr. Fatima",
       start: new Date("2024-06-10T12:30:00"),
+      status: "missed",
+    },
+    {
+      title: "Dr. Fatima",
+      start: new Date("2024-06-10T12:30:00"),
+      status: "missed",
     },
     {
       title: "Dr. Ahmed",
       start: new Date("2024-06-10T12:30:00"),
+      status: "chosen",
     },
     {
       title: "Dr. Ahmed",
       start: new Date("2024-06-07T12:30:00"),
+      status: "free",
+    },
+    {
+      title: "Dr. Ahmed",
+      start: new Date("2024-07-04T12:30:00"),
+      status: "free",
     },
   ]);
-  
+
   const addEvent = (newEvent) => {
     setEvents([...events, newEvent]);
   };

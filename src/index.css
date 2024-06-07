@@ -27,16 +27,13 @@
 }
 
 .rbc-selected {
-  @apply bg-second  !important;
+  @apply bg-third  !important;
 }
 
 .rbc-button-link{
   @apply font-bold  !important;
 }
 
-.rbc-event {
-  @apply bg-second !important;
-}
 
 .rbc-event:hover {
   @apply bg-six !important;

@@ -664,6 +664,7 @@ export const stateData = [
 ];
 
 export const doctorData = [
+  "All",
   "Dr. Ahmed",
   "Dr. Fatima",
   "Dr. Omar",
