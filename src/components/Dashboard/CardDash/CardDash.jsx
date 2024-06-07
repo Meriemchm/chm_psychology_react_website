@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { DashData } from "../../Data/Data";
 import { NavLink } from "react-router-dom";
 import CardItem from "./CardItem/CardItem";
 import CalenderForm from "../CalenderDash/CalenderForm/CalenderForm";
 import { ProfileDrData } from "../../Data/Data";
 import ProfileDrCard from "../../Utilities/ProfileDrCard/ProfileDrCard";
+import { AuthContext } from "../../../context/AuthContext";
+
 // import PropTypes from 'prop-types';
 
 const CardDash = ({ addEvent }) => {
+  const { userData } = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
-  const [title, setTitle] = useState("");
+  const title = userData[0] ? "Dr." + userData[0].username : ""
   const [start, setStart] = useState("");
+  const status = 'free'
 
   const handleAddEvent = (e) => {
     e.preventDefault();
-    if (title && start) {
-      const newEvent = { id: Date.now(), title, start };
+    if (title && start && status) {
+      const newEvent = { id: Date.now(), title, start,status };
       addEvent(newEvent);
       setShowModal(false);
-      setTitle("");
       setStart("");
     }
   };
@@ -31,17 +34,22 @@ const CardDash = ({ addEvent }) => {
   return (
     <div className="h-full flex flex-col ">
       {DashData.map(({ id, img, icon, description, title, src }, index) => {
-        return (
-          <div key={id} onClick={() => handleCardClick(id)}>
-            {id === 1 ? (
-              <CardItem
+        const side =
+          userData[0] && userData[0].status === "client" ? (
+            <ProfileDrCard data={ProfileDrData} />
+          ) : (
+            <CardItem
               icon={icon}
               title={title}
               description={description}
               img={img}
               id={id}
             />
-              // <ProfileDrCard data={ProfileDrData} />
+          );
+        return (
+          <div key={id} onClick={() => handleCardClick(id)}>
+            {id === 1 ? (
+              side
             ) : (
               <NavLink to={src}>
                 <CardItem
@@ -58,14 +66,12 @@ const CardDash = ({ addEvent }) => {
       })}
       {showModal && (
         <CalenderForm
-        title={title}
-        setTitle={setTitle}
-        start={start}
-        setStart={setStart}
-        handleAddEvent={handleAddEvent}
-        setShowModal={setShowModal}
-        showModal={showModal}
-      />
+          start={start}
+          setStart={setStart}
+          handleAddEvent={handleAddEvent}
+          setShowModal={setShowModal}
+          showModal={showModal}
+        />
       )}
     </div>
   );

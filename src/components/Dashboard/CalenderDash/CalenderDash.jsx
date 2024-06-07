@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import Selector from "../../Utilities/Selector/Selector";
 import { doctorData } from "../../Data/Data";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import ConfirmSelect from "./ConfirmSelect/ConfirmSelect";
+import { AuthContext } from "../../../context/AuthContext";
 
 const CalenderDash = ({ events }) => {
+  const { userData } = useContext(AuthContext);
   const localizer = momentLocalizer(moment);
   const currentMonth = moment().format("MMMM YYYY");
   const [selectedDoctor, setSelectedDoctor] = useState("");
@@ -54,14 +56,16 @@ const CalenderDash = ({ events }) => {
         <h2 className="font-bold rbc-toolbar-label md:text-xl ">
           {currentMonth}
         </h2>
-        <div className="p-2 absolute rounded-md right-1 -top-5 z-50 ">
-          <Selector
-            data={doctorData}
-            title={"select a doctor"}
-            value={selectedDoctor}
-            onChange={(doctorName) => setSelectedDoctor(doctorName)}
-          />
-        </div>
+        {userData[0] && userData[0].status === "client" && (
+          <div className="p-2 absolute rounded-md right-1 -top-5 z-50 ">
+            <Selector
+              data={doctorData}
+              title={"select a doctor"}
+              value={selectedDoctor}
+              onChange={(doctorName) => setSelectedDoctor(doctorName)}
+            />
+          </div>
+        )}
       </div>
 
       <div className="py-5">
@@ -78,7 +82,10 @@ const CalenderDash = ({ events }) => {
       </div>
 
       {selectedEvent && (
-        <ConfirmSelect setSelectedEvent={setSelectedEvent} handleConfirmation={handleConfirmation} />
+        <ConfirmSelect
+          setSelectedEvent={setSelectedEvent}
+          handleConfirmation={handleConfirmation}
+        />
       )}
     </div>
   );

@@ -31,6 +31,7 @@ const MultiStepForm = () => {
     password: "",
     profilePicture: "",
     valid: "",
+    status: "client",
     timeStamp: serverTimestamp(),
   });
   useEffect(() => {
@@ -109,7 +110,6 @@ const MultiStepForm = () => {
         .catch((error) => {
           setError(true);
         });
-      console.log("je suis la");
     } catch (error) {
       console.error("Error adding document: ", error);
     }

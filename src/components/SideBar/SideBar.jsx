@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const SideBar = () => {
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch, userData } = useContext(AuthContext);
   const [activeItem, setActiveItem] = useState(1);
   const location = useLocation();
   const currentPath = location.pathname.split("/").pop();
@@ -33,7 +33,9 @@ const SideBar = () => {
         </h1>
 
         <ul className="py-28 fixed">
-          {SideBarData.map(({ id, link, style, img, src }) => {
+          {SideBarData.filter(
+            (item) => !(userData[0] && userData[0].status !== "client" && item.id === 2)
+          ).map(({ id, link, style, img, src }) => {
             return (
               <NavLink
                 key={id}
@@ -59,6 +61,7 @@ const SideBar = () => {
               </NavLink>
             );
           })}
+
           <div className="p-5 flex flex-col justify-center items-center">
             <button className="bg-primary border-1 border-primary xl:text-lg text-four px-10 xl:px-16 py-3 rounded-2xl font-bold duration-200 hover:scale-105">
               <a href="/" target="_blank" rel="noopener noreferrer">

@@ -7,7 +7,7 @@ import { AuthContext } from "../../../context/AuthContext";
 
 const NavBarDash = () => {
   const { userData } = useContext(AuthContext);
-  console.log(userData);
+
   return (
     <div className="py-5 w-full pr-4">
       <ul className="flex items-center justify-between">

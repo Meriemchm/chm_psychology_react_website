@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import moment from "moment";
 import Selector from "../../../Utilities/Selector/Selector";
 import { doctorData } from "../../../Data/Data";
-
+import { AuthContext } from "../../../../context/AuthContext";
 function CalenderForm({
-  title,
-  setTitle,
   start,
   setStart,
   handleAddEvent,
   setShowModal,
-  showModal
+  showModal,
 }) {
+  const { userData } = useContext(AuthContext);
   useEffect(() => {
     const handleScroll = (e) => {
       if (showModal) {
@@ -46,11 +45,11 @@ function CalenderForm({
       <div className="bg-white p-5 rounded-md relative md:w-1/3">
         <h2 className="text-xl font-bold pb-20">Add Event</h2>
         <div className="absolute w-full top-16 pr-10">
-          <Selector
-            data={doctorData}
-            title={"select a doctor"}
-            value={title}
-            onChange={(selectedDoctor) => setTitle(selectedDoctor)}
+          <input
+            type="text"
+            placeholder="Select a doctor"
+            defaultValue={userData[0] ? "Dr." + userData[0].username : ""}
+            className="border-2 p-2 mb-4 w-full text-six border-six rounded-xl"
           />
         </div>
         <label>Start Time:</label>
