@@ -7,15 +7,21 @@ import { ProfileDrData } from "../../Data/Data";
 import ProfileDrCard from "../../Utilities/ProfileDrCard/ProfileDrCard";
 // import PropTypes from 'prop-types';
 
-const CardDash = ({ setEvent }) => {
+const CardDash = ({ addEvent }) => {
   const [showModal, setShowModal] = useState(false);
-  const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
+  const [title, setTitle] = useState("");
+  const [start, setStart] = useState("");
 
-  const handleAddEvent = () => {
-    setEvent((prevEvents) => [...prevEvents, newEvent]);
-    setShowModal(false);
+  const handleAddEvent = (e) => {
+    e.preventDefault();
+    if (title && start) {
+      const newEvent = { id: Date.now(), title, start };
+      addEvent(newEvent);
+      setShowModal(false);
+      setTitle("");
+      setStart("");
+    }
   };
-
   const handleCardClick = (id) => {
     if (id === 1) {
       setShowModal(true);
@@ -28,7 +34,14 @@ const CardDash = ({ setEvent }) => {
         return (
           <div key={id} onClick={() => handleCardClick(id)}>
             {id === 1 ? (
-              <ProfileDrCard data={ProfileDrData} />
+              <CardItem
+              icon={icon}
+              title={title}
+              description={description}
+              img={img}
+              id={id}
+            />
+              // <ProfileDrCard data={ProfileDrData} />
             ) : (
               <NavLink to={src}>
                 <CardItem
@@ -43,15 +56,17 @@ const CardDash = ({ setEvent }) => {
           </div>
         );
       })}
-      {/* {showModal && (
+      {showModal && (
         <CalenderForm
-          showModal={showModal}
-          newEvent={newEvent}
-          setNewEvent={setNewEvent}
-          handleAddEvent={handleAddEvent}
-          setShowModal={setShowModal}
-        />
-      )} */}
+        title={title}
+        setTitle={setTitle}
+        start={start}
+        setStart={setStart}
+        handleAddEvent={handleAddEvent}
+        setShowModal={setShowModal}
+        showModal={showModal}
+      />
+      )}
     </div>
   );
 };

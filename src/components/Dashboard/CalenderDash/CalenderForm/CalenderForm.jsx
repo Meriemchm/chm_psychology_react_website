@@ -4,11 +4,13 @@ import Selector from "../../../Utilities/Selector/Selector";
 import { doctorData } from "../../../Data/Data";
 
 function CalenderForm({
-  showModal,
-  newEvent,
-  setNewEvent,
-  setShowModal,
+  title,
+  setTitle,
+  start,
+  setStart,
   handleAddEvent,
+  setShowModal,
+  showModal
 }) {
   useEffect(() => {
     const handleScroll = (e) => {
@@ -39,45 +41,35 @@ function CalenderForm({
     };
   }, [showModal]);
 
-  const handleSubmit = () => {
-    handleAddEvent();
-  };
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white p-5 rounded-md relative md:w-1/3">
         <h2 className="text-xl font-bold pb-20">Add Event</h2>
-        <div className="absolute w-full top-16 pr-10 ">
+        <div className="absolute w-full top-16 pr-10">
           <Selector
             data={doctorData}
             title={"select a doctor"}
-            value={newEvent.title}
-            onChange={(selectedDoctor) =>
-              setNewEvent({ ...newEvent, title: selectedDoctor })
-            }
+            value={title}
+            onChange={(selectedDoctor) => setTitle(selectedDoctor)}
           />
         </div>
         <label>Start Time:</label>
         <input
           type="datetime-local"
-          value={moment(newEvent.start).format("YYYY-MM-DDTHH:mm")}
-          onChange={(e) =>
-            setNewEvent({ ...newEvent, start: new Date(e.target.value) })
-          }
+          value={start ? moment(start).format("YYYY-MM-DDTHH:mm") : ""}
+          onChange={(e) => setStart(new Date(e.target.value))}
           className="border-2 p-2 mb-4 w-full text-six border-six rounded-xl"
         />
-        <label>End Time:</label>
+        {/* <label>End Time:</label>
         <input
           type="datetime-local"
-          value={moment(newEvent.end).format("YYYY-MM-DDTHH:mm")}
-          onChange={(e) =>
-            setNewEvent({ ...newEvent, end: new Date(e.target.value) })
-          }
+          value={end ? moment(end).format("YYYY-MM-DDTHH:mm") : ""}
+          onChange={(e) => setEnd(new Date(e.target.value))}
           className="border-2 p-2 mb-4 w-full text-six border-six rounded-xl"
-        />
+        /> */}
         <div className="flex justify-between py-5">
           <button
-            onClick={handleSubmit}
+            onClick={handleAddEvent}
             className="bg-primary text-white p-2 rounded-md"
           >
             Add Event

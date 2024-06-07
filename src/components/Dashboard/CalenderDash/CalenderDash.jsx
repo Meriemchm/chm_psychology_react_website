@@ -8,17 +8,17 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const CalenderDash = ({ events }) => {
   const localizer = momentLocalizer(moment);
-  const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
-
-  const handleSelectSlot = ({ start, end }) => {
-    setNewEvent({ ...newEvent, start, end });
-  };
-
-  const handleSelectEvent = (event) => {
-    setNewEvent(event);
-  };
-
   const currentMonth = moment().format("MMMM YYYY");
+  // const [newEvent, setNewEvent] = useState({ title: "", start: "" });
+
+  // const handleSelectSlot = ({ start }) => {
+  //   setNewEvent({ ...newEvent, start });
+  // };
+
+  // const handleSelectEvent = (event) => {
+  //   setNewEvent(event);
+  // };
+
 
   return (
     <div className="flex flex-col w-full">
@@ -30,23 +30,21 @@ const CalenderDash = ({ events }) => {
           <Selector
             data={doctorData}
             title={"select a doctor"}
-            value={newEvent.title}
+            value={events.title}
             onChange={(selectedDoctor) =>
-              setNewEvent({ ...newEvent, title: selectedDoctor })
+              setEvents({ ...events, title: selectedDoctor })
             }
           />
         </div>
       </div>
 
-      <div className="py-5">
+ <div className="py-5">
         <Calendar
           localizer={localizer}
           events={events}
           startAccessor="start"
-          endAccessor="end"
+          endAccessor="start" 
           selectable
-          onSelectSlot={handleSelectSlot}
-          onSelectEvent={handleSelectEvent}
           style={{ height: 500 }}
         />
       </div>
