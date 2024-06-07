@@ -13,8 +13,6 @@ const AccountSideBar = () => {
     setActiveTab(index);
   };
 
-  console.log(menuAccountItem[activeTab].id);
-
   return (
     <>
       <div className="md:w-1/3 md:h-96">

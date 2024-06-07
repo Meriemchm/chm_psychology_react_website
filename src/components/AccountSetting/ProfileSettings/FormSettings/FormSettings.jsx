@@ -19,7 +19,7 @@ const FormSettings = () => {
               if (label.toLowerCase() === "username") {
                 value = userData.length > 0 ? userData[0]?.username : "";
               }
-              console.log(label.toLowerCase() === "country");
+
               return (
                 <div
                   key={id}
