@@ -3,7 +3,7 @@ import iconBack from "../../../assets/iconBack.svg";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 
-const NavBarHelp = ({title}) => {
+const NavBarHelp = ({ title }) => {
   const { currentUser } = useContext(AuthContext);
 
   return (
@@ -12,14 +12,14 @@ const NavBarHelp = ({title}) => {
         <NavLink to="/dashboard">
           <div className="flex gap-4">
             <img src={iconBack} alt="iconBack" />
-            <p className="text-2xl text-third font-bold">Go to Dashboard</p>
+            <p className="md:text-2xl text-third font-bold">Go to Dashboard</p>
           </div>
         </NavLink>
       ) : (
         <NavLink to="/">
           <div className="flex gap-4">
             <img src={iconBack} alt="iconBack" />
-            <p className="text-2xl text-third font-bold">Home</p>
+            <p className="md:text-2xl text-third font-bold md:flex hidden">Home</p>
           </div>
         </NavLink>
       )}

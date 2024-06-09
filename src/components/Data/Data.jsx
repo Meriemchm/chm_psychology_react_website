@@ -251,25 +251,25 @@ export const ComparisonData = [
     id: 1,
     title: "Lower cost",
     itemOne: (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="flex md:justify-center">
         <img src={vector} className="self-center" alt="Vector" />
       </div>
     ),
     itemTwo: "-",
     style: "",
-    others: "px-16",
+    others: "md:px-16",
   },
   {
     id: 2,
     title: "Lower time consumption",
     itemOne: (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="flex md:justify-center">
         <img src={vector} className="self-center" alt="Vector" />
       </div>
     ),
     itemTwo: "-",
     style: "bg-graytab bg-opacity-20",
-    others: "px-16",
+    others: "md:px-16",
   },
   {
     id: 3,
@@ -277,43 +277,43 @@ export const ComparisonData = [
     itemOne: "Anywhere (Internet required)",
     itemTwo: "Clinics in your area",
     style: "",
-    others: "text-second underline px-16",
+    others: "text-second underline md:px-16 pr-2",
   },
   {
     id: 4,
     title: "Less efforts",
     itemOne: (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="flex md:justify-center">
         <img src={vector} className="self-center" alt="Vector" />
       </div>
     ),
     itemTwo: "-",
     style: "bg-graytab bg-opacity-20",
-    others: "px-16",
+    others: "md:px-16",
   },
   {
     id: 5,
     title: "Better doctors availability",
     itemOne: (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="flex md:justify-center">
         <img src={vector} className="self-center" alt="Vector" />
       </div>
     ),
     itemTwo: "-",
     style: "",
-    others: "px-16",
+    others: "md:px-16",
   },
   {
     id: 6,
     title: "Better appointment flexibility",
     itemOne: (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="flex md:justify-center">
         <img src={vector} className="self-center" alt="Vector" />
       </div>
     ),
     itemTwo: "-",
     style: "bg-graytab bg-opacity-20 ",
-    others: "px-16",
+    others: "md:px-16",
   },
 ];
 
@@ -392,7 +392,7 @@ export const DashData = [
       </div>
     ),
     img: (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="xl:flex justify-center hidden">
         <img src={Illustrationdash_2} className="self-center" alt="dashimage" />
       </div>
     ),
@@ -409,7 +409,7 @@ export const DashData = [
       </div>
     ),
     img: (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="xl:flex justify-center hidden">
         <img src={Illustrationdash_1} className="self-center" alt="dashimage" />
       </div>
     ),

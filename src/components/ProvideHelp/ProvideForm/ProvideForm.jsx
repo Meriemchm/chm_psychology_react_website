@@ -9,16 +9,15 @@ const ProvideForm = () => {
   const endElemnt = inputItem.slice(-1)[0];
   return (
     <div className="flex flex-col 2xl:flex-row justify-center items-center  md:w-full lg:px-0 ">
-      <div className="rounded-lg shadow-md p-20">
+      <p className=" mb-5 text-2xl md:text-3xl self-center font-bold">
+        Provide Support !
+      </p>
+      <div className="rounded-lg shadow-md md:p-20 p-4">
         <form
           action={client}
           method="POST"
           className="flex flex-col w-full justify-center mt-5 gap-4"
         >
-          <p className=" mb-5 text-2xl md:text-3xl self-center font-bold">
-            Provide Support !
-          </p>
-
           <div className="flex gap-3  ">
             {inputItem.slice(0, 2).map((item, id) => {
               return (

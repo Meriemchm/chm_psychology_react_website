@@ -33,7 +33,7 @@ function ProfileDr({ profile }) {
   ];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       <div className="bg-third/40 h-60 relative">
         <div className="flex absolute -bottom-16 left-8">
           <img src={PFP} alt={username} className="h-40" />

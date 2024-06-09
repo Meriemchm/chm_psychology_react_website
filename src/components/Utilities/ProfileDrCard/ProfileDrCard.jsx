@@ -8,7 +8,7 @@ const ProfileDrCard = ({ data, onCardClick }) => {
   const isExplorePage = location.pathname === "/dashboard/explore";
 
   return (
-    <div className="h-full flex flex-col rounded-lg shadow-md px-3 justify-start">
+    <div className="h-full flex flex-col w-full rounded-lg shadow-md px-3 justify-start">
       <div className="flex justify-between py-4">
         <h2 className="font-bold text-xl ">Doctors</h2>
         {!isExplorePage && (
@@ -19,21 +19,25 @@ const ProfileDrCard = ({ data, onCardClick }) => {
           </Link>
         )}
       </div>
-      {data.map(({ id, username, src }) => (
-        <div
-          key={id}
-          className={`cursor-pointer py-3 flex justify-between ${
-            id !== 1 ? "border-t" : ""
-          }`}
-          onClick={() => onCardClick({ id, username, src })}
-        >
-          <div className="flex flex-row gap-3">
-            <img src={userpic} alt="drpic" />
-            <h3 className="font-bold text-base self-center">{username}</h3>
+      <div className="flex w-full md:flex-col ">
+        {data.map(({ id, username, src }) => (
+          <div
+            key={id}
+            className={`cursor-pointer py-3 flex justify-between md:px-0  px-2 ${
+              id !== 1 ? "md:border-t border-l md:border-l-0" : ""
+            }`}
+            onClick={() => onCardClick({ id, username, src })}
+          >
+            <div className="flex flex-row gap-3">
+              <img src={userpic} alt="drpic" />
+              <h3 className="font-bold md:text-base text-sm self-center">
+                {username}
+              </h3>
+            </div>
+            <img src={chevrondown} alt="" className=" -rotate-90" />
           </div>
-          <img src={chevrondown} alt="" className=" -rotate-90" />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

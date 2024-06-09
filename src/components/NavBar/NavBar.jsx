@@ -61,21 +61,21 @@ const NavBar = () => {
 
         <div
           onClick={() => setShow(!show)}
-          className="cursor-pointer  z-10 text-gray-500 lg:hidden"
+          className="cursor-pointer  z-10 text-gray-500 lg:hidden "
         >
           {show ? <img src={times} size={30} /> : <img src={bars} size={30} />}
         </div>
         {show && (
-          <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-third text-white/80">
+          <ul className="flex flex-col justify-center items-start absolute top-0 right-0  w-1/2 h-screen bg-secondvariant text-black">
             {NavlinkData.map(({ id, link, src }) => {
               return (
                 <li
                   key={id}
-                  className="px-4 py-4 cursor-pointer text-4xl text-five hover:scale-105 duration-200 capitalize"
+                  className="px-4 py-4 cursor-pointer hover:scale-105 duration-200 capitalize"
                 >
                   <NavLink
                     to={src}
-                    className="text-white"
+                    className="text-xl"
                     onClick={() => setShow(!show)}
                   >
                     {link}

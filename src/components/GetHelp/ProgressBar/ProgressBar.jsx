@@ -9,7 +9,7 @@ function ProgressBar({ progress }) {
       ></div>
       <p
         style={{ marginLeft: `${progress}%` }}
-        className="-top-6 text-primary font-semibold absolute"
+        className="-top-6 text-primary font-semibold absolute right-0"
       >
         {progress === 100 ? "Complete!" : `${progress}%`}
       </p>

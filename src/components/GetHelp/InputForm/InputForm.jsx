@@ -54,7 +54,7 @@ const InputForm = ({ Data, title, action, formData, onChange }) => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center gap-3 px-14">
+    <div className="flex flex-col justify-center items-center gap-3 md:px-14 px-5">
       <label className=" mb-2 text-lg font-bold self-start ">{title}</label>
 
       {Data.map(({ id, placeholder, type, style, name }) => {

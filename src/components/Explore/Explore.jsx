@@ -14,8 +14,8 @@ function Explore() {
   };
 
   return (
-    <div className="flex flex-col px-10 py-5 h-screen">
-      <div className="flex justify-between">
+    <div className="flex flex-col md:px-10 px-5 py-5 h-full">
+      <div className="flex flex-col md:flex-row gap-3 md:gap-0 justify-between">
         <h2 className="font-bold text-2xl">Explore</h2>
         <div>
           <SearchInput onSearch={handleSearch} />

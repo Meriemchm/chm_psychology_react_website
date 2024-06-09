@@ -12,7 +12,7 @@ const SelectionItemForm = ({
   };
 
   return (
-    <div className="px-14">
+    <div className="md:px-14 px-5">
       <label className="block mb-2 text-lg font-bold">{title}</label>
       <RadioGroup value={selectedValue} onChange={handleChange}>
         {radioItem.map(({ id, title }) => (

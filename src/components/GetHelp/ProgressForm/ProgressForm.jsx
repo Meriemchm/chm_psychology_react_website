@@ -198,7 +198,7 @@ const MultiStepForm = () => {
         >
           <div className="py-10 rounded-lg shadow-md">
             {showError && (
-              <p className="text-red-400 mb-2 px-14 ">
+              <p className="text-red-400 mb-2 md:px-14 px-5 ">
                 Please fill in all required fields before proceeding.
               </p>
             )}
@@ -215,7 +215,7 @@ const MultiStepForm = () => {
             )}
 
             {step === 2 && (
-              <div className="px-14">
+              <div className="md:px-14 px-5">
                 <label className="  text-lg font-bold self-start mb-2 ">
                   How old are you?
                 </label>
