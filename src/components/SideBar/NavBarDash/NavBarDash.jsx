@@ -23,17 +23,17 @@ const NavBarDash = () => {
           <div className=" border-2 border-black-200 xl:text-xl p-5  rounded-[20rem] ">
             <span className="text-primary"> Credits: </span> 10,250 DA
           </div>
+          {NavDashData.map(({ id, link, style, src }) => {
+            return (
+              <li
+                key={id}
+                className={` px-8 cursor-pointer text-lg text-five hover:scale-105 duration-200 capitalize ${style}`}
+              >
+                <NavLink to={src}>{link}</NavLink>
+              </li>
+            );
+          })}
         </div>
-        {NavDashData.map(({ id, link, style, src }) => {
-          return (
-            <li
-              key={id}
-              className={` px-8 cursor-pointer text-lg text-five hover:scale-105 duration-200 capitalize ${style}`}
-            >
-              <NavLink to={src}>{link}</NavLink>
-            </li>
-          );
-        })}
 
         <div className="flex flex-row justify-center items-center  border-2 border-black-200 xl:text-xl p-1  rounded-[20rem]  ">
           {userData[0] && userData[0].profilePicture && (
@@ -45,7 +45,11 @@ const NavBarDash = () => {
           )}
 
           <p className="px-5">
-            Hey there, {userData[0] && <span className="text-six">{userData[0].username}</span>} !
+            Hey there,{" "}
+            {userData[0] && (
+              <span className="text-six">{userData[0].username}</span>
+            )}{" "}
+            !
           </p>
         </div>
       </ul>

@@ -47,16 +47,16 @@ export const NavlinkData = [
 ];
 
 export const NavDashData = [
-  {
-    id: 1,
-    link: "Clinics Around Me",
-    src: "ClinicsAroundMe",
-    style: "text-second",
-  },
+  // {
+  //   id: 1,
+  //   link: "Clinics Around Me",
+  //   src: "/dashboard",
+  //   style: "text-second",
+  // },
   {
     id: 2,
     link: "Book an Appointment",
-    src: "BookanAppointment",
+    src: "/dashboard",
     style: "text-second",
   },
 ];
