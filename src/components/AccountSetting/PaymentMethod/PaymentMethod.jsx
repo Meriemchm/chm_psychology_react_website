@@ -8,8 +8,8 @@ function PaymentMethod() {
     <div className="relative ">
       <h1 className="font-bold text-2xl pb-10">Payment Information</h1>
       
-      <p className="text-lg absolute left-0 text-center">Preferred method</p>
-      <div className="absolute right-0 ">
+      <p className="text-lg absolute left-0 text-center hidden md:flex">Preferred method</p>
+      <div className="absolute md:right-0  ">
         <Selector data={stateData} title="Edahabia (CCP)" />
       </div>
       <PaymentMethodForm />

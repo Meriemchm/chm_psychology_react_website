@@ -14,8 +14,8 @@ const NotificationsForm = () => {
               <th
                 key={id}
                 scope="col"
-                className={`py-3 text-left font-medium ${
-                  id !== 1 ? "px-6" : ""
+                className={`py-3 text-left text-sm md:text-base font-medium ${
+                  id !== 1 ? "md:px-6" : ""
                 }`}
               >
                 {title}
@@ -26,14 +26,14 @@ const NotificationsForm = () => {
         <tbody className="">
           {NotificationsData.map(({ id, title }) => (
             <tr key={id}>
-              <td className="py-4 whitespace-nowrap ">{title}</td>
-              <td className="px-10 py-4 whitespace-nowrap ">
+              <td className="py-4 whitespace-nowrap text-xs md:text-base ">{title}</td>
+              <td className="md:px-10 py-4 whitespace-nowrap ">
                 <CheckBoxCustom />
               </td>
-              <td className="px-10 py-4 whitespace-nowrap  ">
+              <td className="md:px-10 py-4 whitespace-nowrap  ">
                 <CheckBoxCustom />
               </td>
-              <div className="px-5 py-2">
+              <div className="md:px-5 py-2">
                 <SwitchContainer />
               </div>
             </tr>

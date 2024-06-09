@@ -8,7 +8,7 @@ const ProfileDrCard = ({ data, onCardClick }) => {
   const isExplorePage = location.pathname === "/dashboard/explore";
 
   return (
-    <div className="h-full flex flex-col w-full rounded-lg shadow-md px-3 justify-start">
+    <div className="h-full flex flex-col w-full rounded-lg shadow-md px-3 justify-start overflow-x-scroll md:overflow-hidden ">
       <div className="flex justify-between py-4">
         <h2 className="font-bold text-xl ">Doctors</h2>
         {!isExplorePage && (
@@ -19,7 +19,7 @@ const ProfileDrCard = ({ data, onCardClick }) => {
           </Link>
         )}
       </div>
-      <div className="flex w-full md:flex-col ">
+      <div className="flex w-full md:flex-col md:gap-0 gap-32">
         {data.map(({ id, username, src }) => (
           <div
             key={id}

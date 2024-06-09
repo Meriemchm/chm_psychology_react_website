@@ -60,7 +60,7 @@ const NavBarDash = () => {
         </div>
       </div>
       <div className="py-5 w-full md:pr-4 ">
-        <ul className="flex flex-col md:flex-row gap-3 md:gap-0 items-start md:items-center justify-between">
+        <ul className="flex flex-col md:flex-row items-start md:items-center justify-between">
           <div className="flex items-center">
             <p>
               <NavLink

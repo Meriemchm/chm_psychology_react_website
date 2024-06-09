@@ -7,9 +7,9 @@ const Notifications = () => {
     <div className="flex flex-col">
       <h1 className="font-bold text-2xl pb-2">Notifications</h1>
 
-      <div className="flex justify-between">
+      <div className="flex md:justify-between md:gap-0  gap-32">
         <p className="text-lg pb-10 pt-2">Enable Notifications</p>
-        <SwitchContainer/>
+        <SwitchContainer />
       </div>
 
       <div>

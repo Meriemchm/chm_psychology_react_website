@@ -13,7 +13,7 @@ function PaymentMethodForm() {
                 key={id}
                 scope="col"
                 className={`py-3 text-left font-medium ${
-                  id !== 1 ? "px-20" : ""
+                  id !== 1 ? "md:px-20 px-10" : ""
                 }`}
               >
                 {title}
@@ -25,10 +25,10 @@ function PaymentMethodForm() {
         <tbody className="">
           <tr>
             <td className=" py-4 whitespace-nowrap">Carte CIB</td>
-            <td className="px-20 py-4 whitespace-nowrap text-graytabledash ">
+            <td className="md:px-20  px-10 py-4 whitespace-nowrap text-graytabledash ">
               5321
             </td>
-            <td className="px-20 py-4 whitespace-nowrap text-sm ">
+            <td className="md:px-20 px-10 py-4 whitespace-nowrap text-sm ">
               <a href="#" className="text-second underline hover:no-underline">
                 Edit
               </a>

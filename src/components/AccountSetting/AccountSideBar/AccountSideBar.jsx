@@ -21,7 +21,7 @@ const AccountSideBar = () => {
             return (
               <div key={id} onClick={() => handleClick(index)}>
                 <li
-                  className={`flex md:py-5 px-3 py-3 w-full md:px-5 justify-start items-center md:gap-5 gap-2 shadow-lg lg:w-5/6 rounded-lg cursor-pointer 
+                  className={`flex md:py-5 px-3 py-3 w-full md:px-5 justify-start items-center md:gap-5  shadow-lg lg:w-5/6 rounded-lg cursor-pointer 
                   ${
                     activeTab === index
                       ? "border-2 border-primary"
@@ -31,14 +31,14 @@ const AccountSideBar = () => {
                 >
                   <div className={`flex rounded-lg w-10 h-10`}>
                     <div
-                      className={`m-auto rounded-md w-10 h-10 flex justify-center items-center`}
+                      className={`m-auto rounded-md w-10 h-10 flex justify-center items-center `}
                     >
                       {icon}
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <h2 className="text-bold capitalize">{title}</h2>
-                    <p className="text-sm capitalize text-six">{description}</p>
+                    <h2 className="text-bold capitalize hidden md:flex text-base">{title}</h2>
+                    <p className="text-sm capitalize text-six hidden md:flex">{description}</p>
                   </div>
                 </li>
               </div>
@@ -46,7 +46,7 @@ const AccountSideBar = () => {
           })}
         </div>
       </div>
-      <div className=" rounded-lg shadow-md p-8">
+      <div className=" rounded-lg shadow-md md:p-8 p-3">
         {menuAccountItem[activeTab].title === "Profile Settings" && (
           <ProfileSettings />
         )}
