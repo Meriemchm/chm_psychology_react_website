@@ -46,9 +46,10 @@ const CalenderDash = ({
       setDeletingEvent(event);
       setShowDeleteConfirmation(true);
     } else if (
-      userData[0] &&
-      userData[0].status === "client" &&
-      event.status === "free"
+      (userData[0] &&
+        userData[0].status === "client" &&
+        event.status === "free") ||
+      event.status === "chosen"
     ) {
       setSelectedEvent(event);
     }
@@ -96,6 +97,7 @@ const CalenderDash = ({
           setSelectedEvent={setShowDeleteConfirmation}
           handleConfirmation={handleDeleteConfirmation}
           labeltitle="Delete"
+          questionword="Delete"
         />
       )}
 
@@ -103,7 +105,8 @@ const CalenderDash = ({
         <ConfirmSelect
           setSelectedEvent={setSelectedEvent}
           handleConfirmation={handleConfirmation}
-          labeltitle="Confirm"
+          labeltitle = 'Confirm'
+          questionword={selectedEvent.status === "free" ? "Choose" : "Cancel"}
         />
       )}
     </div>

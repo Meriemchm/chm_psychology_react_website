@@ -1,10 +1,10 @@
 import React from "react";
 
-function ConfirmSelect({ setSelectedEvent, handleConfirmation, labeltitle }) {
+function ConfirmSelect({ setSelectedEvent,questionword, handleConfirmation, labeltitle }) {
   return (
     <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white p-5 rounded-md">
-        <p>Do you want to choose this event?</p>
+        <p>Do you want to <span className="font-bold">{questionword}</span>  this event?</p>
         <div className="flex justify-between mt-4">
           <button
             onClick={() => setSelectedEvent(null)}
@@ -15,7 +15,7 @@ function ConfirmSelect({ setSelectedEvent, handleConfirmation, labeltitle }) {
           <button
             onClick={handleConfirmation}
             className={`${
-              labeltitle === "Delete" ? "bg-red-400" : "bg-third"
+              questionword === "Delete" || questionword === "Cancel" ? "bg-red-400" : "bg-third"
             } text-white px-4 py-2 rounded-md`}
           >
             {labeltitle}

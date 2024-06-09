@@ -44,7 +44,9 @@ const ContentDash = () => {
   const handleConfirmation = () => {
     if (selectedEvent) {
       const updatedEvents = events.map((event) =>
-        event === selectedEvent ? { ...event, status: "chosen" } : event
+        event === selectedEvent
+          ? { ...event, status: event.status === "chosen" ? "free" : "chosen" }
+          : event
       );
       setSelectedEvent(null);
       setEvents(updatedEvents);
@@ -59,7 +61,7 @@ const ContentDash = () => {
   return (
     <div className="grid grid-cols-4 gap-4 py-20 w-full h-full">
       <div className="rounded-lg shadow-md p-4 w-full col-span-3">
-        <CalenderDash
+      <CalenderDash
           events={events}
           handleConfirmation={handleConfirmation}
           selectedEvent={selectedEvent}

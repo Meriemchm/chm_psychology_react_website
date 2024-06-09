@@ -14,6 +14,7 @@ const CardDash = ({ addEvent }) => {
   const [showModal, setShowModal] = useState(false);
   const title = userData[0] ? "Dr." + userData[0].username : "";
   const [start, setStart] = useState("");
+  const [selectedProfile, setSelectedProfile] = useState(null);
   const status = "free";
   const navigate = useNavigate()
 
@@ -31,7 +32,6 @@ const CardDash = ({ addEvent }) => {
       setShowModal(true);
     }
   };
-  const [selectedProfile, setSelectedProfile] = useState(null);
 
   const handleProfileClick = (profile) => {
     setSelectedProfile(profile);

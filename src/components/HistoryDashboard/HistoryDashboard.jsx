@@ -72,7 +72,7 @@ const HistoryDashboard = () => {
             <img src={IconSort} alt="iconSearch" />
           </div>
           <p className="pr-5 font-medium ">
-            Sort <span className="px-5 border-l-2 text-six/50 "> {sortType === "missed" ? "Missed" : "Complete"}</span>
+            Sort <span className={`px-5 border-l-2  ${sortType === "missed" ? "text-red-500" : "text-green-500" } `}> {sortType === "missed" ? "Missed" : "Complete"}</span>
           </p>
         </div>
 
