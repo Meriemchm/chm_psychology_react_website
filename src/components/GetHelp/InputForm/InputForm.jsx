@@ -37,7 +37,7 @@ const InputForm = ({ Data, title, action, formData, onChange }) => {
     }
 
     if (name === "email") {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
       if (!emailRegex.test(value)) {
         setErrors((prevErrors) => ({
           ...prevErrors,
