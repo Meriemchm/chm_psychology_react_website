@@ -490,7 +490,7 @@ export const AccountSettingsForm = [
     label: "Country",
     placeholder: "Algeria",
     type: "text",
-    style: "mt-8",
+    style: "md:mt-8",
   },
 ];
 
