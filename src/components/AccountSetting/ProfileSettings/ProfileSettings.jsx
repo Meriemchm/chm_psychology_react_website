@@ -1,21 +1,17 @@
 import React from "react";
-
 import FormSettings from "./FormSettings/FormSettings";
 import ChangePicture from "./ChangePicture/ChangePicture";
 
+const ProfileSettings = ({setFormData}) => {
 
-const ProfileSettings = () => {
   return (
     <div>
       <h1 className="font-bold text-2xl pb-2">Profile Picture</h1>
-      <ChangePicture/>
+      <ChangePicture />
       <div>
-        {" "}
         <h2 className="font-bold text-2xl pt-10">Personal Information</h2>
-        <FormSettings />
+        <FormSettings setFormData={setFormData} />
       </div>
-
-      
     </div>
   );
 };

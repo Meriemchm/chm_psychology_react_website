@@ -479,7 +479,7 @@ export const AccountSettingsForm = [
 
   {
     id: 6,
-    label: "Zip Code",
+    label: "ZipCode",
     placeholder: "0000",
     type: "number",
     style: "mt-8",
