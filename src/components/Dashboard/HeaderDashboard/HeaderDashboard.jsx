@@ -16,7 +16,7 @@ const HeaderDashboard = () => {
         <img
           src={IllustrationDash}
           alt="illustrate"
-          className="absolute right-10 -top-20"
+          className="absolute hidden md:flex right-10 -top-20"
         />
       </div>
     </div>

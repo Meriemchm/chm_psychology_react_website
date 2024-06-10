@@ -31,7 +31,7 @@ const MultiStepForm = () => {
     password: "",
     profilePicture: "",
     valid: "",
-    status: "client",
+    status: "",
     timeStamp: serverTimestamp(),
   });
   useEffect(() => {
@@ -96,7 +96,7 @@ const MultiStepForm = () => {
         formData.password
       );
       await setDoc(doc(db, "users", res.user.uid), {
-        ...formData,
+        id:res.user.uid, ...formData,
       });
     
       await signInWithEmailAndPassword(auth, formData.email, formData.password)

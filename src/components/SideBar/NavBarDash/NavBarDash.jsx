@@ -1,7 +1,7 @@
 // Sidebar.js
 import React, { useContext, useState } from "react";
 import { NavDashData } from "../../Data/Data";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import userPic from "../../../assets/userPic.svg";
 import { AuthContext } from "../../../context/AuthContext";
 import { SideBarData } from "../../Data/Data";
@@ -10,11 +10,21 @@ import times from "../../../assets/times.svg";
 
 const NavBarDash = () => {
   const [show, setShow] = useState(false);
-  const { userData } = useContext(AuthContext);
+  const { dispatch, userData } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/");
+  };
+  const handleItemClick = (id, link) => {
+    if (link === "Logout") {
+      handleLogout();
+    }
+  };
 
   return (
     <>
-      <div className="flex justify-between pt-5 md:pt-0">
+      <div className="flex justify-between pt-5 xl:pt-0">
         <div
           onClick={() => setShow(!show)}
           className="cursor-pointer  z-50 text-gray-500 xl:hidden  px-5  pt-5  "
@@ -28,6 +38,9 @@ const NavBarDash = () => {
                 <li
                   key={id}
                   className="px-4 py-4 cursor-pointer hover:scale-105 duration-200 capitalize"
+                  onClick={() => {
+                    handleItemClick(id, link);
+                  }}
                 >
                   <NavLink
                     to={src}
@@ -41,16 +54,16 @@ const NavBarDash = () => {
             })}
           </ul>
         )}
-        <div className="flex flex-row md:hidden justify-center items-center  border-2 border-black-200 xl:text-xl p-1  rounded-[20rem]  ">
+        <div className="flex flex-row xl:hidden pr-3 justify-center items-center  md:border-2 border-black-200 xl:text-xl p-1  rounded-[20rem]  ">
           {userData[0] && userData[0].profilePicture && (
             <img
               src={userData[0].profilePicture}
-              className="h-16 w-16"
+              className="md:h-16 md:w-16 h-14 w-14 order-2 md:order-1"
               alt=""
             />
           )}
 
-          <p className="px-5">
+          <p className="px-5 text-sm md:text-base order-1 md:order-2">
             Hey there,{" "}
             {userData[0] && (
               <span className="text-six">{userData[0].username}</span>
@@ -60,24 +73,24 @@ const NavBarDash = () => {
         </div>
       </div>
       <div className="py-5 w-full md:pr-4 ">
-        <ul className="flex flex-col md:flex-row items-start md:items-center justify-between">
+        <ul className="flex flex-col md:flex-row items-start md:items-center justify-between ">
           <div className="flex items-center">
             <p>
               <NavLink
-                className="px-8 hover:scale-105 text-lg duration-200 capitalize text-second underline"
+                className="px-8 hover:scale-105 md:text-lg text-sm duration-200 capitalize text-second underline"
                 to="/dashboard"
               >
                 upgrade
               </NavLink>
             </p>
-            <div className=" border-2 border-black-200 text-sm md:text-base xl:text-xl p-5  rounded-[20rem] ">
-              <span className="text-primary"> Credits: </span> 10,250 DA
+            <div className=" border-2 border-black-200 text-sm md:text-base xl:text-xl md:p-5 p-2 rounded-[20rem] ">
+              <span className="text-primary  md:text-lg text-sm "> Credits: </span> 10,250 DA
             </div>
             {NavDashData.map(({ id, link, style, src }) => {
               return (
                 <li
                   key={id}
-                  className={`text-base px-8 cursor-pointer md:text-lg text-five hover:scale-105 duration-200 capitalize ${style}`}
+                  className={` px-8 cursor-pointer md:text-lg text-sm text-five hover:scale-105 duration-200 capitalize ${style}`}
                 >
                   <NavLink to={src}>{link}</NavLink>
                 </li>
