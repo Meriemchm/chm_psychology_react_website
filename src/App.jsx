@@ -20,6 +20,8 @@ import { AuthContext } from "./context/AuthContext";
 import Explore from "./components/Explore/Explore";
 const App = () => {
   const { currentUser } = useContext(AuthContext);
+
+  //link protection
   const Requireauth = ({ children }) => {
     return currentUser ? children : <Navigate to="/logIn" />;
   };
@@ -30,6 +32,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        {/*Home side */}
         <Route
           path="/"
           element={
@@ -41,7 +44,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="/services" element={<Services />} />
         </Route>
-
+        {/*independent route from navbar  */}
         <Route path="/logIn" element={<LogIn />} />
         <Route
           path="/getHelp"
@@ -59,6 +62,7 @@ const App = () => {
             </Requirenotauth>
           }
         />
+        {/*user side */}
         <Route
           path="/dashboard"
           element={
@@ -73,10 +77,7 @@ const App = () => {
             path="/dashboard/accountSettings"
             element={<AccountSetting />}
           />
-          <Route
-            path="/dashboard/explore"
-            element={<Explore />}
-          />
+          <Route path="/dashboard/explore" element={<Explore />} />
         </Route>
       </Routes>
       <Footer />

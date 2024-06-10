@@ -16,7 +16,7 @@ import PFP from "../../../assets/PFP.svg";
 import { AuthContext } from "../../../context/AuthContext";
 
 const MultiStepForm = () => {
-  /*progress*/
+  /*progress is the progress form*/
 
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(25);

@@ -31,17 +31,17 @@ const CardDash = ({ addEvent }) => {
       setStart("");
   
       try {
-        const userId = userData[0]?.id; // Ensure user ID is available
+        const userId = userData[0]?.id; 
         if (userId) {
           const userDoc = await getDoc(doc(db, "appointments", userId));
           if (userDoc.exists()) {
-            // User already has appointments, update the existing appointments array
+            
             const existingAppointments = userDoc.data().appointments || [];
             await updateDoc(doc(db, "appointments", userId), {
               appointments: [...existingAppointments, newEvent]
             });
           } else {
-            // User does not have any appointments, create a new document
+            
             await setDoc(doc(db, "appointments", userId), {
               appointments: [newEvent]
             });
@@ -104,6 +104,7 @@ const CardDash = ({ addEvent }) => {
           </div>
         );
       })}
+      {/*calenderform is to add the date and time for the appointment */}
       {showModal && (
         <CalenderForm
           start={start}

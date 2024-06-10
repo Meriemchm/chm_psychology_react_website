@@ -9,6 +9,7 @@ const ContentDash = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [events, setEvents] = useState([]);
 
+  //fetch data to have appoinments
   useEffect(() => {
     const fetchData = async () => {
       if (userData[0] && userData[0]?.status !== "client") {
@@ -54,7 +55,7 @@ const ContentDash = () => {
     setEvents([...events, newEvent]);
   };
 
-
+// this is for choosing a event
   const handleConfirmation = () => {
     if (selectedEvent) {
       const updatedEvents = events.map((event) =>
@@ -75,6 +76,7 @@ const ContentDash = () => {
   return (
     <div className="grid xl:grid-cols-4 grid-cols-1 md:gap-4 py-20 w-full h-full">
       <div className="rounded-lg shadow-md md:p-4 p-1 w-full col-span-3 order-2 xl:order-1">
+       {/*calender dash contain the calender */}
         <CalenderDash
           events={events}
           handleConfirmation={handleConfirmation}
@@ -83,6 +85,7 @@ const ContentDash = () => {
           handleDelete={handleDelete}
         />
       </div>
+      {/*card dash contain the doctors card and account settings cards*/}
       <div className="w-full h-full xl:px-4 px-2 col-span-1  order-1 xl:order-2">
         <CardDash addEvent={addEvent} />
       </div>

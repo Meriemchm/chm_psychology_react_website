@@ -1,7 +1,5 @@
 import React, { useEffect, useContext } from "react";
 import moment from "moment";
-import Selector from "../../../Utilities/Selector/Selector";
-import { doctorData } from "../../../Data/Data";
 import { AuthContext } from "../../../../context/AuthContext";
 function CalenderForm({
   start,
