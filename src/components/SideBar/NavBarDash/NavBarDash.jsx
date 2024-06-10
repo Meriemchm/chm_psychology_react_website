@@ -27,17 +27,18 @@ const NavBarDash = () => {
       <div className="flex justify-between pt-5 xl:pt-0">
         <div
           onClick={() => setShow(!show)}
-          className="cursor-pointer  z-50 text-gray-500 xl:hidden  px-5  pt-5  "
+          className="cursor-pointer  z-50 text-gray-500 xl:hidden   px-5  pt-5  "
         >
           {show ? <img src={times} size={30} /> : <img src={bars} size={30} />}
         </div>
         {show && (
-          <ul className="flex flex-col justify-center items-start p-5 absolute top-0 z-10 left-0  w-1/2 h-screen bg-secondvariant text-black">
-            {SideBarData.map(({ id, link, src }) => {
+          <div className="flex fixed flex-col justify-start items-start p-5  top-0 z-10 left-0  w-1/2 h-screen bg-secondvariant ">
+          <ul className="py-36 ">
+            {SideBarData.map(({ id, link, src,style }) => {
               return (
                 <li
                   key={id}
-                  className="px-4 py-4 cursor-pointer hover:scale-105 duration-200 capitalize"
+                  className={`px-4 py-4 text-second cursor-pointer hover:scale-105 duration-200 capitalize ${style} `}
                   onClick={() => {
                     handleItemClick(id, link);
                   }}
@@ -53,6 +54,7 @@ const NavBarDash = () => {
               );
             })}
           </ul>
+          </div>
         )}
         <div className="flex flex-row xl:hidden pr-3 justify-center items-center  md:border-2 border-black-200 xl:text-xl p-1  rounded-[20rem]  ">
           {userData[0] && userData[0].profilePicture && (
