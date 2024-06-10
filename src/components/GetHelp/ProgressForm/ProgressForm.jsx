@@ -31,7 +31,7 @@ const MultiStepForm = () => {
     password: "",
     profilePicture: "",
     valid: "",
-    status: "",
+    status: "client",
     timeStamp: serverTimestamp(),
   });
   useEffect(() => {
