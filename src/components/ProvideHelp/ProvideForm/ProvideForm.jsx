@@ -8,7 +8,7 @@ const ProvideForm = () => {
   const areaItem = formItem.filter((item) => item.categorie === "textarea");
   const endElemnt = inputItem.slice(-1)[0];
   return (
-    <div className="flex flex-col 2xl:flex-row justify-center items-center  md:w-full lg:px-0 ">
+    <div className="flex flex-col  justify-center items-center  md:w-full lg:px-0 ">
       <p className=" mb-5 text-2xl md:text-3xl self-center font-bold">
         Provide Support !
       </p>
