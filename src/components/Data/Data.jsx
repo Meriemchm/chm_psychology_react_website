@@ -514,34 +514,34 @@ export const NotificationsTableData = [
 export const SecurityFormData = [
   {
     id: 1,
-    label: "Your Phone Number",
+    label: "PhoneNumber",
     placeholder: "+213 123 45 67 89",
     type: "number",
   },
   {
     id: 2,
-    label: "Your Email Address",
+    label: "Email",
     placeholder: "MyEmail@domain.com",
     type: "email",
   },
   {
     id: 3,
-    label: "New Password",
+    label: "NewPassword",
     placeholder: "Create a new password...",
-    type: "number",
+    type: "text",
   },
   {
     id: 4,
-    label: "",
+    label: "RepeatPassword",
     placeholder: "Repeat the password...",
-    type: "number",
+    type: "text",
     style: "",
   },
   {
     id: 5,
-    label: "Current password *",
+    label: "CurrentPassword",
     placeholder: "Type your current password...",
-    type: "number",
+    type: "text",
   },
 ];
 

@@ -8,7 +8,6 @@ import ButtonsSettings from "../ButtonsSettings/ButtonsSettings";
 
 const AccountSideBar = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const [formData, setFormData] = useState({});
 
   const handleClick = (index) => {
     setActiveTab(index);
@@ -49,7 +48,7 @@ const AccountSideBar = () => {
       </div>
       <div className="rounded-lg shadow-md md:p-8 p-3">
         {menuAccountItem[activeTab].title === "Profile Settings" && (
-          <ProfileSettings setFormData={setFormData} />
+          <ProfileSettings  />
         )}
         {menuAccountItem[activeTab].title === "Notifications" && (
           <Notifications />
@@ -58,7 +57,7 @@ const AccountSideBar = () => {
           <PaymentMethod />
         )}
         {menuAccountItem[activeTab].title === "Security" && <Security />}
-        <ButtonsSettings  />
+        
       </div>
     </>
   );

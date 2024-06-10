@@ -2,7 +2,7 @@ import React from "react";
 import FormSettings from "./FormSettings/FormSettings";
 import ChangePicture from "./ChangePicture/ChangePicture";
 
-const ProfileSettings = ({setFormData}) => {
+const ProfileSettings = () => {
 
   return (
     <div>
@@ -10,7 +10,7 @@ const ProfileSettings = ({setFormData}) => {
       <ChangePicture />
       <div>
         <h2 className="font-bold text-2xl pt-10">Personal Information</h2>
-        <FormSettings setFormData={setFormData} />
+        <FormSettings  />
       </div>
     </div>
   );

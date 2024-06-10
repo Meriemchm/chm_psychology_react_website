@@ -1,6 +1,7 @@
 import React from "react";
 import NotificationsForm from "./NotificationsForm/NotificationsForm";
 import SwitchContainer from "../../Utilities/SwitchContainer/SwitchContainer";
+import ButtonsSettings from "../ButtonsSettings/ButtonsSettings";
 
 const Notifications = () => {
   return (
@@ -15,6 +16,7 @@ const Notifications = () => {
       <div>
         <NotificationsForm />
       </div>
+      <ButtonsSettings  />
     </div>
   );
 };

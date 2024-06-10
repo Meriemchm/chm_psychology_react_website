@@ -3,8 +3,9 @@ import { AccountSettingsForm } from "../../../Data/Data";
 import Selector from "../../../Utilities/Selector/Selector";
 import { stateData } from "../../../Data/Data";
 import { AuthContext } from "../../../../context/AuthContext";
+import ButtonsSettings from "../../ButtonsSettings/ButtonsSettings";
 
-const FormSettings = ({ setFormData }) => {
+const FormSettings = () => {
   const { userData } = useContext(AuthContext);
   const [formValues, setFormValues] = useState({
     username: userData[0]?.username || '' ,
@@ -59,6 +60,7 @@ const FormSettings = ({ setFormData }) => {
             );
           })}
         </div>
+        <ButtonsSettings  />
       </form>
     </div>
   );

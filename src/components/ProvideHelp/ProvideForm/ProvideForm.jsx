@@ -14,7 +14,6 @@ const ProvideForm = () => {
       </p>
       <div className="rounded-lg shadow-md md:p-20 p-4">
         <form
-          action={client}
           method="POST"
           className="flex flex-col w-full justify-center mt-5 gap-4"
         >
