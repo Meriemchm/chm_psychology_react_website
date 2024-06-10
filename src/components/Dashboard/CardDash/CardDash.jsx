@@ -87,7 +87,7 @@ const CardDash = ({ addEvent }) => {
             />
           );
         return (
-          <div key={id} onClick={() => handleCardClick(id)}>
+          <div className="w-auto " key={id} onClick={() => handleCardClick(id)}>
             {id === 1 ? (
               side
             ) : (

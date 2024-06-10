@@ -9,7 +9,7 @@ function CardItem({ icon, title, description, img,id }) {
     >
       <div className="flex flex-row gap-2">
         {icon}
-        <h2 className="font-bold md:text-lg text-base">{title}</h2>
+        <h2 className="font-bold md:text-lg text-sm">{title}</h2>
       </div>
       <p className="py-10 text-six md:text-lg xl:flex hidden">{description}</p>
       {img}

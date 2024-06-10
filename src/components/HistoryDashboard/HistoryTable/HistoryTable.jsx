@@ -30,7 +30,7 @@ function HistoryTable({data}) {
         <tbody>
           {data.map((appointment, id) => (
             <tr key={id} className="text-sm md:text-base">
-              <td className="md:px-6 px-1 py-4 whitespace-nowrap flex items-center">
+              <td className="md:px-6 py-4 whitespace-nowrap flex items-center">
                 <span className="md:inline-flex hidden items-center justify-center h-10 w-10 rounded-full bg-pink-100 text-pink-600 mr-4">
                   Na
                 </span>

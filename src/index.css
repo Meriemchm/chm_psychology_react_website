@@ -21,7 +21,7 @@
   font-style: normal;
 }
 
-.rbc-calendar{
+.rbc-calendar {
   @apply flex-col-reverse !important;
   @apply gap-5 !important;
 }
@@ -30,10 +30,9 @@
   @apply bg-third  !important;
 }
 
-.rbc-button-link{
+.rbc-button-link {
   @apply font-bold  !important;
 }
-
 
 .rbc-event:hover {
   @apply bg-six !important;
@@ -41,8 +40,20 @@
 
 .rbc-event-content {
   @apply text-black !important;
+  @apply text-xs md:text-base !important;
+}
+.rbc-row-segment{
+  @apply p-0 !important;
+
 }
 
+.rbc-event-label {
+  @apply text-black;
+}
+.rbc-event {
+  @apply h-auto !important;
+  @apply w-auto !important;
+}
 input[type="checkbox"]:checked ~ .check_1 {
   @apply text-opacity-100;
   @apply bg-second;

@@ -18,7 +18,7 @@ const Questions = () => {
             ))}
           </div>
 
-          <div className=" flex flex-col justify-start items-center xl:w-2/4 mb-10 md:mb-0">
+          <div className=" flex flex-col justify-start items-center xl:w-2/4 mb-10 xl:mb-0">
             <p className="md:px-44 px-8  self-center text-center">
               For professional contact or if you have another question, contact
               us at: xyz@domain.com

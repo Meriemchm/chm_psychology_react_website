@@ -34,17 +34,17 @@ function ProfileDr({ profile }) {
 
   return (
     <div className="flex flex-col ">
-      <div className="bg-third/40 h-60 relative">
-        <div className="flex absolute -bottom-16 left-8">
-          <img src={PFP} alt={username} className="h-40" />
-          <h2 className="font-bold mt-20 text-2xl self-center px-6">
+      <div className="bg-third/40 md:h-60 h-44 relative">
+        <div className="flex absolute -bottom-16 md:left-8 left-2">
+          <img src={PFP} alt={username} className="md:h-40" />
+          <h2 className="font-bold mt-20 md:text-2xl text-xl self-center px-6">
             {username}
           </h2>
         </div>
       </div>
-      <div className="py-14 px-14">
+      <div className="py-14 md:px-14 px-5">
         <div>
-          <h3 className="font-meduim text-3xl pt-10 pb-4">Pitch</h3>
+          <h3 className="font-meduim md:text-3xl text-2xl pt-10 pb-4">Pitch</h3>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum
             impedit suscipit odit. Ea sed ex deleniti obcaecati aliquid. Vel
@@ -54,8 +54,8 @@ function ProfileDr({ profile }) {
         </div>
 
         <div className=" flex flex-col">
-          <h3 className="font-meduim text-3xl pt-10 pb-4">Skills</h3>
-          <div className="flex gap-3">
+          <h3 className="font-meduim md:text-3xl text-2xl  pt-10 pb-4">Skills</h3>
+          <div className="flex gap-3 flex-wrap">
             {testSkills.map(({ id, title }) => (
               <div
                 key={id}

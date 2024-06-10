@@ -45,7 +45,7 @@ const NavBarDash = () => {
                 >
                   <NavLink
                     to={src}
-                    className="text-xl"
+                    className="md:text-xl text-base"
                     onClick={() => setShow(!show)}
                   >
                     {link}

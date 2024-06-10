@@ -61,6 +61,7 @@ const CalenderDash = ({
     setShowDeleteConfirmation(false);
   };
 
+
   return (
     <div className="flex flex-col w-full">
       <div className="w-full flex justify-between relative">
@@ -68,7 +69,7 @@ const CalenderDash = ({
           {currentMonth}
         </h2>
         {userData[0] && userData[0].status === "client" && (
-          <div className="p-2 absolute rounded-md right-1 -top-5 z-50 ">
+          <div className="p-2 absolute rounded-md right-1 -top-5 z-50 xs:w-1/2 md:text-base text-sm">
             <Selector
               data={doctorData}
               title={"select a doctor"}
@@ -79,14 +80,15 @@ const CalenderDash = ({
         )}
       </div>
 
-      <div className="py-5">
+      <div className="py-5 ">
         <Calendar
           localizer={localizer}
           events={filteredEvents}
           startAccessor="start"
           endAccessor="start"
           selectable
-          style={{ height: 500 }}
+          style={{ height: 500  }}
+          className="overflow-x-scroll md:overflow-hidden"
           eventPropGetter={eventStyleGetter}
           onSelectEvent={handleEventSelect}
         />

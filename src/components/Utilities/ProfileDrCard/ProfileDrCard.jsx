@@ -8,7 +8,7 @@ const ProfileDrCard = ({ data, onCardClick }) => {
   const isExplorePage = location.pathname === "/dashboard/explore";
 
   return (
-    <div className="h-full flex flex-col w-full rounded-lg shadow-md md:px-3 justify-start overflow-x-scroll md:overflow-hidden ">
+    <div className="h-full flex flex-col w-full rounded-lg shadow-md md:px-3  ">
       <div className="flex justify-between py-4">
         <h2 className="font-bold text-xl ">Doctors</h2>
         {!isExplorePage && (
@@ -19,18 +19,18 @@ const ProfileDrCard = ({ data, onCardClick }) => {
           </Link>
         )}
       </div>
-      <div className="flex w-full xl:flex-col md:gap-0 gap-8">
+      <div className="flex md:w-full xl:flex-col md:gap-0 overflow-x-scroll md:overflow-hidden  ">
         {data.map(({ id, username, src }) => (
           <div
             key={id}
-            className={`cursor-pointer py-3 flex justify-between md:px-0  px-2 ${
-              id !== 1 ? "md:border-t border-l md:border-l-0" : ""
+            className={`cursor-pointer py-3 flex justify-between md:px-0 px-2 ${
+              id !== 1 ? "xl:border-t border-l xl:border-l-0" : ""
             }`}
             onClick={() => onCardClick({ id, username, src })}
           >
-            <div className="flex flex-row gap-3">
-              <img src={userpic} alt="drpic" />
-              <h3 className="font-bold md:text-base text-sm self-center">
+            <div className="flex flex-row md:gap-3 gap-1">
+              <img src={userpic} alt="drpic" className="h-10 md:h-16" />
+              <h3 className="md:font-bold md:text-base text-sm self-center">
                 {username}
               </h3>
             </div>

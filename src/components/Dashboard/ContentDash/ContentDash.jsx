@@ -29,7 +29,7 @@ const ContentDash = () => {
         try {
           let allEvents = [];
           const appointmentsSnapshot = await getDocs(collection(db, "appointments"));
-          console.log(appointmentsSnapshot);
+   
           appointmentsSnapshot.forEach((doc) => {
             if (doc.data().appointments !== undefined) {
               allEvents.push(
@@ -54,7 +54,6 @@ const ContentDash = () => {
     setEvents([...events, newEvent]);
   };
 
-  console.log(events);
 
   const handleConfirmation = () => {
     if (selectedEvent) {
@@ -74,7 +73,7 @@ const ContentDash = () => {
   };
 
   return (
-    <div className="grid xl:grid-cols-4  md:gap-4 py-20 w-full h-full">
+    <div className="grid xl:grid-cols-4 grid-cols-1 md:gap-4 py-20 w-full h-full">
       <div className="rounded-lg shadow-md md:p-4 p-1 w-full col-span-3 order-2 xl:order-1">
         <CalenderDash
           events={events}
