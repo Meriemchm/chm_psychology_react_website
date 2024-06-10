@@ -94,7 +94,7 @@ const NavBarDash = () => {
                   key={id}
                   className={` px-8 cursor-pointer md:text-lg text-sm text-five hover:scale-105 duration-200 capitalize ${style}`}
                 >
-                  <NavLink to={src}>{link}</NavLink>
+                   <NavLink to={src}>{(userData[0] && userData[0].status === 'client') ? link : 'Book a session' }</NavLink>
                 </li>
               );
             })}
