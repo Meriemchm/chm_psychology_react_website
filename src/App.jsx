@@ -18,6 +18,8 @@ import HistoryDashboard from "./components/HistoryDashboard/HistoryDashboard";
 import LogIn from "./components/LogIn/LogIn";
 import { AuthContext } from "./context/AuthContext";
 import Explore from "./components/Explore/Explore";
+import ScrollToTop from './ScrollToTop';
+
 const App = () => {
   const { currentUser } = useContext(AuthContext);
 
@@ -31,6 +33,7 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/*Home side */}
         <Route
