@@ -20,7 +20,8 @@ input::file-selector-button {
   color: white;
   padding: 0.5em;
   border: thin solid grey;
-  background-color: grey;
+  @apply bg-third;
+  @apply border-third;
   border-radius: 3px;
   cursor: pointer;
 }
