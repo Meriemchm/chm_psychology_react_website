@@ -69,7 +69,7 @@ const CardDash = ({ addEvent }) => {
   };
 
   return (
-    <div className={`h-full flex xl:flex-col gap-2 ${userData[0] && userData[0].status === "client" ? "flex-col md:my-0 my-10 xl:items-stretch items-start" : ''} xl:gap-0 `}>
+    <div className={`h-full flex xl:flex-col gap-2 ${userData[0] && userData[0].status === "client" ? "flex-col md:my-0 my-10 xl:items-stretch items-start" : ''} xl:gap-5 2xl:gap-0 `}>
       {DashData.map(({ id, img, icon, description, title, src }, index) => {
         const side =
           userData[0] && userData[0].status === "client" ? (
