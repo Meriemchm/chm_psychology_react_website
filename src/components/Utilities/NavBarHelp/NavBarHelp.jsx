@@ -3,7 +3,7 @@ import iconBack from "../../../assets/iconBack.svg";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 
-const NavBarHelp = ({ title }) => {
+const NavBarHelp = ({ title,srclien }) => {
   const { currentUser } = useContext(AuthContext);
 
   return (
@@ -38,7 +38,7 @@ const NavBarHelp = ({ title }) => {
       ) : (
         <NavLink
           className="text-primary md:px-8 cursor-pointer text-lg  hover:scale-105 duration-200 capitalize"
-          to="/logIn"
+          to={srclien}
         >
           {title}
         </NavLink>
