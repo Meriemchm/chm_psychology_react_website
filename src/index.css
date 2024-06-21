@@ -15,6 +15,16 @@
   }
 }
 
+input::file-selector-button {
+  font-weight: bold;
+  color: white;
+  padding: 0.5em;
+  border: thin solid grey;
+  background-color: grey;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 .knewave-regular {
   font-family: "Knewave", system-ui;
   font-weight: 400;

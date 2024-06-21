@@ -1,7 +1,7 @@
 import React from "react";
 import PFP from "../../../../assets/PFP.svg";
 import { useLocation } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 function ProfileDr({ profile }) {
   const location = useLocation();
   const selectedProfile = location.state
@@ -37,12 +37,19 @@ function ProfileDr({ profile }) {
       <div className="bg-third/40 md:h-60 h-44 relative">
         <div className="flex absolute -bottom-16 md:left-8 left-2">
           <img src={PFP} alt={username} className="md:h-40" />
+
           <h2 className="font-bold mt-20 md:text-2xl text-xl self-center px-6">
             {username}
           </h2>
         </div>
       </div>
-      <div className="py-14 md:px-14 px-5">
+      <NavLink
+        to="dashboard"
+        className="md:text-xl  text-base pt-24 px-5 md:px-14 text-second cursor-pointer hover:text-black"
+      >
+        Book an Appointment
+      </NavLink>
+      <div className=" md:px-14 px-5">
         <div>
           <h3 className="font-meduim md:text-3xl text-2xl pt-10 pb-4">Pitch</h3>
           <p>
@@ -54,7 +61,9 @@ function ProfileDr({ profile }) {
         </div>
 
         <div className=" flex flex-col">
-          <h3 className="font-meduim md:text-3xl text-2xl  pt-10 pb-4">Skills</h3>
+          <h3 className="font-meduim md:text-3xl text-2xl  pt-10 pb-4">
+            Skills
+          </h3>
           <div className="flex gap-3 flex-wrap">
             {testSkills.map(({ id, title }) => (
               <div

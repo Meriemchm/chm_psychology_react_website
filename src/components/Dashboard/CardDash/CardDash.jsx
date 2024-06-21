@@ -65,7 +65,7 @@ const CardDash = ({ addEvent }) => {
 
   const handleProfileClick = (profile) => {
     setSelectedProfile(profile);
-    navigate("/dashboard/explore", { state: { selectedProfile: profile } });
+    navigate("/main", { state: { selectedProfile: profile } });
   };
 
   return (

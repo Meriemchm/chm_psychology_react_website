@@ -18,7 +18,7 @@ function LogInForm() {
         // Signed up
         const user = userCredential.user;
         dispatch({ type: "LOGIN", payload: user });
-        navigate("/dashboard");
+        navigate("/main");
       })
       .catch((error) => {
         setError(true);

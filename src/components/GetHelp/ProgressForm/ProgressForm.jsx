@@ -96,9 +96,10 @@ const MultiStepForm = () => {
         formData.password
       );
       await setDoc(doc(db, "users", res.user.uid), {
-        id:res.user.uid, ...formData,
+        id: res.user.uid,
+        ...formData,
       });
-    
+
       await signInWithEmailAndPassword(auth, formData.email, formData.password)
         .then((userCredential) => {
           // Signed up
@@ -161,7 +162,7 @@ const MultiStepForm = () => {
 
       {(step === 1 || step === 2 || step === 3) && (
         <div>
-          <h1 className="text-3xl font-bold text-center pt-10">
+          <h1 className="text-xl md:text-3xl font-bold text-center pt-10">
             Find the right therapist
           </h1>
           {/* <p className="w-full md:w-3/4 md:text-base text-sm mx-auto text-center pt-5">

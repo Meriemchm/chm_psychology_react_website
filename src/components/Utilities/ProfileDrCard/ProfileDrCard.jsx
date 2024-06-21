@@ -5,14 +5,14 @@ import chevrondown from "../../../assets/chevrondown.svg";
 
 const ProfileDrCard = ({ data, onCardClick }) => {
   const location = useLocation();
-  const isExplorePage = location.pathname === "/dashboard/explore";
+  const isExplorePage = location.pathname === "/main";
 
   return (
     <div className="h-full flex flex-col w-full rounded-lg shadow-md md:px-3  ">
       <div className="flex justify-between py-4">
         <h2 className="font-bold text-xl ">Doctors</h2>
         {!isExplorePage && (
-          <Link to="explore">
+          <Link to="/main">
             <p className="text-sm text-primary cursor-pointer hover:text-second">
               View More
             </p>

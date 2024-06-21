@@ -56,7 +56,7 @@ export const NavDashData = [
   {
     id: 2,
     link: "Book an Appointment",
-    src: "/dashboard",
+    src: "dashboard",
     style: "text-second",
   },
 ];
@@ -64,16 +64,16 @@ export const NavDashData = [
 export const SideBarData = [
   {
     id: 1,
-    link: "Dashboard",
-    img: <img className="w-26 h-12" src={Group4} alt="img_link" />,
-    src: "/dashboard" /*dashboard */,
+    link: "Explore",
+    img: <img className="w-26 h-12" src={Group5} alt="img_link" />,
+    src: "/main" /*dashboard */,
     style: "",
   },
   {
     id: 2,
-    link: "Explore",
-    img: <img className="w-26 h-12" src={Group5} alt="img_link" />,
-    src: "explore" /*dashboard */,
+    link: "Dashboard",
+    img: <img className="w-26 h-12" src={Group4} alt="img_link" />,
+    src: "dashboard" /*dashboard */,
     style: "",
   },
   {
@@ -397,7 +397,7 @@ export const DashData = [
       </div>
     ),
 
-    src: "/dashboard",
+    src: "/main",
   },
   {
     id: 2,
@@ -413,9 +413,8 @@ export const DashData = [
         <img src={Illustrationdash_1} className="self-center" alt="dashimage" />
       </div>
     ),
-    src: "accountSettings",
+    src: "/main/accountSettings",
   },
-
 ];
 
 export const menuAccountItem = [

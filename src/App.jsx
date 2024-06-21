@@ -26,7 +26,7 @@ const App = () => {
     return currentUser ? children : <Navigate to="/logIn" />;
   };
   const Requirenotauth = ({ children }) => {
-    return !currentUser ? children : <Navigate to="/dashboard" />;
+    return !currentUser ? children : <Navigate to="/main" />;
   };
 
   return (
@@ -64,20 +64,20 @@ const App = () => {
         />
         {/*user side */}
         <Route
-          path="/dashboard"
+          path="/main"
           element={
             <Requireauth>
               <SideBar />
             </Requireauth>
           }
         >
-          <Route index element={<Dashboard />} />
-          <Route path="/dashboard/history" element={<HistoryDashboard />} />
+          <Route index element={<Explore />} />
+          <Route path="/main/history" element={<HistoryDashboard />} />
           <Route
-            path="/dashboard/accountSettings"
+            path="/main/accountSettings"
             element={<AccountSetting />}
           />
-          <Route path="/dashboard/explore" element={<Explore />} />
+          <Route path="/main/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
       <Footer />

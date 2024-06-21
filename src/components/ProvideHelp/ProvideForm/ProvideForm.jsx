@@ -12,6 +12,7 @@ const ProvideForm = () => {
       <p className=" mb-5 text-2xl md:text-3xl self-center font-bold">
         Provide Support !
       </p>
+      <p>Send your CV</p>
       <div className="rounded-lg shadow-md md:p-20 p-4">
         <form
           method="POST"
@@ -42,6 +43,8 @@ const ProvideForm = () => {
             required
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
+
+          <input id="file-upload" type="file" />
 
           {areaItem.map((item, id) => {
             return (

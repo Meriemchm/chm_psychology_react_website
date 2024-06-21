@@ -77,7 +77,7 @@ const NavBarDash = () => {
       <div className="py-5 w-full md:pr-4 ">
         <ul className="flex flex-col md:flex-row items-start md:items-center justify-between ">
           <div className="flex items-center">
-            <p>
+            {/* <p>
               <NavLink
                 className="px-8 hover:scale-105 md:text-lg text-sm duration-200 capitalize text-second underline"
                 to="/dashboard"
@@ -87,7 +87,7 @@ const NavBarDash = () => {
             </p>
             <div className=" border-2 border-black-200 text-sm md:text-base xl:text-xl md:p-5 p-2 rounded-[20rem] ">
               <span className="text-primary  md:text-lg text-sm "> Credits: </span> 10,250 DA
-            </div>
+            </div> */}
             {NavDashData.map(({ id, link, style, src }) => {
               return (
                 <li
