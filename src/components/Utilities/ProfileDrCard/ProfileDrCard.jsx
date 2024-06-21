@@ -8,7 +8,7 @@ const ProfileDrCard = ({ data, onCardClick }) => {
   const isExplorePage = location.pathname === "/main";
 
   return (
-    <div className="h-full flex flex-col w-full rounded-lg shadow-md md:px-3  ">
+    <div className="flex flex-col w-full rounded-lg shadow-md md:px-3  ">
       <div className="flex justify-between py-4">
         <h2 className="font-bold text-xl ">Doctors</h2>
         {!isExplorePage && (
