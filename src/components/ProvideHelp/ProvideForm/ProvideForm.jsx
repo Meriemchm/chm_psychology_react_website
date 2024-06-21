@@ -13,7 +13,7 @@ const ProvideForm = () => {
         Provide Support !
       </p>
       <p>Send your CV</p>
-      <div className="rounded-lg shadow-md md:p-20 p-4">
+      <div className="rounded-lg shadow-md md:p-20 p-4 ">
         <form
           method="POST"
           className="flex flex-col w-full justify-center mt-5 gap-4"
