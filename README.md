@@ -64,10 +64,6 @@ We welcome contributions to improve the Psychologists Website. To contribute, pl
 3. Commit your changes and push the branch to your fork.
 4. Submit a pull request with a detailed description of your changes.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
 ## Contact
 
 If you have any questions or need further assistance, please feel free to contact us at [chamimeriem0223@gmail.com].
