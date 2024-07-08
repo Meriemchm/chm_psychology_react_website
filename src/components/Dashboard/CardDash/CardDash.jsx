@@ -3,7 +3,8 @@ import { DashData } from "../../Data/Data";
 import { NavLink, useNavigate } from "react-router-dom";
 import CardItem from "./CardItem/CardItem";
 import CalenderForm from "../CalenderDash/CalenderForm/CalenderForm";
-import { ProfileDrData } from "../../Data/Data";
+import { PsychologistsContext } from "../../../context/PsychologistsContext"; 
+
 import ProfileDrCard from "../../Utilities/ProfileDrCard/ProfileDrCard";
 import { AuthContext } from "../../../context/AuthContext";
 import { db  } from "../../../firebase";
@@ -20,6 +21,7 @@ const CardDash = ({ addEvent }) => {
   const [selectedProfile, setSelectedProfile] = useState(null);
   const status = "free";
   const navigate = useNavigate();
+  const { psyData } = useContext(PsychologistsContext);
 
 
   const handleAddEvent = async (e) => {
@@ -74,7 +76,7 @@ const CardDash = ({ addEvent }) => {
         const side =
           userData[0] && userData[0].status === "client" ? (
             <ProfileDrCard
-              data={ProfileDrData}
+              data={psyData}
               onCardClick={handleProfileClick}
             />
           ) : (

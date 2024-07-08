@@ -7,7 +7,7 @@ const InputForm = ({ Data, title, action, formData, onChange }) => {
   const handleChange = (e, name) => {
     const { value } = e.target;
     onChange(name, value);
-    if (name === "username") {
+    if (name === "first_name") {
       if (value.length < 4) {
         setErrors((prevErrors) => ({
           ...prevErrors,

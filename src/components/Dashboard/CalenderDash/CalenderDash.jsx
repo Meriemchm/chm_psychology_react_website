@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext ,useEffect} from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import Selector from "../../Utilities/Selector/Selector";
@@ -6,7 +6,7 @@ import { doctorData } from "../../Data/Data";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import ConfirmSelect from "./ConfirmSelect/ConfirmSelect";
 import { AuthContext } from "../../../context/AuthContext";
-
+import { PsychologistsContext } from "../../../context/PsychologistsContext"; 
 const CalenderDash = ({
   events,
   handleConfirmation,
@@ -14,17 +14,23 @@ const CalenderDash = ({
   setSelectedEvent,
   handleDelete,
 }) => {
+  
+  const { psyData } = useContext(PsychologistsContext);
   const { userData } = useContext(AuthContext);
   const localizer = momentLocalizer(moment);
   const currentMonth = moment().format("MMMM YYYY");
   const [selectedDoctor, setSelectedDoctor] = useState("");
   const [deletingEvent, setDeletingEvent] = useState(null);
-  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
-
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
   const filteredEvents =
     selectedDoctor && selectedDoctor !== "All"
       ? events.filter((event) => event.title === selectedDoctor)
       : events;
+
+  useEffect(() => {
+    const updatedData = ['All', ...psyData.map(item => item.name)];
+    setDataselector(updatedData);
+  }, [psyData]);
 
   const eventStyleGetter = (event, start, end, isSelected) => {
     let style = {};
@@ -61,7 +67,6 @@ const CalenderDash = ({
     setShowDeleteConfirmation(false);
   };
 
-
   return (
     <div className="flex flex-col w-full">
       <div className="w-full flex justify-between relative">
@@ -71,7 +76,7 @@ const CalenderDash = ({
         {userData[0] && userData[0].status === "client" && (
           <div className="p-2 absolute rounded-md right-1 -top-5 z-50 xs:w-1/2 md:text-base text-sm">
             <Selector
-              data={doctorData}
+              data={psyData}
               title={"select a doctor"}
               value={selectedDoctor}
               onChange={(doctorName) => setSelectedDoctor(doctorName)}
@@ -87,7 +92,7 @@ const CalenderDash = ({
           startAccessor="start"
           endAccessor="start"
           selectable
-          style={{ height: 500  }}
+          style={{ height: 500 }}
           className="overflow-x-scroll md:overflow-hidden"
           eventPropGetter={eventStyleGetter}
           onSelectEvent={handleEventSelect}
@@ -107,7 +112,7 @@ const CalenderDash = ({
         <ConfirmSelect
           setSelectedEvent={setSelectedEvent}
           handleConfirmation={handleConfirmation}
-          labeltitle = 'Confirm'
+          labeltitle="Confirm"
           questionword={selectedEvent.status === "free" ? "Choose" : "Cancel"}
         />
       )}

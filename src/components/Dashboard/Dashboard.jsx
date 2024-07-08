@@ -6,7 +6,7 @@ const Dashboard = () => {
 
 
   return (
-    <div className="3xl:px-20 py-20 md:px-10  ">
+    <div className="min-h-screen 3xl:px-20 py-20 md:px-10  ">
       <HeaderDashboard />
       <ContentDash />
     </div>

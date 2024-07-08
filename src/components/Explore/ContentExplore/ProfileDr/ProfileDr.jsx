@@ -7,7 +7,8 @@ function ProfileDr({ profile }) {
   const selectedProfile = location.state
     ? location.state.selectedProfile
     : null;
-  const username = profile?.username || selectedProfile?.username;
+  const username = profile?.name || selectedProfile?.name;
+  const xp = profile?.xp || selectedProfile?.xp;
 
   if (!profile && !selectedProfile) {
     return (
@@ -49,6 +50,11 @@ function ProfileDr({ profile }) {
       >
         Book an Appointment
       </NavLink>
+      <div className=" md:px-14 flex ">
+        <h3 className="font-meduim md:text-3xl text-2xl pt-10">Experience :  </h3>
+        <p className=" pt-12 text-xl px-2">{xp} years</p>
+      </div>
+
       <div className=" md:px-14 px-5">
         <div>
           <h3 className="font-meduim md:text-3xl text-2xl pt-10 pb-4">Pitch</h3>

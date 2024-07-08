@@ -7,6 +7,8 @@ const Selector = ({ title, value, onChange, data }) => {
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState(value || "");
   const [open, setOpen] = useState(false);
+  
+  console.log(data)
 
   const filteredData = useMemo(
     () =>
