@@ -8,15 +8,15 @@ const ProvideForm = () => {
   const areaItem = formItem.filter((item) => item.categorie === "textarea");
   const endElemnt = inputItem.slice(-1)[0];
   return (
-    <div className="flex flex-col  justify-center items-center  md:w-full lg:px-0 ">
+    <div className="flex flex-col  justify-center items-center mx-auto  md:w-full lg:px-0 ">
       <p className=" mb-5 text-2xl md:text-3xl self-center font-bold">
         Provide Support !
       </p>
       <p className="text-second font-bold">Send your CV</p>
-      <div className="rounded-lg shadow-md md:p-20 p-4 ">
+      <div className="rounded-lg shadow-md md:px-16 p-4 ">
         <form
-          method="POST"
-          className="flex flex-col w-full justify-center mt-5 gap-4"
+          
+          className="flex flex-col w-full justify-center  mt-5 gap-4"
         >
           <div className="flex gap-3  ">
             {inputItem.slice(0, 2).map((item, id) => {

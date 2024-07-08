@@ -5,7 +5,7 @@ import NavBarHelp from "../Utilities/NavBarHelp/NavBarHelp";
 const ProvideHelp = () => {
   // sign for doctors side
   return (
-    <div className="h-ful md:p-10 p-4 mt-5 mb:mt-0 xl:mt-0 ">
+    <div className="min-h-screen md:p-10 p-4 mt-5 mb:mt-0 xl:mt-0 ">
       <NavBarHelp title='Log In' />
       <ProvideForm />
     </div>

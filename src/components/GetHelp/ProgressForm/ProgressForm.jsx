@@ -24,7 +24,7 @@ const MultiStepForm = () => {
   const { dispatch } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     gender: "",
-    age: "",
+    birthdate: "",
     relationshipStatus: "",
     username: "",
     email: "",
@@ -218,14 +218,14 @@ const MultiStepForm = () => {
             {step === 2 && (
               <div className="md:px-14 px-5">
                 <label className="  text-lg font-bold self-start mb-2 ">
-                  How old are you?
+                  What is your birthday date?
                 </label>
                 <div className="mt-3">
-                  <Selector
-                    data={getNumbers}
-                    title={AgeForm[0].placeholder}
-                    value={formData.age}
-                    onChange={(value) => handleChange("age", value)}
+                  <input
+                    type="date"
+                    className="border rounded px-3 py-2 w-full"
+                    value={formData.birthdate}
+                    onChange={(e) => handleChange("birthdate", e.target.value)}
                   />
                 </div>
               </div>

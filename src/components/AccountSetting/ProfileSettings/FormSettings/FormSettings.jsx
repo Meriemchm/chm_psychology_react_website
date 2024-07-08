@@ -21,7 +21,7 @@ const FormSettings = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  console.log(formValues)
+  //console.log(formValues)
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormData(formValues); 
