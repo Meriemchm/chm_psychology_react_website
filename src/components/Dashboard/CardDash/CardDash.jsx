@@ -13,7 +13,8 @@ import { AuthContext } from "../../../context/AuthContext";
 
 // import PropTypes from 'prop-types';
 
-const CardDash = ({ addEvent }) => { //
+const CardDash = ({ addEvent }) => {
+  //
   const { userData, role, token } = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
   const title = userData ? "Dr." + userData.username : "";
@@ -30,7 +31,7 @@ const CardDash = ({ addEvent }) => { //
       const eventDate = new Date(newEvent.start);
       const date = eventDate.toISOString().split("T")[0];
       const time = eventDate.toTimeString().split(" ")[0];
-      
+
       setShowModal(false);
       setStart("");
 
