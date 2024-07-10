@@ -71,7 +71,7 @@ const ContentDash = () => {
                 Authorization: `Bearer ${token}`,
               },
             });
-            console.log(response.data);
+            
             const formattedEvents = response.data.map((session) => ({
               id: session.id,
               start: new Date(`${session.date} ${session.time}`),
