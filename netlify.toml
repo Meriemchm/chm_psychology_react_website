@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://rameem.onrender.com/:splat"
+  status = 200
