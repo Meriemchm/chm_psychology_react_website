@@ -8,6 +8,7 @@ import { doc, getDoc, getDocs, collection } from "firebase/firestore";
 const ContentDash = () => {
   const { userData, role, token } = useContext(AuthContext);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [sessionId, setSessionId] = useState(null);
   const [events, setEvents] = useState([]);
 
   //fetch data to have appoinments
@@ -35,7 +36,7 @@ const ContentDash = () => {
               Authorization: `Bearer ${token}`,
             },
           });
-          console.log(response.data)
+          console.log(response.data);
           const formattedEvents = response.data.map((session) => ({
             start: new Date(`${session.date} ${session.time}`),
             title: "Dr." + userData.username,
@@ -65,21 +66,19 @@ const ContentDash = () => {
           // setEvents(allEvents);
 
           try {
-            const response = await axios.get(
-              "/api/api/sessions/user",
-              {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                },
-              }
-            );
-            console.log(response.data)
+            const response = await axios.get("/api/api/sessions/user", {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
+            console.log(response.data);
             const formattedEvents = response.data.map((session) => ({
+              id: session.id,
               start: new Date(`${session.date} ${session.time}`),
-              title: 'Dr.'+session.psychologist,
+              title: "Dr." + session.psychologist,
               status: session.status,
             }));
-  
+
             setEvents(formattedEvents);
           } catch (error) {
             console.error("Error fetching psychologists sessions:", error);
@@ -98,7 +97,22 @@ const ContentDash = () => {
   };
 
   // this is for choosing a event
-  const handleConfirmation = () => {
+  const handleConfirmation = async (e) => {
+    try {
+      const response = await axios.post(
+        "/api/api/appointments/add",
+        {
+          session_id: sessionId,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (error) {
+      console.error("Error fetching psychologists sessions:", error);
+    }
     if (selectedEvent) {
       const updatedEvents = events.map((event) =>
         event === selectedEvent
@@ -110,6 +124,7 @@ const ContentDash = () => {
     }
   };
 
+  //deleting events for psycologis side
   const handleDelete = (event) => {
     const updatedEvents = events.filter((e) => e !== event);
     setEvents(updatedEvents);
@@ -120,6 +135,7 @@ const ContentDash = () => {
       <div className="rounded-lg shadow-md md:p-4 p-1 w-full col-span-3 order-2 xl:order-1">
         {/*calender dash contain the calender */}
         <CalenderDash
+          setSessionId={setSessionId}
           events={events}
           handleConfirmation={handleConfirmation}
           selectedEvent={selectedEvent}

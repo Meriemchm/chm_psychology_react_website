@@ -8,6 +8,7 @@ import ConfirmSelect from "./ConfirmSelect/ConfirmSelect";
 import { AuthContext } from "../../../context/AuthContext";
 import { PsychologistsContext } from "../../../context/PsychologistsContext"; 
 const CalenderDash = ({
+  setSessionId,
   events,
   handleConfirmation,
   selectedEvent,
@@ -48,6 +49,7 @@ const CalenderDash = ({
   };
 
   const handleEventSelect = (event) => {
+    setSessionId(event.id)
     if (userData && role !== "user") {
       setDeletingEvent(event);
       setShowDeleteConfirmation(true);

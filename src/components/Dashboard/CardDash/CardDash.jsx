@@ -55,8 +55,6 @@ const CardDash = ({ addEvent }) => { //
         //   console.error("User ID is not available");
         // }
 
-        const authToken = localStorage.getItem("token");
-
         const response = await axios.post(
           "/api/api/sessions/add",
           {
