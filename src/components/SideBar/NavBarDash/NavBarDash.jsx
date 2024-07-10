@@ -57,9 +57,9 @@ const NavBarDash = () => {
           </div>
         )}
         <div className="flex flex-row xl:hidden pr-3 justify-center items-center  md:border-2 border-black-200 xl:text-xl p-1  rounded-[20rem]  ">
-          {userData[0] && userData[0].profilePicture && (
+          {userData && (
             <img
-              src={userData[0].profilePicture}
+              src={userPic}
               className="md:h-16 md:w-16 h-14 w-14 order-2 md:order-1"
               alt=""
             />
@@ -101,9 +101,9 @@ const NavBarDash = () => {
           </div>
 
           <div className="hidden xl:flex flex-row justify-center items-center  border-2 border-black-200 xl:text-xl p-1  rounded-[20rem]  ">
-            {userData[0] && userData[0].profilePicture && (
+            {userData && (
               <img
-                src={userData[0].profilePicture}
+                src={userPic}
                 className="h-16 w-16"
                 alt=""
               />

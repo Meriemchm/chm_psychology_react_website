@@ -31,14 +31,17 @@ function LogInForm() {
         password,
       });
 
-      const { user, token } = response.data;
-      const decodedToken = decodeToken(token); 
-      const role = decodedToken.role
+      const { user, psychologist, token } = response.data;
+      const users = user || psychologist;
+
+      const decodedToken = decodeToken(token);
+
+      const role = decodedToken.role;
       const isTokenExpired = isExpired(token);
 
-      dispatch({ type: "LOGIN", payload: { user, token, role } }); 
-      localStorage.setItem("role", JSON.stringify(role)); 
-      localStorage.setItem("user", JSON.stringify(user));
+      dispatch({ type: "LOGIN", payload: { users, token, role } });
+      localStorage.setItem("role", JSON.stringify(role));
+      localStorage.setItem("user", JSON.stringify(users));
       localStorage.setItem("token", token);
 
       setError(false);
@@ -64,7 +67,10 @@ function LogInForm() {
             <h3 className="font-bold text-4xl my-5 text-start">Welcome</h3>
             <p>Enter the information you entered while registering.</p>
           </div>
-          <form onSubmit={handleLogin} className="flex flex-col w-full xl:w-1/2">
+          <form
+            onSubmit={handleLogin}
+            className="flex flex-col w-full xl:w-1/2"
+          >
             {error && (
               <span className="text-red-500">Wrong email or password</span>
             )}

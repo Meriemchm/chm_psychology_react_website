@@ -9,7 +9,7 @@ import { AuthContext } from "../../context/AuthContext";
 import bars from "../../assets/bars.svg";
 import times from "../../assets/times.svg";
 const SideBar = () => {
-  const { dispatch, userData } = useContext(AuthContext);
+  const { dispatch, userData,role } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [activeItem, setActiveItem] = useState(1);
   const location = useLocation();
@@ -29,7 +29,7 @@ const SideBar = () => {
 
   return (
     <div className="flex h-full w-full overflow-hidden ">
-      <div className="xl:w-96 w-72 bg-secondvariant py-10 hidden xl:flex ">
+      <div className="xl:w-5/4 w-72 bg-secondvariant py-10 hidden xl:flex ">
         <h1 className="knewave-regular px-10  font-extrabold text-3xl ml-2 md:text-4xl text-primary fixed">
           Rameem
         </h1>
@@ -37,7 +37,7 @@ const SideBar = () => {
         <ul className="py-28 fixed ">
           {SideBarData.filter(
             (item) =>
-              !(userData[0] && userData[0].status !== "client" && item.id === 2)
+              !(userData && role !== "user" && item.id === 1)
           ).map(({ id, link, style, img, src }) => {
             return (
               <NavLink

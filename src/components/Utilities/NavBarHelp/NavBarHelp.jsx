@@ -9,7 +9,7 @@ const NavBarHelp = ({ title,srclien }) => {
   return (
     <div className="flex flex-row justify-between pb-10">
       {currentUser ? (
-        <NavLink to="/dashboard">
+        <NavLink to="/main">
           <div className="flex gap-4">
             <img src={iconBack} alt="iconBack" />
             <p className="md:text-2xl text-third font-bold">Go to Dashboard</p>

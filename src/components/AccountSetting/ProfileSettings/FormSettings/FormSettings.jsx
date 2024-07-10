@@ -8,7 +8,7 @@ import ButtonsSettings from "../../ButtonsSettings/ButtonsSettings";
 const FormSettings = () => {
   const { userData } = useContext(AuthContext);
   const [formValues, setFormValues] = useState({
-    username: userData[0]?.username || '' ,
+    username: userData?.username || '' ,
     adresse: '' ,
     city: '' ,
     state: '' ,

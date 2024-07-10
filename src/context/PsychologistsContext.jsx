@@ -8,9 +8,9 @@ export const PsychologistsProvider = ({ children }) => {
 
   // const registerUser = async () => {
   //   const userData = {
-  //     username: "jeeeee",
-  //     relationship_status: 'single',
-  //     email: "jeeeeee@example.com",
+  //     username: "Ahmed",
+  //     xp: 20,
+  //     email: "Ahmed@example.com",
   //     password: "123456",
   //     birthdate: "1994-06-1",
   //     genre: 'male',
@@ -19,7 +19,7 @@ export const PsychologistsProvider = ({ children }) => {
 
   //   try {
   //     const response = await axios.post(
-  //       "/api/api/users/register",
+  //       "/api/api/Psychologists/Register",
   //       userData
   //     );
   //     console.log("User registered successfully:", response.data);

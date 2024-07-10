@@ -46,8 +46,9 @@ function CalenderForm({
           <input
             type="text"
             placeholder="Select a doctor"
-            defaultValue={userData[0] ? "Dr." + userData[0].username : ""}
+            defaultValue={userData ? "Dr." + userData.username : ""}
             className="border-2 p-2 mb-4 w-full text-six border-six rounded-xl"
+            readOnly
           />
         </div>
         <label>Start Time:</label>

@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import IllustrationDash from "../../../assets/IllustrationDash.svg";
 import { AuthContext } from "../../../context/AuthContext";
 const HeaderDashboard = () => {
-  const { userData } = useContext(AuthContext);
-  const side = userData[0] && userData[0].status === 'client' ? 'You are doing great! we’re proud of you.':'People are waiting for you !';
+  const { userData ,role} = useContext(AuthContext);
+  const side = userData && role === 'user' ? 'You are doing great! we’re proud of you.':'People are waiting for you !';
   return (
     <div className="w-full ">
       <div className=" relative bg-graydash bg-opacity-40 p-8 flex justify-between">

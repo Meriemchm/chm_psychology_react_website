@@ -14,9 +14,8 @@ const CalenderDash = ({
   setSelectedEvent,
   handleDelete,
 }) => {
-  
   const { psyData } = useContext(PsychologistsContext);
-  const { userData } = useContext(AuthContext);
+  const { userData,role } = useContext(AuthContext);
   const localizer = momentLocalizer(moment);
   const currentMonth = moment().format("MMMM YYYY");
   const [selectedDoctor, setSelectedDoctor] = useState("");
@@ -27,7 +26,7 @@ const CalenderDash = ({
     selectedDoctor && selectedDoctor !== "All"
       ? events.filter((event) => event.title === selectedDoctor)
       : events;
-
+      
   useEffect(() => {
     const updatedData = ['All', ...psyData.map(item => 'Dr.'+item?.username)];
     setDataselector(updatedData);
@@ -37,7 +36,7 @@ const CalenderDash = ({
     let style = {};
     if (event.status === "free") {
       style.backgroundColor = "#FFFFFF";
-    } else if (event.status === "missed") {
+    } else if (event.status === "missed") { //taken
       style.backgroundColor = "#FDCDD6";
       style.color = "#900F26";
     } else if (event.status === "chosen") {
@@ -49,12 +48,12 @@ const CalenderDash = ({
   };
 
   const handleEventSelect = (event) => {
-    if (userData[0] && userData[0].status !== "client") {
+    if (userData && role !== "user") {
       setDeletingEvent(event);
       setShowDeleteConfirmation(true);
     } else if (
-      (userData[0] &&
-        userData[0].status === "client" &&
+      (userData &&
+        role === "user" &&
         event.status === "free") ||
       event.status === "chosen"
     ) {
@@ -74,7 +73,7 @@ const CalenderDash = ({
         <h2 className="font-bold rbc-toolbar-label md:text-xl ">
           {currentMonth}
         </h2>
-        {userData[0] && userData[0].status === "client" && (
+        {userData && role === "user" && (
           <div className="p-2 absolute rounded-md right-1 -top-5 z-50 xs:w-1/2 md:text-base text-sm">
             <Selector
               data={dataselector}

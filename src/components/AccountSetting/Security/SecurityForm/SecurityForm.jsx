@@ -7,7 +7,7 @@ function SecurityForm() {
   const { userData } = useContext(AuthContext);
   const [formValues, setFormValues] = useState({
     phonenumber: "",
-    email: userData[0]?.email || "",
+    email: userData?.email || "",
     newpassword: "",
     currentpassword: "",
     repeatpassword: "",
