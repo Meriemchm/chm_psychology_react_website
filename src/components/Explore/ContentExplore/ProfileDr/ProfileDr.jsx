@@ -7,7 +7,7 @@ function ProfileDr({ profile }) {
   const selectedProfile = location.state
     ? location.state.selectedProfile
     : null;
-  const username = profile?.name || selectedProfile?.name;
+  const username = profile?.username || selectedProfile?.username;
   const xp = profile?.xp || selectedProfile?.xp;
 
   if (!profile && !selectedProfile) {

@@ -22,13 +22,14 @@ const CalenderDash = ({
   const [selectedDoctor, setSelectedDoctor] = useState("");
   const [deletingEvent, setDeletingEvent] = useState(null);
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
+  const [dataselector, setDataselector] = useState([]);
   const filteredEvents =
     selectedDoctor && selectedDoctor !== "All"
       ? events.filter((event) => event.title === selectedDoctor)
       : events;
 
   useEffect(() => {
-    const updatedData = ['All', ...psyData.map(item => item.name)];
+    const updatedData = ['All', ...psyData.map(item => 'Dr.'+item?.username)];
     setDataselector(updatedData);
   }, [psyData]);
 
@@ -76,7 +77,7 @@ const CalenderDash = ({
         {userData[0] && userData[0].status === "client" && (
           <div className="p-2 absolute rounded-md right-1 -top-5 z-50 xs:w-1/2 md:text-base text-sm">
             <Selector
-              data={psyData}
+              data={dataselector}
               title={"select a doctor"}
               value={selectedDoctor}
               onChange={(doctorName) => setSelectedDoctor(doctorName)}

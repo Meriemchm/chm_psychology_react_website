@@ -6,37 +6,26 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import InputForm from "../InputForm/InputForm";
 import Selector from "../../Utilities/Selector/Selector";
 import { GenderType, RelashionshipSituation } from "../../Data/Data";
-import { AgeForm } from "../../Data/Data";
 import { AccountForm, AccountValidation, getNumbers } from "../../Data/Data";
-import { doc, collection, setDoc, serverTimestamp } from "firebase/firestore";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { db, auth, storage } from "../../../firebase";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import PFP from "../../../assets/PFP.svg";
 import { AuthContext } from "../../../context/AuthContext";
 
 const MultiStepForm = () => {
+  const { dispatch } = useContext(AuthContext);
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(25);
   const [showError, setShowError] = useState(false);
-  const { dispatch } = useContext(AuthContext);
+
+  //formTest is used for testing some input
+  const [formTest, setFormTest] = useState({});
   const [formData, setFormData] = useState({
-    gender: "",
-    birthdate: "",
-    age: "",
+    username: "",
     relationship_status: "",
-    first_name: "",
-    last_name: "last_name",
     email: "",
     password: "",
-    address: "adress",
-    //profilePicture: "",
-    //valid: "",
-    //status: "client",
-    //timeStamp: serverTimestamp(),
-  })
-  
+    birthdate: "",
+    genre: "",
+  });
+
   const nextStep = () => {
     setShowError(false);
     setStep((prevStep) => {
@@ -69,35 +58,35 @@ const MultiStepForm = () => {
   const validateStep = () => {
     switch (step) {
       case 1:
-        return formData.gender !== "";
+        return formData.genre !== "";
       case 2:
         return formData.birthdate !== "";
       case 3:
-        return formData.relationship_status  !== "";
+        return formData.relationship_status !== "";
       case 4:
         return (
-          formData.first_name !== "" &&
+          formData.username !== "" &&
           formData.email !== "" &&
           formData.password !== ""
         );
-      case 5:
-        return formData.valid !== "";
+      // case 5:
+      //   return formData.valid !== "";
       default:
         return true;
     }
   };
 
-  const calculateAge = (birthdate) => {
-    const birthDate = new Date(birthdate);
-    const today = new Date();
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDifference = today.getMonth() - birthDate.getMonth();
-    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age;
-  };
-  
+  // const calculateAge = (birthdate) => {
+  //   const birthDate = new Date(birthdate);
+  //   const today = new Date();
+  //   let age = today.getFullYear() - birthDate.getFullYear();
+  //   const monthDifference = today.getMonth() - birthDate.getMonth();
+  //   if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+  //     age--;
+  //   }
+  //   return age;
+  // };
+
   // useEffect(() => {
   //   const uploadDefaultProfilePicture = async () => {
   //     try {
@@ -115,9 +104,6 @@ const MultiStepForm = () => {
   //     }
   //   };
 
-  //   uploadDefaultProfilePicture();
-  // }, []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateStep()) {
@@ -126,15 +112,15 @@ const MultiStepForm = () => {
     }
     try {
       // Register user with API
-      const response = await axios.post("https://rameem.onrender.com/users/register", {
+      const response = await axios.post("/api/api/users/register", {
         ...formData,
       });
-
-      console.log(response)
 
       const user = response.data;
       console.log("User registered successfully: ", user);
 
+      setStep(6);
+      setProgress(100);
       // const res = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
       // await setDoc(doc(db, "users", res.user.uid), {
       //   id: res.user.uid,
@@ -148,31 +134,32 @@ const MultiStepForm = () => {
       //     const user = userCredential.user;
       //     dispatch({ type: "LOGIN", payload: user });
       //   })
-      //   .catch((error) => {
-      //     setError(true);
-      //   });
     } catch (error) {
-      console.error("Error adding document: ", error);
+      console.error("Error registering user: ", error);
     }
   };
 
   const handleChange = (name, value) => {
-    setFormData((prevData) => {
-      if (name === "birthdate") {
-        const age = calculateAge(value);
-        return { ...prevData, [name]: value, age: age.toString() };
-      }
-      return { ...prevData, [name]: value };
-    });
+    if (name !== "valid") {
+      setFormData((prevData) => {
+        // if (name === "birthdate") {
+        //   const age = calculateAge(value);
+        //   return { ...prevData, [name]: value, age: age.toString() };
+        // }
+        return { ...prevData, [name]: value };
+      });
+    } else {
+      setFormTest({ [name]: value });
+    }
     if (
-      (step === 1 && name === "gender") ||
+      (step === 1 && name === "genre") ||
       (step === 2 && name === "birthdate") ||
       (step === 3 && name === "relationship_status") ||
       (step === 4 &&
-        formData.first_name === "" &&
+        formData.username === "" &&
         formData.email === "" &&
-        formData.password === "") ||
-      (step === 5 && name === "valid")
+        formData.password === "")
+      // (step === 5 && name === "valid")
     ) {
       setShowError(false);
     }
@@ -225,8 +212,8 @@ const MultiStepForm = () => {
               <SelectionItemForm
                 title="What’s your gender?"
                 radioItem={GenderType}
-                selectedValue={formData.gender}
-                onValueChange={(value) => handleChange("gender", value)}
+                selectedValue={formData.genre}
+                onValueChange={(value) => handleChange("genre", value)}
               />
             )}
 
@@ -276,7 +263,7 @@ const MultiStepForm = () => {
               <InputForm
                 Data={AccountValidation}
                 title="We sent a code to your email, type it here:"
-                formData={formData}
+                formData={formTest}
                 onChange={(name, value) => handleChange(name, value)}
               />
             )}

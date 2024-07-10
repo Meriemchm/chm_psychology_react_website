@@ -7,15 +7,13 @@ const Selector = ({ title, value, onChange, data }) => {
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState(value || "");
   const [open, setOpen] = useState(false);
-  
-  console.log(data)
 
   const filteredData = useMemo(
     () =>
-      dataselector.filter((item) =>
+      data.filter((item) =>
         item.toLowerCase().startsWith(inputValue.toLowerCase())
       ),
-    [dataselector, inputValue]
+    [data, inputValue]
   );
 
   useEffect(() => {

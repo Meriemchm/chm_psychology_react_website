@@ -6,8 +6,11 @@ const InputForm = ({ Data, title, action, formData, onChange }) => {
 
   const handleChange = (e, name) => {
     const { value } = e.target;
+
+    
     onChange(name, value);
-    if (name === "first_name") {
+    
+    if (name === "username") {
       if (value.length < 4) {
         setErrors((prevErrors) => ({
           ...prevErrors,
@@ -51,11 +54,14 @@ const InputForm = ({ Data, title, action, formData, onChange }) => {
         });
       }
     }
+    
   };
 
   return (
     <div className="flex flex-col justify-center items-center gap-3 md:px-14 px-5">
       <label className=" mb-2 text-lg font-bold self-start ">{title}</label>
+
+      {/* Here is the input for the user information and validation Data contain the data for inputs*/ }
 
       {Data.map(({ id, placeholder, type, style, name }) => {
         return (
@@ -74,6 +80,8 @@ const InputForm = ({ Data, title, action, formData, onChange }) => {
           </>
         );
       })}
+
+      {/*step 4*/ }
 
       {title == "Create an account to save your information" && (
         <div className="flex flex-col justify-center items-center gap-2">
@@ -97,6 +105,8 @@ const InputForm = ({ Data, title, action, formData, onChange }) => {
           </p>
         </div>
       )}
+
+      {/*step 5*/ }
 
       {title == "We sent a code to your email, type it here:" && (
         <div className="flex flex-col justify-center items-center gap-3">

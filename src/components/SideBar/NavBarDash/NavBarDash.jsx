@@ -10,7 +10,7 @@ import times from "../../../assets/times.svg";
 
 const NavBarDash = () => {
   const [show, setShow] = useState(false);
-  const { dispatch, userData } = useContext(AuthContext);
+  const { dispatch, userData,role } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -67,8 +67,8 @@ const NavBarDash = () => {
 
           <p className="px-5 text-sm md:text-base order-1 md:order-2">
             Hey there,{" "}
-            {userData[0] && (
-              <span className="text-six">{userData[0].username}</span>
+            {userData && (
+              <span className="text-six">{userData.username}</span>
             )}{" "}
             !
           </p>
@@ -94,7 +94,7 @@ const NavBarDash = () => {
                   key={id}
                   className={` px-8 cursor-pointer md:text-lg text-lg text-five hover:scale-105 duration-200 capitalize ${style}`}
                 >
-                   <NavLink to={src}>{(userData[0] && userData[0].status === 'client') ? link : 'Book a session' }</NavLink>
+                   <NavLink to={src}>{(userData && role === 'user') ? link : 'Book a session' }</NavLink>
                 </li>
               );
             })}
@@ -111,8 +111,8 @@ const NavBarDash = () => {
 
             <p className="px-5">
               Hey there,{" "}
-              {userData[0] && (
-                <span className="text-six">{userData[0].username}</span>
+              {userData && (
+                <span className="text-six">{userData.username}</span>
               )}{" "}
               !
             </p>

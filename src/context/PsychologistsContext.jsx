@@ -8,18 +8,18 @@ export const PsychologistsProvider = ({ children }) => {
 
   // const registerUser = async () => {
   //   const userData = {
-  //     name: "anna",
-  //     last_name: "m",
-  //     xp: 20,
-  //     email: "anna@example.com",
-  //     password: "password123",
-  //     address: "123 Main St, Anytown",
+  //     username: "jeeeee",
+  //     relationship_status: 'single',
+  //     email: "jeeeeee@example.com",
+  //     password: "123456",
   //     birthdate: "1994-06-1",
+  //     genre: 'male',
   //   };
+    
 
   //   try {
   //     const response = await axios.post(
-  //       "/api/api/Psychologists/Register",
+  //       "/api/api/users/register",
   //       userData
   //     );
   //     console.log("User registered successfully:", response.data);
@@ -48,7 +48,6 @@ export const PsychologistsProvider = ({ children }) => {
       }
       const data = await response.json();
       setPsyData(data);
-      console.log(data)
     } catch (error) {
       console.error("Error fetching psychologists:", error);
     }
@@ -60,7 +59,7 @@ export const PsychologistsProvider = ({ children }) => {
 
   // const fetchSession = async () => {
   //   try {
-  //     const response = await fetch(`/api/api/sessions`);
+  //     const response = await fetch(`/api/api/sessions/`);
   //     if (!response.ok) {
   //       throw new Error(`HTTP error! status: ${response.status}`);
   //     }
