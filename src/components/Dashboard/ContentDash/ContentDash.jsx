@@ -76,7 +76,7 @@ const ContentDash = () => {
             console.log(response.data)
             const formattedEvents = response.data.map((session) => ({
               start: new Date(`${session.date} ${session.time}`),
-              title: '',
+              title: 'Dr.'+session.psychologist,
               status: session.status,
             }));
   

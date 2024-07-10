@@ -36,7 +36,7 @@ const CalenderDash = ({
     let style = {};
     if (event.status === "free") {
       style.backgroundColor = "#FFFFFF";
-    } else if (event.status === "missed") { //taken
+    } else if (event.status === "taken") { //taken
       style.backgroundColor = "#FDCDD6";
       style.color = "#900F26";
     } else if (event.status === "chosen") {
