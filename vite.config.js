@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: import.meta.env.VITE_API_BASE_URL || "https://rameem.onrender.com",
+        target: "https://rameem.onrender.com",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

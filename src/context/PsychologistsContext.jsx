@@ -42,7 +42,7 @@ export const PsychologistsProvider = ({ children }) => {
 
   const fetchPsychologists = async () => {
     try {
-      const response = await fetch(import.meta.env.VITE_API_BASE_URL +'/api/psychologists');
+      const response = await fetch(`/api/api/psychologists`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
