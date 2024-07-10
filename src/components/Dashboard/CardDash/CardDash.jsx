@@ -63,7 +63,7 @@ const CardDash = ({ addEvent }) => { //
           },
           {
             headers: {
-              Authorization: `Bearer ${authToken}`,
+              Authorization: `Bearer ${token}`,
             },
           }
         );
