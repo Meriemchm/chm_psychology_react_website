@@ -10,7 +10,7 @@ import times from "../../../assets/times.svg";
 
 const NavBarDash = () => {
   const [show, setShow] = useState(false);
-  const { dispatch, userData,role } = useContext(AuthContext);
+  const { dispatch, userData, role } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -33,27 +33,29 @@ const NavBarDash = () => {
         </div>
         {show && (
           <div className="flex fixed flex-col justify-start items-start p-5  top-0 z-10 left-0  w-1/2 h-screen bg-secondvariant ">
-          <ul className="py-36 ">
-            {SideBarData.map(({ id, link, src,style }) => {
-              return (
-                <li
-                  key={id}
-                  className={`px-4 py-4 text-second cursor-pointer hover:scale-105 duration-200 capitalize ${style} `}
-                  onClick={() => {
-                    handleItemClick(id, link);
-                  }}
-                >
-                  <NavLink
-                    to={src}
-                    className="md:text-xl text-base"
-                    onClick={() => setShow(!show)}
-                  >
-                    {link}
-                  </NavLink>
-                </li>
-              );
-            })}
-          </ul>
+            <ul className="py-36 ">
+              {SideBarData.map(({ id, link, src, style }) => {
+                return (
+                
+                    <li
+                      key={id}
+                      className={`px-4 py-4 text-second cursor-pointer hover:scale-105 duration-200 capitalize ${style} `}
+                      onClick={() => {
+                        handleItemClick(id, link);
+                      }}
+                    >
+                      <NavLink
+                        to={src}
+                        className="md:text-xl text-base"
+                        onClick={() => setShow(!show)}
+                      >
+                        {link}
+                      </NavLink>
+                    </li>
+                
+                );
+              })}
+            </ul>
           </div>
         )}
         <div className="flex flex-row xl:hidden pr-3 justify-center items-center  md:border-2 border-black-200 xl:text-xl p-1  rounded-[20rem]  ">
@@ -67,9 +69,7 @@ const NavBarDash = () => {
 
           <p className="px-5 text-sm md:text-base order-1 md:order-2">
             Hey there,{" "}
-            {userData && (
-              <span className="text-six">{userData.username}</span>
-            )}{" "}
+            {userData && <span className="text-six">{userData.username}</span>}{" "}
             !
           </p>
         </div>
@@ -90,24 +90,22 @@ const NavBarDash = () => {
             </div> */}
             {NavDashData.map(({ id, link, style, src }) => {
               return (
-                <li
-                  key={id}
-                  className={` px-8 cursor-pointer md:text-lg text-lg text-five hover:scale-105 duration-200 capitalize ${style}`}
-                >
-                   <NavLink to={src}>{(userData && role === 'user') ? link : 'Book a session' }</NavLink>
-                </li>
+                <ul key={id}>
+                  <li
+                    
+                    className={` px-8 cursor-pointer md:text-lg text-lg text-five hover:scale-105 duration-200 capitalize ${style}`}
+                  >
+                    <NavLink to={src}>
+                      {userData && role === "user" ? link : "Book a session"}
+                    </NavLink>
+                  </li>
+                </ul>
               );
             })}
           </div>
 
           <div className="hidden xl:flex flex-row justify-center items-center  border-2 border-black-200 xl:text-xl p-1  rounded-[20rem]  ">
-            {userData && (
-              <img
-                src={userPic}
-                className="h-16 w-16"
-                alt=""
-              />
-            )}
+            {userData && <img src={userPic} className="h-16 w-16" alt="" />}
 
             <p className="px-5">
               Hey there,{" "}

@@ -42,19 +42,21 @@ const NavBar = () => {
         <ul className="hidden lg:flex ">
           {NavlinkData.map(({ id, link, style, src }) => {
             return (
-              <li
-                key={id}
-                className={` px-8 cursor-pointer text-lg text-five hover:scale-105 duration-200 capitalize ${style}`}
-              >
-                <NavLink
-                  to={src}
-                  className={({ isActive }) =>
-                    isActive ? "text-six " : "text-second"
-                  }
+              
+                <li
+                  key={id}
+                  className={` px-8 cursor-pointer text-lg text-five hover:scale-105 duration-200 capitalize ${style}`}
                 >
-                  {link}
-                </NavLink>
-              </li>
+                  <NavLink
+                    to={src}
+                    className={({ isActive }) =>
+                      isActive ? "text-six " : "text-second"
+                    }
+                  >
+                    {link}
+                  </NavLink>
+                </li>
+            
             );
           })}
         </ul>
@@ -66,25 +68,27 @@ const NavBar = () => {
           {show ? <img src={times} size={30} /> : <img src={bars} size={30} />}
         </div>
         {show && (
-       <div className="flex fixed flex-col justify-start items-start p-5  top-0 z-10 right-0  w-1/2 h-screen bg-secondvariant ">
-          <ul className="py-36 ">
-              {NavlinkData.map(({ id, link, src,style }) => {
-              return (
-                <li
-                  key={id}
-                  className={`px-4 py-4 text-second cursor-pointer hover:scale-105 duration-200 capitalize ${style} `}
-                >
-                  <NavLink
-                    to={src}
-                    className="text-xl"
-                    onClick={() => setShow(!show)}
-                  >
-                    {link}
-                  </NavLink>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="flex fixed flex-col justify-start items-start p-5  top-0 z-10 right-0  w-1/2 h-screen bg-secondvariant ">
+            <ul className="py-36 ">
+              {NavlinkData.map(({ id, link, src, style }) => {
+                return (
+               
+                    <li
+                      key={id}
+                      className={`px-4 py-4 text-second cursor-pointer hover:scale-105 duration-200 capitalize ${style} `}
+                    >
+                      <NavLink
+                        to={src}
+                        className="text-xl"
+                        onClick={() => setShow(!show)}
+                      >
+                        {link}
+                      </NavLink>
+                    </li>
+                 
+                );
+              })}
+            </ul>
           </div>
         )}
       </div>

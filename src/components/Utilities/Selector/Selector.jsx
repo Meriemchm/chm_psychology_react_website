@@ -44,7 +44,7 @@ const Selector = ({ label, title, value, onChange, data }) => {
         <div className="flex items-center px-2 sticky top-0 bg-white">
           <img src={iconsearchselctor} size={18} className="text-gray-700" />
           <input
-            name='Search'
+            name="Search"
             id={label}
             type="text"
             value={inputValue}

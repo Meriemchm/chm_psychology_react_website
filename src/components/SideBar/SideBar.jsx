@@ -9,7 +9,7 @@ import { AuthContext } from "../../context/AuthContext";
 import bars from "../../assets/bars.svg";
 import times from "../../assets/times.svg";
 const SideBar = () => {
-  const { dispatch, userData,role } = useContext(AuthContext);
+  const { dispatch, userData, role } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [activeItem, setActiveItem] = useState(1);
   const location = useLocation();
@@ -36,8 +36,7 @@ const SideBar = () => {
 
         <ul className="py-28 fixed ">
           {SideBarData.filter(
-            (item) =>
-              !(userData && role !== "user" && item.id === 1)
+            (item) => !(userData && role !== "user" && item.id === 1)
           ).map(({ id, link, style, img, src }) => {
             return (
               <NavLink
@@ -48,19 +47,21 @@ const SideBar = () => {
                 }
                 end
               >
-                <li
-                  className={`flex flex-row gap-3 py-5 px-8 cursor-pointer text-lg capitalize ${
-                    currentPath === src.split("/").pop()
-                      ? "bg-gradient-to-r from-second/30 to-secondvariant"
-                      : ""
-                  }`}
-                  onClick={() => {
-                    setActiveItem(id), handleItemClick(id, link);
-                  }}
-                >
-                  {img}
-                  <p className={`self-center ${style} `}>{link}</p>
-                </li>
+                <ul>
+                  <li
+                    className={`flex flex-row gap-3 py-5 px-8 cursor-pointer text-lg capitalize ${
+                      currentPath === src.split("/").pop()
+                        ? "bg-gradient-to-r from-second/30 to-secondvariant"
+                        : ""
+                    }`}
+                    onClick={() => {
+                      setActiveItem(id), handleItemClick(id, link);
+                    }}
+                  >
+                    {img}
+                    <p className={`self-center ${style} `}>{link}</p>
+                  </li>
+                </ul>
               </NavLink>
             );
           })}
@@ -77,8 +78,6 @@ const SideBar = () => {
           </div> */}
         </ul>
       </div>
-
-
 
       {/* the outlets
        */}
