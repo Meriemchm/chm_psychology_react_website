@@ -3,8 +3,8 @@ import CardDash from "../CardDash/CardDash";
 import CalenderDash from "../CalenderDash/CalenderDash";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
-import { db, auth } from "../../../firebase";
-import { doc, getDoc, getDocs, collection } from "firebase/firestore";
+// import { db, auth } from "../../../firebase";
+// import { doc, getDoc, getDocs, collection } from "firebase/firestore";
 const ContentDash = () => {
   const { userData, role, token } = useContext(AuthContext);
   const [selectedEvent, setSelectedEvent] = useState(null);
