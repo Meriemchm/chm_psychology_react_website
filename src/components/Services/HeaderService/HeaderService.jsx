@@ -16,7 +16,7 @@ const HeaderService = () => {
       </div>
       <div className=" md:px-0 px-20 xl:p-20 xl:pt-0 p-5 order-1 xl:order-2 ">
         <img
-          src={Illustration_service_header}
+          src='Illustration_service_header.svg'
           alt="MyProfile"
           className=" rounded-lg object-cover "
         />
