@@ -45,7 +45,11 @@ function LogInForm() {
       localStorage.setItem("token", token);
 
       setError(false);
-      navigate("/main");
+      if (role === "user") {
+        navigate("/main");
+      } else {
+        navigate("/main/dashboard");
+      }
     } catch (error) {
       setError(true);
     }
