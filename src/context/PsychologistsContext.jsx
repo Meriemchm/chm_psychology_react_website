@@ -1,8 +1,11 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { AuthContext } from "../../../context/AuthContext";
+
 export const PsychologistsContext = createContext();
 
 export const PsychologistsProvider = ({ children }) => {
+  const { userData } = useContext(AuthContext);
   const [psyData, setPsyData] = useState([]);
   const [sessionData, setSessionData] = useState([]);
 
@@ -15,7 +18,6 @@ export const PsychologistsProvider = ({ children }) => {
   //     birthdate: "1994-06-1",
   //     genre: 'male',
   //   };
-    
 
   //   try {
   //     const response = await axios.post(
@@ -38,8 +40,6 @@ export const PsychologistsProvider = ({ children }) => {
   //   registerUser();
   // }, []);
 
-  
-
   const fetchPsychologists = async () => {
     try {
       const response = await fetch(`/api/api/psychologists`);
@@ -54,9 +54,10 @@ export const PsychologistsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchPsychologists();
+    if (userData) {
+      fetchPsychologists();
+    }
   }, []);
-
 
   return (
     <PsychologistsContext.Provider value={{ psyData, sessionData }}>
