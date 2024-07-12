@@ -4,7 +4,7 @@ import { AboutUsHome } from "../../Data/Data";
 const About = () => {
   return (
     <div className=" flex ">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 xl:gap-56 text-center justify-center items-center">
+      <div className="grid grid-cols-1  md:grid-cols-3 xl:gap-56 text-center justify-center items-center">
         {AboutUsHome.map(({ id, title, description, number }) => (
           <div
             key={id}

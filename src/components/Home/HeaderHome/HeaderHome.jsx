@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const HeaderHome = () => {
     return (
-        <div className="grid xl:grid-cols-2 h-screen">
+        <div className="grid xl:grid-cols-2 min-h-screen">
             <div className="bg-four flex flex-col justify-center items-start xl:ml-16 xl:p-8 p-5 order-2 xl:order-1">
                 <h2 className="text-second text-4xl md:text-7xl font-bold ">
                     Get help anytime, anywhere!

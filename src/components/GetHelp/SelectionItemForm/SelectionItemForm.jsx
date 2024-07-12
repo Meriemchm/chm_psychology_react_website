@@ -13,7 +13,7 @@ const SelectionItemForm = ({
 
   return (
     <div className="md:px-14 px-5">
-      <label className="block mb-2 text-lg font-bold">{title}</label>
+      <h2 className="block mb-2 text-lg font-bold">{title}</h2>
       <RadioGroup value={selectedValue} onChange={handleChange}>
         {radioItem.map(({ id, title }) => (
           <div key={id} className="flex flex-col py-3">

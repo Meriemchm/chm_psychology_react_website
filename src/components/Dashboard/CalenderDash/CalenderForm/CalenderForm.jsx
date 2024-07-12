@@ -44,6 +44,7 @@ function CalenderForm({
         <h2 className="text-xl font-bold pb-20">Add Event</h2>
         <div className="absolute w-full top-16 pr-10">
           <input
+          
             type="text"
             placeholder="Select a doctor"
             defaultValue={userData ? "Dr." + userData.username : ""}
@@ -51,8 +52,9 @@ function CalenderForm({
             readOnly
           />
         </div>
-        <label>Start Time:</label>
+        <label for="StartTime">Start Time:</label>
         <input
+          id="StartTime"
           type="datetime-local"
           value={start ? moment(start).format("YYYY-MM-DDTHH:mm") : ""}
           onChange={(e) => setStart(new Date(e.target.value))}

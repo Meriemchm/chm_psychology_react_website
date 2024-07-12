@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
-import chevrondown from '../../../assets/chevrondown.svg'
-import iconsearchselctor from '../../../assets/iconsearchselctor.svg'
+import chevrondown from "../../../assets/chevrondown.svg";
+import iconsearchselctor from "../../../assets/iconsearchselctor.svg";
 
-const Selector = ({ title, value, onChange, data }) => {
+const Selector = ({ label, title, value, onChange, data }) => {
   const [dataselector, setDataselector] = useState(data);
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState(value || "");
@@ -22,7 +22,6 @@ const Selector = ({ title, value, onChange, data }) => {
 
   return (
     <div className="font-medium">
-
       <div
         onClick={() => setOpen(!open)}
         className={`bg-white w-full p-2 flex items-center justify-between rounded-xl border-opacity-30 border-2 text-six border-six  ${
@@ -43,8 +42,10 @@ const Selector = ({ title, value, onChange, data }) => {
         }`}
       >
         <div className="flex items-center px-2 sticky top-0 bg-white">
-          <img src={iconsearchselctor}  size={18} className="text-gray-700" />
+          <img src={iconsearchselctor} size={18} className="text-gray-700" />
           <input
+            name='Search'
+            id={label}
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value.toLowerCase())}
@@ -62,7 +63,7 @@ const Selector = ({ title, value, onChange, data }) => {
               "bg-sky-600 text-white"
             }`}
             onClick={() => {
-              setOpen(false); 
+              setOpen(false);
               setSelected(item);
               onChange(item);
               setInputValue("");

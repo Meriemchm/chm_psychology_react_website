@@ -19,11 +19,11 @@ const ProfileDrCard = ({ data, onCardClick }) => {
           </Link>
         )}
       </div>
-      <div className="flex md:w-full xl:flex-col md:gap-0 xl:h-96 h-full overflow-x-scroll xl:overflow-y-scroll xl:overflow-x-hidden  ">
+      <div className="flex w-full xl:flex-col md:gap-0 xl:h-96 h-full overflow-x-scroll xl:overflow-y-scroll xl:overflow-x-hidden  ">
         {data.map(({ id, username,xp  }) => (
           <div
             key={id}
-            className={`cursor-pointer py-3 flex justify-between md:px-0 px-2   ${
+            className={`cursor-pointer py-3 flex justify-between md:px-0 px-2  ${
               id !== 1 ? "xl:border-t border-l xl:border-l-0" : ""
             }`}
             onClick={() => onCardClick({ id, username,xp  })}

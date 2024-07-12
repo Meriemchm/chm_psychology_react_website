@@ -20,6 +20,7 @@ const SearchInput = ({ onSearch }) => {
           <img src={IconSearch} alt="iconSearch" />
         </button>
         <input
+          name="Search"
           type="text"
           placeholder="Search for anything..."
           value={searchTerm}

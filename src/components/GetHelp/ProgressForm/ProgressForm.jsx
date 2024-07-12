@@ -219,13 +219,17 @@ const MultiStepForm = () => {
 
             {step === 2 && (
               <div className="md:px-14 px-5">
-                <label className="text-lg font-bold self-start mb-2">
+                <label
+                  for="birthday"
+                  className="text-lg font-bold self-start mb-2"
+                >
                   What is your birthday date?
                 </label>
                 <div className="mt-3">
                   <input
+                    id="birthday"
                     type="date"
-                    className="border rounded px-3 py-2 w-full"
+                    className="py-3 px-4 border-2 text-six border-six border-opacity-30 rounded-2xl w-full "
                     value={formData.birthdate}
                     onChange={(e) => handleChange("birthdate", e.target.value)}
                   />

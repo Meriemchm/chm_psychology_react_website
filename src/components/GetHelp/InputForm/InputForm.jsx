@@ -59,7 +59,7 @@ const InputForm = ({ Data, title, action, formData, onChange }) => {
 
   return (
     <div className="flex flex-col justify-center items-center gap-3 md:px-14 px-5">
-      <label className=" mb-2 text-lg font-bold self-start ">{title}</label>
+      <h2 className=" mb-2 text-lg font-bold self-start ">{title}</h2>
 
       {/* Here is the input for the user information and validation Data contain the data for inputs*/ }
 

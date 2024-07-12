@@ -50,9 +50,9 @@ function ProfileDr({ profile }) {
       >
         Book an Appointment
       </NavLink>
-      <div className=" md:px-14 flex ">
+      <div className=" md:px-14 flex px-5 ">
         <h3 className="font-meduim md:text-3xl text-2xl pt-10">Experience :  </h3>
-        <p className=" pt-12 text-xl px-2">{xp} years</p>
+        <p className=" md:pt-12 pt-11 text-xl px-2">{xp} years</p>
       </div>
 
       <div className=" md:px-14 px-5">

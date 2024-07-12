@@ -3,7 +3,7 @@ import React from "react";
 function CardItem({ icon, title, description, img,id }) {
   return (
     <div
-      className={`cursor-pointer p-2 2xl:p-5 rounded-lg shadow-md flex flex-col justify-center items-center ${
+      className={`cursor-pointer p-5 2xl:p-5 rounded-lg shadow-md flex flex-col justify-center items-center w-48 xl:w-auto ${
         id === 2 ? "mt-auto" : "mb-10"
       }  `}
     >

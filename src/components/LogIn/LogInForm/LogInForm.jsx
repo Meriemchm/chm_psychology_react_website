@@ -45,11 +45,7 @@ function LogInForm() {
       localStorage.setItem("token", token);
 
       setError(false);
-      if (role === "user") {
-        navigate("/main");
-      } else {
-        navigate("/main/dashboard");
-      }
+      navigate("/main/dashboard");
     } catch (error) {
       setError(true);
     }
@@ -80,8 +76,11 @@ function LogInForm() {
             )}
             <div className="flex flex-col">
               <div className="flex flex-col">
-                <label className="capitalize my-3">Email</label>
+                <label for="email" className="capitalize my-3">
+                  Email
+                </label>
                 <input
+                  id="email"
                   type="email"
                   placeholder="Enter your email"
                   value={email}
@@ -90,8 +89,11 @@ function LogInForm() {
                 />
               </div>
               <div className="flex flex-col my-5">
-                <label className="capitalize my-3">Password</label>
+                <label for="password" className="capitalize my-3">
+                  Password
+                </label>
                 <input
+                  id="password"
                   type="password"
                   placeholder="Enter your password"
                   value={password}

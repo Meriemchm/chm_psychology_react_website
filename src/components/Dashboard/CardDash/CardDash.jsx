@@ -94,7 +94,7 @@ const CardDash = ({ addEvent }) => {
     <div
       className={`h-full flex xl:flex-col gap-2 ${
         userData && role === "user"
-          ? "flex-col md:my-0 my-10 xl:items-stretch items-start"
+          ? "flex-col  md:my-0 my-10 xl:items-stretch items-start"
           : ""
       } xl:gap-5 2xl:gap-0 `}
     >
@@ -112,7 +112,7 @@ const CardDash = ({ addEvent }) => {
             />
           );
         return (
-          <div className="w-auto " key={id} onClick={() => handleCardClick(id)}>
+          <div className="w-full " key={id} onClick={() => handleCardClick(id)}>
             {id === 1 ? (
               side
             ) : (

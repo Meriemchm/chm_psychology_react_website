@@ -36,20 +36,15 @@ function SecurityForm() {
       return;
     }
 
-    if (
-      formValues.newpassword &&
-      !formValues.repeatpassword 
-    ) {
+    if (formValues.newpassword && !formValues.repeatpassword) {
       setErrors({
         repeatpassword: "Please repeat your new password",
         currentpassword: "Please enter your current password",
       });
       return;
     }
-    
-    if (
-      !formValues.currentpassword
-    ) {
+
+    if (!formValues.currentpassword) {
       setErrors({
         currentpassword: "Please enter your current password",
       });
@@ -65,8 +60,12 @@ function SecurityForm() {
             let value = formValues[label.toLowerCase()] || "";
             return (
               <div key={id} className="mb-2">
-                <label className="font-bold self-start">{label}</label>
+                <label for={label} className="font-bold self-start">
+                  {label}
+                </label>
                 <input
+                 
+                  id={label}
                   type={type}
                   className="w-full py-3 px-4 border-2 text-six border-six border-opacity-30 rounded-2xl"
                   placeholder={placeholder}
