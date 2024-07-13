@@ -16,18 +16,18 @@ function HistoryTable({data}) {
   };
 
   return (
-    <div className="md:p-4 rounded-lg shadow-md h-full ">
-      <table className="min-w-full divide-y divide-gray-200">
+    <div className="md:px-4 rounded-lg shadow-md h-screen overflow-y-scroll ">
+      <table className="min-w-full divide-y   divide-gray-200">
         <thead>
-          <tr >
+          <tr className="" >
           {HistoryTableData.map(({ id, title }) => (
-              <th key={id} scope="col" className="md:px-6 py-3 md:text-base text-sm text-left text-graytabledash font-medium">
+              <th key={id} scope="col" className="md:px-6 sticky bg-slate-50 top-0 py-3 md:text-base text-sm text-left text-graytabledash font-medium">
                 {title}
               </th>
           ))}
             </tr>
         </thead>
-        <tbody>
+        <tbody className="">
           {data.map((appointment, id) => (
             <tr key={id} className="text-sm md:text-base">
               <td className="md:px-6 py-4 whitespace-nowrap flex items-center">

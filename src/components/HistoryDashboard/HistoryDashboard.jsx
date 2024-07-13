@@ -26,6 +26,8 @@ const HistoryDashboard = () => {
       cost: "2200 DA",
       status: "Complete",
     },
+
+ 
   ];
   const [searchTerm, setSearchTerm] = useState("");
   const [sortType, setSortType] = useState("");
@@ -56,7 +58,7 @@ const HistoryDashboard = () => {
   };
 
   return (
-    <div className="flex flex-col md:px-10 px-2 gap-10 py-5 h-screen ">
+    <div className="flex flex-col md:px-10 px-2 gap-10 py-5 min-h-screen ">
       <div className="flex md:flex-row gap-5 md:gap-0 flex-col justify-between">
         <h2 className="font-bold text-2xl">My History</h2>
         <div>
