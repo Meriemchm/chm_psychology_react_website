@@ -11,7 +11,7 @@ function ContentExplore({ data }) {
 
   return (
     <div className="grid xl:grid-cols-4 grid-cols-1  md:gap-4 md:py-20 py-10 w-full h-full">
-      <div className="rounded-lg h-screen shadow-md md:p-4 w-full col-span-3 order-2 xl:order-1">
+      <div className="rounded-lg min-h-screen shadow-md md:p-4 w-full col-span-3 order-2 xl:order-1">
         <ProfileDr profile={selectedProfile} />
       </div>
       <div className="w-full xl:h-80 xl:px-4  md:col-span-1 order-1 xl:order-2 mb-5 md:mb-0">
