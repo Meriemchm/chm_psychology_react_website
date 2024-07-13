@@ -57,7 +57,7 @@ export const PsychologistsProvider = ({ children }) => {
     if (userData) {
       fetchPsychologists();
     }
-  }, []);
+  }, [userData]);
 
   return (
     <PsychologistsContext.Provider value={{ psyData, sessionData }}>
