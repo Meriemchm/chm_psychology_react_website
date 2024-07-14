@@ -60,7 +60,7 @@ function SecurityForm() {
             let value = formValues[label.toLowerCase()] || "";
             return (
               <div key={id} className="mb-2">
-                <label for={label} className="font-bold self-start">
+                <label htmlFor={label} className="font-bold self-start">
                   {label}
                 </label>
                 <input

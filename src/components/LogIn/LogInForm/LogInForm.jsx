@@ -14,17 +14,6 @@ function LogInForm() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // signInWithEmailAndPassword(auth, email, password)
-    //   .then((userCredential) => {
-    //     // Signed up
-    //     const user = userCredential.user;
-    //     dispatch({ type: "LOGIN", payload: user });
-    //     navigate("/main");
-    //   })
-    //   .catch((error) => {
-    //     setError(true);
-    //   });
-
     try {
       const response = await axios.post("/api/api/users/login", {
         email,
@@ -76,7 +65,7 @@ function LogInForm() {
             )}
             <div className="flex flex-col">
               <div className="flex flex-col">
-                <label for="email" className="capitalize my-3">
+                <label htmlFor="email" className="capitalize my-3">
                   Email
                 </label>
                 <input
@@ -89,7 +78,7 @@ function LogInForm() {
                 />
               </div>
               <div className="flex flex-col my-5">
-                <label for="password" className="capitalize my-3">
+                <label htmlFor="password" className="capitalize my-3">
                   Password
                 </label>
                 <input
@@ -105,8 +94,8 @@ function LogInForm() {
 
             <div className="flex justify-between">
               <div>
-                <input type="checkbox" className="" />
-                <label className="capitalize ml-2 text-xs">Remember me</label>
+                <input type="checkbox" className="" id="rememberme" />
+                <label className="capitalize ml-2 text-xs" htmlFor="rememberme" >Remember me</label>
               </div>
               <a
                 href=""

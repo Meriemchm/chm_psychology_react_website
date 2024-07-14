@@ -87,23 +87,6 @@ const MultiStepForm = () => {
   //   return age;
   // };
 
-  // useEffect(() => {
-  //   const uploadDefaultProfilePicture = async () => {
-  //     try {
-  //       const response = await fetch(PFP);
-  //       const blob = await response.blob();
-  //       const storageRef = ref(storage, "defaultProfilePictures/PFP.svg");
-  //       await uploadBytes(storageRef, blob);
-  //       const url = await getDownloadURL(storageRef);
-  //       setFormData((prevData) => ({
-  //         ...prevData,
-  //         profilePicture: url,
-  //       }));
-  //     } catch (error) {
-  //       console.error("Error uploading default profile picture: ", error);
-  //     }
-  //   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateStep()) {
@@ -121,19 +104,7 @@ const MultiStepForm = () => {
 
       setStep(6);
       setProgress(100);
-      // const res = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
-      // await setDoc(doc(db, "users", res.user.uid), {
-      //   id: res.user.uid,
-      //   ...formData,
-      // });
 
-      // await signInWithEmailAndPassword(auth, formData.email, formData.password)
-      //   .then((userCredential) => {
-      //     setStep(6);
-      //     setProgress(100);
-      //     const user = userCredential.user;
-      //     dispatch({ type: "LOGIN", payload: user });
-      //   })
     } catch (error) {
       console.error("Error registering user: ", error);
     }
@@ -220,7 +191,7 @@ const MultiStepForm = () => {
             {step === 2 && (
               <div className="md:px-14 px-5">
                 <label
-                  for="birthday"
+                  htmlFor="birthday"
                   className="text-lg font-bold self-start mb-2"
                 >
                   What is your birthday date?

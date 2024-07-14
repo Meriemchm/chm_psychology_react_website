@@ -42,7 +42,7 @@ const FormSettings = () => {
                   key={id}
                   className={`mb-4 ${colSpanClass} ${style} relative `}
                 >
-                  <label for={label} className="font-bold self-start">
+                  <label htmlFor={label} className="font-bold self-start">
                     {label}
                   </label>
                   {id === 4 || id === 5 ? (

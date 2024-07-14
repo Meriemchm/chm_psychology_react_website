@@ -47,7 +47,7 @@ function CalenderForm({ setShowModal, showModal }) {
             readOnly
           />
         </div>
-        <label for="StartTime">Start Time:</label>
+        <label htmlFor="StartTime">Start Time:</label>
         <input
           id="StartTime"
           type="datetime-local"
