@@ -4,12 +4,14 @@ import App from "./App.jsx";
 import "./index.css";
 import { AuthContextProvider } from "./context/AuthContext";
 import { PsychologistsProvider } from "./context/PsychologistsContext"; // Adjust the path as per your project structure
-
+import { SessionProvider } from "./context/SessionContext";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContextProvider>
       <PsychologistsProvider>
-        <App />
+        <SessionProvider>
+          <App />
+        </SessionProvider>
       </PsychologistsProvider>
     </AuthContextProvider>
   </React.StrictMode>

@@ -7,21 +7,28 @@ import { PsychologistsContext } from "../../../context/PsychologistsContext";
 import axios from "axios";
 import ProfileDrCard from "../../Utilities/ProfileDrCard/ProfileDrCard";
 import { AuthContext } from "../../../context/AuthContext";
+import { useSessions } from "../../../context/SessionContext";
 // import { db } from "../../../firebase";
 // import firebase from "firebase/compat/app";
 // import { doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
 
 // import PropTypes from 'prop-types';
 
-const CardDash = ({ addEvent }) => {
-  //
+const CardDash = () => {
+  //contexts
   const { userData, role, token } = useContext(AuthContext);
+  const { psyData } = useContext(PsychologistsContext);
+  const { addEvent } = useSessions();
+
   const [showModal, setShowModal] = useState(false);
+
+  //events body
   const title = userData ? "Dr." + userData.username : "";
   const [start, setStart] = useState("");
+
+  //selectedProfile is used to send the profile to the explore page to display it
   const [selectedProfile, setSelectedProfile] = useState(null);
   const navigate = useNavigate();
-  const { psyData } = useContext(PsychologistsContext);
 
   const handleAddEvent = async (e) => {
     e.preventDefault();
@@ -36,26 +43,6 @@ const CardDash = ({ addEvent }) => {
       setStart("");
 
       try {
-        // const userId = userData[0]?.id;
-        // if (userId) {
-        //   const userDoc = await getDoc(doc(db, "appointments", userId));
-        //   if (userDoc.exists()) {
-
-        //     const existingAppointments = userDoc.data().appointments || [];
-        //     await updateDoc(doc(db, "appointments", userId), {
-        //       appointments: [...existingAppointments, newEvent]
-        //     });
-        //   } else {
-
-        //     await setDoc(doc(db, "appointments", userId), {
-        //       appointments: [newEvent]
-        //     });
-        //   }
-        //   console.log("Appointment added successfully");
-        // } else {
-        //   console.error("User ID is not available");
-        // }
-
         const response = await axios.post(
           "/api/api/sessions/add",
           {
@@ -69,7 +56,7 @@ const CardDash = ({ addEvent }) => {
           }
         );
 
-        console.log("Session added successfully:", response.data);
+        // console.log("Session added successfully:", response.data);
         setShowModal(false);
         setStart("");
       } catch (error) {
@@ -78,13 +65,14 @@ const CardDash = ({ addEvent }) => {
     }
   };
 
+  // to show the add session card for psycologist side
   const handleCardClick = (id) => {
     if (id === 1 && userData && role !== "user") {
       setShowModal(true);
     }
   };
 
-  // psycologue profile in the user side
+  // psycologist profile in the user side
   const handleProfileClick = (profile) => {
     setSelectedProfile(profile);
     navigate("/main", { state: { selectedProfile: profile } });
@@ -129,7 +117,7 @@ const CardDash = ({ addEvent }) => {
           </div>
         );
       })}
-      {/*calenderform is to add the date and time for the appointment */}
+      {/*calenderform is made to craete the date and time for the doctor session */}
       {showModal && (
         <CalenderForm
           start={start}

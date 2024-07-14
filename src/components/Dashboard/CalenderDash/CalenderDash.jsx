@@ -1,72 +1,73 @@
-import React, { useState, useContext ,useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import Selector from "../../Utilities/Selector/Selector";
-import { doctorData } from "../../Data/Data";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import ConfirmSelect from "./ConfirmSelect/ConfirmSelect";
 import { AuthContext } from "../../../context/AuthContext";
-import { PsychologistsContext } from "../../../context/PsychologistsContext"; 
-const CalenderDash = ({
-  setSessionId,
-  events,
-  handleConfirmation,
-  selectedEvent,
-  setSelectedEvent,
-  handleDelete,
-}) => {
+import { PsychologistsContext } from "../../../context/PsychologistsContext";
+import { useSessions } from "../../../context/SessionContext";
+
+const CalenderDash = ({}) => {
+  //context
   const { psyData } = useContext(PsychologistsContext);
-  const { userData,role } = useContext(AuthContext);
+  const { userData, role } = useContext(AuthContext);
+  const {
+    events,
+    handleConfirmation,
+    handleDelete,
+    handleEventSelect,
+    selectedEvent,
+    setSelectedEvent,
+    deletingEvent,
+    setDeletingEvent,
+  } = useSessions();
+
+  //calender stuff
   const localizer = momentLocalizer(moment);
   const currentMonth = moment().format("MMMM YYYY");
-  const [selectedDoctor, setSelectedDoctor] = useState("");
-  const [deletingEvent, setDeletingEvent] = useState(null);
-  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
+
+  //filter doctors
   const [dataselector, setDataselector] = useState([]);
+  const [selectedDoctor, setSelectedDoctor] = useState("");
   const filteredEvents =
     selectedDoctor && selectedDoctor !== "All"
       ? events.filter((event) => event.title === selectedDoctor)
       : events;
-      
+
   useEffect(() => {
-    const updatedData = ['All', ...psyData.map(item => 'Dr.'+item?.username)];
+    const updatedData = [
+      "All",
+      ...psyData.map((item) => "Dr." + item?.username),
+    ];
     setDataselector(updatedData);
   }, [psyData]);
 
-  const eventStyleGetter = (event, start, end, isSelected) => {
+  //events status change
+  const eventStyleGetter = (event) => {
     let style = {};
     if (event.status === "free") {
       style.backgroundColor = "#FFFFFF";
-    } else if (event.status === "taken") { //taken
+    } else if (event.status === "taken") {
+      //taken
       style.backgroundColor = "#FDCDD6";
       style.color = "#900F26";
     } else if (event.status === "chosen") {
-      style.backgroundColor = "#D5FBF5";
+      style.backgroundColor = "#8AE3CC";
     }
     return {
       style,
     };
   };
 
-  const handleEventSelect = (event) => {
-    setSessionId(event.id)
-    if (userData && role !== "user") {
-      setDeletingEvent(event);
-      setShowDeleteConfirmation(true);
-    } else if (
-      (userData &&
-        role === "user" &&
-        event.status === "free") ||
-      event.status === "chosen"
-    ) {
-      setSelectedEvent(event);
-    }
+  const handleConfirmationClick = () => {
+    handleConfirmation(selectedEvent);
   };
 
   const handleDeleteConfirmation = () => {
     handleDelete(deletingEvent);
     setDeletingEvent(null);
-    setShowDeleteConfirmation(false);
+    
   };
 
   return (
@@ -101,9 +102,9 @@ const CalenderDash = ({
         />
       </div>
 
-      {showDeleteConfirmation && (
+      {deletingEvent && (
         <ConfirmSelect
-          setSelectedEvent={setShowDeleteConfirmation}
+          setSelectedEvent={setDeletingEvent}
           handleConfirmation={handleDeleteConfirmation}
           labeltitle="Delete"
           questionword="Delete"
@@ -113,7 +114,7 @@ const CalenderDash = ({
       {selectedEvent && (
         <ConfirmSelect
           setSelectedEvent={setSelectedEvent}
-          handleConfirmation={handleConfirmation}
+          handleConfirmation={handleConfirmationClick}
           labeltitle="Confirm"
           questionword={selectedEvent.status === "free" ? "Choose" : "Cancel"}
         />

@@ -32,13 +32,22 @@ input::file-selector-button {
   font-style: normal;
 }
 
+input[type="checkbox"]:checked ~ .check_1 {
+  @apply text-opacity-100;
+  @apply bg-second;
+  @apply rounded-md;
+}
+
+
+/*calender css*/
+
 .rbc-calendar {
   @apply flex-col-reverse !important;
   @apply gap-5 !important;
 }
 
 .rbc-selected {
-  @apply bg-third  !important;
+  @apply bg-second  !important;
 }
 
 .rbc-button-link {
@@ -46,7 +55,7 @@ input::file-selector-button {
 }
 
 .rbc-event:hover {
-  @apply bg-six !important;
+  @apply bg-second !important;
 }
 
 .rbc-event-content {
@@ -64,9 +73,4 @@ input::file-selector-button {
 .rbc-event {
   @apply h-auto !important;
   @apply w-auto !important;
-}
-input[type="checkbox"]:checked ~ .check_1 {
-  @apply text-opacity-100;
-  @apply bg-second;
-  @apply rounded-md;
 }

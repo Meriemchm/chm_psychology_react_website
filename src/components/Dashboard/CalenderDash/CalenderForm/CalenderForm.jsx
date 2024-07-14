@@ -44,9 +44,8 @@ function CalenderForm({
         <h2 className="text-xl font-bold pb-20">Add Event</h2>
         <div className="absolute w-full top-16 pr-10">
           <input
-          
+            id="doctorname"
             type="text"
-            placeholder="Select a doctor"
             defaultValue={userData ? "Dr." + userData.username : ""}
             className="border-2 p-2 mb-4 w-full text-six border-six rounded-xl"
             readOnly
@@ -60,13 +59,6 @@ function CalenderForm({
           onChange={(e) => setStart(new Date(e.target.value))}
           className="border-2 p-2 mb-4 w-full text-six border-six rounded-xl"
         />
-        {/* <label>End Time:</label>
-        <input
-          type="datetime-local"
-          value={end ? moment(end).format("YYYY-MM-DDTHH:mm") : ""}
-          onChange={(e) => setEnd(new Date(e.target.value))}
-          className="border-2 p-2 mb-4 w-full text-six border-six rounded-xl"
-        /> */}
         <div className="flex justify-between py-5">
           <button
             onClick={handleAddEvent}
