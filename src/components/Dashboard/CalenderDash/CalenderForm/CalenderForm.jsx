@@ -1,14 +1,10 @@
 import React, { useEffect, useContext } from "react";
 import moment from "moment";
 import { AuthContext } from "../../../../context/AuthContext";
-function CalenderForm({
-  start,
-  setStart,
-  handleAddEvent,
-  setShowModal,
-  showModal,
-}) {
+import { useSessions } from "../../../../context/SessionContext";
+function CalenderForm({ setShowModal, showModal }) {
   const { userData } = useContext(AuthContext);
+  const { handleAddEvent,start, setStart } = useSessions();
   useEffect(() => {
     const handleScroll = (e) => {
       if (showModal) {

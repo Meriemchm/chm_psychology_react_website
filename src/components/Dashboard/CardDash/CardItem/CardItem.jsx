@@ -3,8 +3,8 @@ import React from "react";
 function CardItem({ icon, title, description, img,id }) {
   return (
     <div
-      className={`cursor-pointer p-5 2xl:p-5 rounded-lg shadow-md flex flex-col justify-center items-center w-48 xl:w-auto ${
-        id === 2 ? "mt-auto" : "mb-10"
+      className={`cursor-pointer p-5 2xl:p-5 rounded-lg shadow-md flex flex-col justify-center items-center w-auto xl:w-auto min-h-full ${
+        id === 2 ? "mt-auto" : "xl:mb-10"
       }  `}
     >
       <div className="flex flex-row gap-2">

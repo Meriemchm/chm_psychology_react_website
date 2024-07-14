@@ -3,6 +3,7 @@ import axios from "axios";
 import { AuthContext } from "./AuthContext";
 
 const SessionContext = createContext();
+// there is both session and appointments request ans functions
 
 export const SessionProvider = ({ children }) => {
   const { userData, role, token } = useContext(AuthContext);
@@ -11,12 +12,17 @@ export const SessionProvider = ({ children }) => {
   //psycologist delete session side
   const [deletingEvent, setDeletingEvent] = useState(null);
 
+  const [showModal, setShowModal] = useState("");
+
+  //events body
+  const title = userData ? "Dr." + userData.username : "";
+  const [start, setStart] = useState("");
+
   //function
 
   const handleEventSelect = (event) => {
     if (userData && role !== "user") {
       setDeletingEvent(event);
-      
     } else if (
       (userData && role === "user" && event.status === "free") ||
       event.status === "chosen"
@@ -58,7 +64,7 @@ export const SessionProvider = ({ children }) => {
                 : "Dr." + session.psychologist,
             status: session.status || session.is_taken,
           }));
-          
+
           setEvents(formattedEvents);
         } catch (error) {
           console.error("Error fetching sessions:", error);
@@ -67,14 +73,14 @@ export const SessionProvider = ({ children }) => {
     };
 
     fetchData();
-  }, [userData, role, token,selectedEvent]);
+  }, [userData, role, token, selectedEvent]);
 
   const handleConfirmation = async (selectedEvent) => {
     if (!selectedEvent) {
       console.error("No event selected");
       return;
     }
-    
+
     const currentStatus = selectedEvent.status;
     const apiUrl =
       currentStatus === "free"
@@ -108,11 +114,46 @@ export const SessionProvider = ({ children }) => {
     setSelectedEvent(null);
   };
 
+  const handleAddEvent = async (e) => {
+    e.preventDefault();
+    if (title && start) {
+      const newEvent = { title, start };
+      addEvent(newEvent);
+      const eventDate = new Date(newEvent.start);
+      const date = eventDate.toISOString().split("T")[0];
+      const time = eventDate.toTimeString().split(" ")[0];
+
+      setShowModal(false);
+      setStart("");
+
+      try {
+        const response = await axios.post(
+          "/api/api/sessions/add",
+          {
+            date,
+            time,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        // console.log("Session added successfully:", response.data);
+        setShowModal(false);
+        setStart("");
+      } catch (error) {
+        console.error("Error adding document: ", error);
+      }
+    }
+  };
+
   return (
     <SessionContext.Provider
       value={{
         events,
-        addEvent,
+        handleAddEvent,
         handleConfirmation,
         handleDelete,
         handleEventSelect,
@@ -120,6 +161,10 @@ export const SessionProvider = ({ children }) => {
         setSelectedEvent,
         deletingEvent,
         setDeletingEvent,
+        start,
+        setStart,
+        showModal,
+        setShowModal,
       }}
     >
       {children}
