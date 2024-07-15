@@ -48,8 +48,8 @@ function LogInForm() {
     <div className="flex justify-center items-center w-full">
       <div className="flex flex-row justify-center items-center w-full md:py-8 md:m-auto p-10">
         {/* ogin form */}
-        <div className="hidden justify-center items-center xl:flex bg-white/50 md:w-6/12 lg:w-full">
-          <div className="flex flex-col justify-center items-start bg-white/50 mx-20 my-40 p-16">
+        <div className="hidden justify-center items-center xl:flex bg-secondvariant md:w-6/12 lg:w-full">
+          <div className="flex flex-col justify-center items-start bg-secondvariant mx-20 my-40 p-16">
             <h1 className="flex flex-col text-5xl font-bold text-primary py-5 w-full">
               Get help anytime, <span className="py-2">anywhere!</span>
             </h1>
