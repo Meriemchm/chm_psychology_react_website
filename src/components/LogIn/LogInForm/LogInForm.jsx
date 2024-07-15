@@ -9,7 +9,7 @@ function LogInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch, role } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -34,7 +34,11 @@ function LogInForm() {
       localStorage.setItem("token", token);
 
       setError(false);
-      navigate("/main/dashboard");
+      if (role === "user") {
+        navigate("/main");
+      } else {
+        navigate("/main/dashboard");
+      }
     } catch (error) {
       setError(true);
     }
@@ -95,7 +99,9 @@ function LogInForm() {
             <div className="flex justify-between">
               <div>
                 <input type="checkbox" className="" id="rememberme" />
-                <label className="capitalize ml-2 text-xs" htmlFor="rememberme" >Remember me</label>
+                <label className="capitalize ml-2 text-xs" htmlFor="rememberme">
+                  Remember me
+                </label>
               </div>
               <a
                 href=""
