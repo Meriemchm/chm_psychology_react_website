@@ -1,19 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import SelectionItemForm from "../SelectionItemForm/SelectionItemForm";
-import CompleteForm from "../CompleteForm/CompleteForm";
+import CompleteForm from "../../CompleteRegister/CompleteForm/CompleteForm";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import InputForm from "../InputForm/InputForm";
 import Selector from "../../Utilities/Selector/Selector";
 import { GenderType, RelashionshipSituation } from "../../Data/Data";
 import { AccountForm, AccountValidation, getNumbers } from "../../Data/Data";
 import { AuthContext } from "../../../context/AuthContext";
-
+import { useNavigate } from "react-router-dom";
+import { isExpired, decodeToken } from "react-jwt";
 const MultiStepForm = () => {
   const { dispatch } = useContext(AuthContext);
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(25);
   const [showError, setShowError] = useState(false);
+  const navigate= useNavigate()
 
   //formTest is used for testing some input
   const [formTest, setFormTest] = useState({});
@@ -26,6 +28,7 @@ const MultiStepForm = () => {
     genre: "",
   });
 
+  //functions
   const nextStep = () => {
     setShowError(false);
     setStep((prevStep) => {
@@ -87,6 +90,7 @@ const MultiStepForm = () => {
   //   return age;
   // };
 
+  //requests
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateStep()) {
@@ -94,16 +98,30 @@ const MultiStepForm = () => {
       return;
     }
     try {
-      // Register user with API
-      const response = await axios.post("/api/api/users/register", {
+      
+      const responseRegister = await axios.post("/api/api/users/register", {
         ...formData,
       });
 
-      const user = response.data;
-      console.log("User registered successfully: ", user);
+      const response = await axios.post("/api/api/users/login", {
+        email: formData.email,
+        password: formData.password,
+      });
 
-      setStep(6);
-      setProgress(100);
+      const { user, psychologist, token } = response.data;
+      const users = user || psychologist;
+
+      const decodedToken = decodeToken(token);
+
+      const role = decodedToken.role;
+      const isTokenExpired = isExpired(token);
+
+      dispatch({ type: "LOGIN", payload: { users, token, role } });
+      localStorage.setItem("role", JSON.stringify(role));
+      localStorage.setItem("user", JSON.stringify(users));
+      localStorage.setItem("token", token);
+
+      navigate('/completeRegister')
 
     } catch (error) {
       console.error("Error registering user: ", error);
@@ -150,15 +168,6 @@ const MultiStepForm = () => {
 
       {(step === 4 || step === 5) && (
         <h1 className="text-3xl font-bold text-center pt-10">Almost there!</h1>
-      )}
-
-      {step === 6 && (
-        <>
-          <h1 className="text-3xl font-bold text-center pt-10">
-            Welcome to Rameem!
-          </h1>
-          <CompleteForm />
-        </>
       )}
 
       {step !== 6 && (

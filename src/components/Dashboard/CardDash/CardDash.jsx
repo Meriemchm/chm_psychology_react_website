@@ -30,7 +30,7 @@ const CardDash = () => {
 
   // psycologist profile in the user side
   const handleProfileClick = (profile) => {
-    setSelectedProfile(profile);
+    
     navigate("/main", { state: { selectedProfile: profile } });
   };
 

@@ -18,17 +18,19 @@ import HistoryDashboard from "./components/HistoryDashboard/HistoryDashboard";
 import LogIn from "./components/LogIn/LogIn";
 import { AuthContext } from "./context/AuthContext";
 import Explore from "./components/Explore/Explore";
-import ScrollToTop from './ScrollToTop';
+import ScrollToTop from "./ScrollToTop";
+import CompleteRegister from "./components/CompleteRegister/CompleteRegister";
 
 const App = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { userData } = useContext(AuthContext);
 
   //link protection
   const Requireauth = ({ children }) => {
-    return currentUser ? children : <Navigate to="/logIn" />;
+    return userData ? children : <Navigate to="/logIn" />;
   };
   const Requirenotauth = ({ children }) => {
-    return !currentUser ? children : <Navigate to="/main" />;
+    
+    return !userData ? children : <Navigate to="/main" />;
   };
 
   return (
@@ -57,6 +59,7 @@ const App = () => {
             </Requirenotauth>
           }
         />
+        <Route path="/completeRegister" element={<CompleteRegister />} />
         <Route
           path="/provideHelp"
           element={
@@ -76,10 +79,7 @@ const App = () => {
         >
           <Route index element={<Explore />} />
           <Route path="/main/history" element={<HistoryDashboard />} />
-          <Route
-            path="/main/accountSettings"
-            element={<AccountSetting />}
-          />
+          <Route path="/main/accountSettings" element={<AccountSetting />} />
           <Route path="/main/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>

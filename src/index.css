@@ -47,7 +47,7 @@ input[type="checkbox"]:checked ~ .check_1 {
 }
 
 .rbc-selected {
-  @apply bg-second  !important;
+  @apply bg-gray-300  !important;
 }
 
 .rbc-button-link {
@@ -55,11 +55,12 @@ input[type="checkbox"]:checked ~ .check_1 {
 }
 
 .rbc-event:hover {
-  @apply bg-second !important;
+  @apply bg-gray-300 !important;
 }
 
 .rbc-event-content {
   @apply text-black !important;
+  
   @apply text-xs md:text-base !important;
 }
 .rbc-row-segment{
@@ -73,4 +74,5 @@ input[type="checkbox"]:checked ~ .check_1 {
 .rbc-event {
   @apply h-auto !important;
   @apply w-auto !important;
+ 
 }

@@ -2,14 +2,14 @@ import React from "react";
 import PFP from "../../../../assets/PFP.svg";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-function ProfileDr({ profile }) {
+function ProfileDr({ profile,data }) {
   const location = useLocation();
   const selectedProfile = location.state
     ? location.state.selectedProfile
-    : null;
+    : data[0];
   const username = profile?.username || selectedProfile?.username;
   const xp = profile?.xp || selectedProfile?.xp;
-
+  
   if (!profile && !selectedProfile) {
     return (
       <div className="flex justify-center items-center  h-full">
@@ -51,7 +51,9 @@ function ProfileDr({ profile }) {
         Book an Appointment
       </NavLink>
       <div className=" md:px-14 flex px-5 ">
-        <h3 className="font-meduim md:text-3xl text-2xl pt-10">Experience :  </h3>
+        <h3 className="font-meduim md:text-3xl text-2xl pt-10">
+          Experience :{" "}
+        </h3>
         <p className=" md:pt-12 pt-11 text-xl px-2">{xp} years</p>
       </div>
 

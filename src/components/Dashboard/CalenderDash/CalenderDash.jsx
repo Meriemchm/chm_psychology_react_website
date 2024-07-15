@@ -55,6 +55,12 @@ const CalenderDash = ({}) => {
     } else if (event.status === "chosen") {
       style.backgroundColor = "#8AE3CC";
     }
+    else if (event.status === false) {
+      style.backgroundColor = "#FFFFFF";
+    }
+    else if (event.status === true) {
+      style.backgroundColor = "#8AE3CC";
+    }
     return {
       style,
     };

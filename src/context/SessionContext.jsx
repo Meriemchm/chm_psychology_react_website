@@ -55,6 +55,8 @@ export const SessionProvider = ({ children }) => {
             },
           });
 
+          
+
           const formattedEvents = response.data.map((session) => ({
             id: session.id,
             start: new Date(`${session.date} ${session.time}`),
@@ -64,7 +66,7 @@ export const SessionProvider = ({ children }) => {
                 : "Dr." + session.psychologist,
             status: session.status || session.is_taken,
           }));
-
+          
           setEvents(formattedEvents);
         } catch (error) {
           console.error("Error fetching sessions:", error);
