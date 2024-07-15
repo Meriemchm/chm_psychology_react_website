@@ -320,13 +320,11 @@ export const ComparisonData = [
 export const GenderType = [
   { id: 1, title: "Male" },
   { id: 2, title: "Female" },
-  { id: 3, title: "Prefer not to say" },
 ];
 
 export const RelashionshipSituation = [
   { id: 1, title: "Single" },
   { id: 2, title: "Married" },
-  { id: 3, title: "Unofficial relationship" },
   { id: 4, title: "Divorced" },
   { id: 5, title: "Widowed" },
   { id: 6, title: "Other" },
