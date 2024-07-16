@@ -20,12 +20,12 @@ export const NavlinkData = [
     src: "/",
     style: "text-second",
   },
-  {
-    id: 2,
-    link: "Services",
-    src: "services",
-    style: "text-second",
-  },
+  // {
+  //   id: 2,
+  //   link: "Services",
+  //   src: "services",
+  //   style: "text-second",
+  // },
   {
     id: 3,
     link: "Get Help",
