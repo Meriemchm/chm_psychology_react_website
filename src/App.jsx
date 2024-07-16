@@ -47,7 +47,7 @@ const App = () => {
           }
         >
           <Route index element={<Home />} />
-          <Route path="/services" element={<Services />} />
+          {/* <Route path="/services" element={<Services />} /> */}
         </Route>
         {/*independent route from navbar  */}
         <Route path="/logIn" element={<LogIn />} />
