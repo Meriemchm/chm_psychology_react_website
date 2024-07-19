@@ -121,7 +121,7 @@ const MultiStepForm = () => {
       localStorage.setItem("user", JSON.stringify(users));
       localStorage.setItem("token", token);
 
-      navigate('/completeRegister')
+      navigate('/main')
 
     } catch (error) {
       console.error("Error registering user: ", error);
