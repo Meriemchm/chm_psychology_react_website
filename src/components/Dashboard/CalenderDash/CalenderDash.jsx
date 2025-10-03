@@ -11,6 +11,7 @@ import { useSessions } from "../../../context/SessionContext";
 const CalenderDash = ({}) => {
   //context
   const { psyData } = useContext(PsychologistsContext);
+  console.log(psyData);
   const { userData, role } = useContext(AuthContext);
   const {
     events,

@@ -1,5 +1,4 @@
-import React from "react";
-import { useSessions } from "../../../../context/SessionContext";
+
 
 function ConfirmSelect({ handleConfirmation,setSelectedEvent, questionword, labeltitle }) {
   return (
